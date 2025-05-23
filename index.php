@@ -1,20 +1,13 @@
-<?php
-
-require_once 'register.php'; 
-require_once 'login.php';
-
-?>
-
 <html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css">
+
+    </head>
     <body>
-        <form action="register.php" method="POST">
-            <label for="name" name="lbl_name">Name</label>
-            <input type="text" id="name" name="frm_name">
+       <h1>Erinnerungs-Helper</h1>
 
-            <label for="pwd" name="lbl_pwd">Passwort</label>
-            <input type="password" name="frm_pwd" id="pwd">
+       <?php require_once 'register.php'; ?>
 
-            <input type="submit" value="Registrieren">
-        </form>
     </body>
 </html>
+
