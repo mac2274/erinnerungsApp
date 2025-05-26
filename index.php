@@ -1,3 +1,7 @@
+<?php
+    require_once 'config.db.php';
+?>
+
 <html>
     <head>
         <link rel="stylesheet" href="style.css" type="text/css">
@@ -11,7 +15,6 @@
 
        <?php 
        
-       if(
         require_once 'register.php'; ?> 
             
        <?php require_once 'mk_erin.php'; ?>
