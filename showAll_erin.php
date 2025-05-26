@@ -1,5 +1,5 @@
-<?php
+<h2>Liste der Erinerungen</h2>
 
-echo $_GET[''];
-
-?>
+<ol>
+    <li>Aufräumen</li>
+</ol>

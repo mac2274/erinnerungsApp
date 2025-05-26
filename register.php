@@ -1,3 +1,5 @@
+<h2>Registriere dich hier und nutze die ErinnerungsApp für deinen Altag!</h2>
+
 <form method="POST">
     <label for="name" name="lbl_name">Name</label>
     <input type="text" id="name" name="frm_name">

@@ -1,3 +1,6 @@
+<h2>Login</h2>
+<p>Bitte logge dich hier ein:</p>
+
 <form method="POST">
     <label for="name" name="lbl_name">Name</label>
     <input type="text" id="name" name="frm_name">
