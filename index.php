@@ -1,6 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="design.css" type="text/css">
 
     </head>
     <body>
@@ -8,7 +9,10 @@
 
        <?php require_once 'showAll_erin.php'; ?> 
 
-       <?php require_once 'register.php'; ?> 
+       <?php 
+       
+       if(
+        require_once 'register.php'; ?> 
             
        <?php require_once 'mk_erin.php'; ?>
     </body>

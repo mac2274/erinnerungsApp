@@ -1,0 +1,18 @@
+.bg_sand{
+    background-color: #cb6f6f;
+}
+
+.showcase{
+
+    h2{
+        margin: 0;
+    }
+
+    li{
+        font-size: 1.2em;
+    }
+
+    padding: 5%;
+    color: #fff;
+    border-radius: 20px;
+}
