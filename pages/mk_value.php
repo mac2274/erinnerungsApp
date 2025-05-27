@@ -20,3 +20,7 @@
         <input type="submit" name="submit" value="Erstellen">
     </form>
 </div>
+
+<?php
+// hier muss nach dem ersetllen die liste erscheiben mit den erinnerungen1
+?>

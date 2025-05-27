@@ -25,17 +25,7 @@ require_once 'config/lib.php';
         Wir helfen dir, dich an alle wichtigen Dinge zu denken!
     </p>
 
-    <?php 
-    
-    if(empty($_POST['reg_submit'])){
-        echo 'Du musst dich noch erstmal registrieren.';
-        require_once 'pages/register.php'; 
-        echo 'Wenn du bereits registriert bist, logge dich einfach ein!';
-        require 'pages/login.php';
-    } else{
-        
-    }     
-    ?>
+
 
 </body>
 
@@ -43,11 +33,10 @@ require_once 'config/lib.php';
 
 <?php
 
-if (empty($_GET['id'])){
+if (isset($_POST['reg_submit'])){
     require 'pages/mk_value.php';
-    require 'config/query.php';
 }else {
-    require 'prepared.php';
+    require 'pages/register.php';
 }
 
 ?>
