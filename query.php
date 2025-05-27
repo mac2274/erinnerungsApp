@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     }
 }
 
-$query = "SELECT id, value, date FROM erinnerung ORDER BY id DESC";
+$query = "SELECT id, value, deadline FROM erinnerung ORDER BY id DESC";
 // $if($result = $mysqli->prepare($query)){
 // // brauch man die fehlersuche hier?
 // // if(!$query){
