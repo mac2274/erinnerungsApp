@@ -1,5 +1,6 @@
 <?php
 require_once 'config.db.php';
+require_once 'lib.php';
 ?>
 
 <html>
@@ -31,3 +32,11 @@ require_once 'config.db.php';
 </body>
 
 </html>
+
+<?php
+
+if (empty($_GET['id'])){
+    require 'mk_erin.php';
+    require 'query.php';
+}
+?>

@@ -16,5 +16,5 @@
         <input type="text" name="frm_u_id" id="u_id">
     </div> -->
 
-    <input type="submit" value="Erstellen">
+    <input type="submit" name="submit" value="Erstellen">
 </form>
