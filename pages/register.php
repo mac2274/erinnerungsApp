@@ -12,6 +12,6 @@
             <input type="password" name="frm_pwd" id="pwd">
         </div>
 
-        <input type="submit" value="Registrieren">
+        <input type="submit" name="reg_submit" value="Registrieren">
     </form>
 </div>
