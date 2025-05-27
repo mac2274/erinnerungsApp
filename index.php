@@ -34,7 +34,7 @@ require_once 'config/lib.php';
 <?php
 
 if (empty($_GET['id'])){
-    require 'pages/mk_erin.php';
+    require 'pages/mk_value.php';
     require 'config/query.php';
 }
 ?>

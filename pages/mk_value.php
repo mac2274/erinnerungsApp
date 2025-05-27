@@ -3,8 +3,8 @@
 
     <form method="POST">
         <div class="col_2">
-            <label for="mk-erin" name="lbl_mk_mk-erin">Hier eine neue Erinnerung erstellen</label>
-            <input type="text" id="mk-erin" name="frm_mk-erin">
+            <label for="value" name="lbl_value">Hier eine neue Erinnerung erstellen</label>
+            <input type="text" id="value" name="frm_value">
         </div>
 
         <div class="col_2">
