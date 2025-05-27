@@ -1,13 +1,13 @@
 <?php
-require_once 'config.db.php';
-require_once 'lib.php';
+require_once 'config/config.db.php';
+require_once 'config/lib.php';
 ?>
 
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="design.css" type="text/css">
+    <link rel="stylesheet" href="styles/style.css" type="text/css">
+    <link rel="stylesheet" href="styles/design.css" type="text/css">
 
 </head>
 
@@ -25,7 +25,7 @@ require_once 'lib.php';
         Wir helfen dir, dich an alle wichtigen Dinge zu denken!
     </p>
 
-    <?php require_once 'register.php'; ?>
+    <?php require_once 'pages/register.php'; ?>
 
 </body>
 
@@ -34,7 +34,7 @@ require_once 'lib.php';
 <?php
 
 if (empty($_GET['id'])){
-    require 'mk_erin.php';
-    require 'query.php';
+    require 'pages/mk_erin.php';
+    require 'config/query.php';
 }
 ?>

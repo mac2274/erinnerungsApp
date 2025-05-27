@@ -1,11 +1,12 @@
 <?php 
+//prepared-Statement 
 
 class DBException extends Exception{
 }
 function erin_function($value,$date){
 
     global $mysqli;
-    $q = "INSERT iNTO erinnerung SET frm_mk-erin = ?, frm_datetime = ?;";
+    $q = "INSERT iNTO erinnerung SET frm_mk-erin = ?, frm_deadlinee = ?;";
     $stmt = $mysqli->prepare($q);
     if (!$stmt){
         throw new DBException($mysqli->error);

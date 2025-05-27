@@ -8,14 +8,14 @@
         </div>
 
         <div class="col_2">
-            <label for="datetime" name="lbl_datetime">Frist</label>
-            <input type="datetime" name="frm_datetime" id="datetime">
+            <label for="deadline" name="lbl_deadline">Frist</label>
+            <input type="deadline" name="frm_deadline" id="deadline">
         </div>
 
         <!-- <div class="col_2">
-        <label for="u_id" name="" lbl_u_id>Benutzer ID:</label>
-        <input type="text" name="frm_u_id" id="u_id">
-    </div> -->
+            <label for="u_id" name="" lbl_u_id>Benutzer ID:</label>
+            <input type="text" name="frm_u_id" id="u_id">
+        </div> -->
 
         <input type="submit" name="submit" value="Erstellen">
     </form>
