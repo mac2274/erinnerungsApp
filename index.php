@@ -25,8 +25,6 @@ require_once 'lib.php';
         Wir helfen dir, dich an alle wichtigen Dinge zu denken!
     </p>
 
-    <h3>Registiere dich jetzt hier!</h3>
-
     <?php require_once 'register.php'; ?>
 
 </body>

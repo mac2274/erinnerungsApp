@@ -22,12 +22,16 @@ ol li {
     text-align: left;
 }
 
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
+
 form {
     display: flex;
     text-align: left;
     flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
     font-size: 1.2em;
 
     .col_2 {
@@ -47,7 +51,7 @@ form {
     input {
         display: flex;
         width: 100%;
-        padding: 4%;
+        padding: 2%;
         border-radius: 20px;
         border: 1px solid rgb(185, 185, 185);
         font-family: 'Courier New', Courier, monospace;
