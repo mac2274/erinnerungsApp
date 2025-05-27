@@ -6,7 +6,7 @@ class DBException extends Exception{
 function erin_function($value,$date){
 
     global $mysqli;
-    $q = "INSERT iNTO erinnerung SET frm_mk-erin = ?, frm_deadlinee = ?;";
+    $q = "INSERT INTO erinnerung SET frm_mk-erin = ?, frm_deadline = ?;";
     $stmt = $mysqli->prepare($q);
     if (!$stmt){
         throw new DBException($mysqli->error);
