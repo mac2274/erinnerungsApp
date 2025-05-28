@@ -3,7 +3,7 @@
 
 class DBException extends Exception{
 }
-function erin_function($value,$date){
+function erin_function($value, $date){
 
     global $mysqli;
     $q = "INSERT INTO erinnerung SET value = ?, deadline = ?;";
@@ -16,5 +16,5 @@ function erin_function($value,$date){
         throw new DBException($stmt->error);
     }
     return $stmt->affected_rows;
-};
+}
 ?>
