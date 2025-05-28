@@ -9,7 +9,7 @@
         </div>
 
         <div class="col_2">
-            <label for="email" name="lbl_email">Passwort</label>
+            <label for="email" name="lbl_li_email">Email</label>
             <input type="email" name="frm_li_email" id="email">
         </div>
 
