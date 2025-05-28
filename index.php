@@ -1,6 +1,7 @@
 <?php
 require_once 'config/config.db.php';
 require_once 'config/lib.php';
+// ----> Datenbank organisieren
 ?>
 
 <html>
@@ -18,17 +19,26 @@ require_once 'config/lib.php';
             sind wir genau die richtige Stelle!
         </p>
         <p>
-            Wir helfen dir, dich an alle wichtigen Dinge zu denken!
+            Wir helfen dir, an alle wichtigen Dinge zu denken!
         </p>
     </body>
 </html>
 
 <?php
 
+ 
 if (!empty($_POST['reg_submit'])) {
-    echo '- fomular wurde versandt Und ist nicht leer -';
+    //echo '<p class="h_2">Du bist bereits registriert ;)</p>';
     require 'pages/mk_value.php';
-} else {
+    // dann fülle das formular aus
+    if(empty($_GET['id'])){
+        //wenn GET-Array-Wert noch nicht existiert, dann:
+        require 'config/query.php'; //die query.php gibt die Liste an Erinnerungen aus der db wieder
+    } else{
+        //andernfalls gebe die Werte (Liste) aus
+        require 'config/prepared.php';
+    }
+} else{
     require 'pages/register.php';
 }
 

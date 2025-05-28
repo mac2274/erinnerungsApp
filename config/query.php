@@ -6,14 +6,13 @@ if(isset($_POST['submit'])){
     }
 }
 
-$query = "SELECT id, value, deadline FROM erinnerung ORDER BY id DESC";
+$query = "SELECT id, value, deadline FROM erinnerung ORDER BY id DESC LIMIT 3";
 
 
 $result = $mysqli->query($query); // wollte das zu prepared Statement umwandeln. Hirnfuck...
 
 while($row = $result->fetch_assoc()){
-    echo '<a href="?id='.$row['id'].'">#'.$row['id'].'</a>'. htmlspecialchars($row['value']) .htmlspecialchars($row['deadline']).'<br>';
-    echo 'Hui';
+    echo '<b><a href="?id='.$row['id'].'">#'.$row['id'].'</a></b> '. htmlspecialchars($row['value']) .htmlspecialchars($row['deadline']).'<br>';
 }
 
 // $if($result = $mysqli->prepare($query)){
