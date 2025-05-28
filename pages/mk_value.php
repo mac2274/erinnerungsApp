@@ -22,5 +22,6 @@
 </div>
 
 <?php
-// hier muss nach dem ersetllen die liste erscheiben mit den erinnerungen1
+// hier muss nach dem ersetllen die liste erscheinen mit den erinnerungen1
+
 ?>

@@ -9,6 +9,11 @@
         </div>
 
         <div class="col_2">
+            <label for="email" name="lbl_email">Passwort</label>
+            <input type="email" name="frm_li_email" id="email">
+        </div>
+
+        <div class="col_2">
             <label for="pwd" name="lbl_pwd">Passwort</label>
             <input type="password" name="frm_li_pwd" id="pwd">
         </div>
