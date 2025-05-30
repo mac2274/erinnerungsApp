@@ -1,5 +1,4 @@
 <?php
-setcookie("register", "registered");
 
 require_once 'config/config.db.php';
 require_once 'config/lib.php';
@@ -30,17 +29,28 @@ require_once 'config/lib.php';
 
  
 if (!empty($_POST['reg_submit'])) {
-    //echo '<p class="h_2">Du bist bereits registriert ;)</p>';
-    require 'pages/mk_value.php';
-    // dann fülle das formular aus
-    if(empty($_GET['id'])){
-        //wenn GET-Array-Wert noch nicht existiert, dann:
-        require 'config/query.php'; //die query.php gibt die Liste an Erinnerungen aus der db wieder
-    } else{
-        //andernfalls gebe die Werte (Liste) aus
-        require 'config/prepared.php';
+    setcookie("register", "registered", 0, "/");
+    //echo 'eins';
+    //echo $_COOKIE['register'];
+
+    if(isset($_COOKIE['register'])){
+        //echo 'zwei';
+
+        require 'pages/mk_value.php';
+        require 'config/query.php';
+
+        if(isset($_GET['id'])){
+            echo 'drei';
+            if(isset($_POST['mk_submit'])){
+                echo 'vier';
+                require 'config/prepared.php';
+            }
+        }
     }
-} else{
+ 
+} else if (!empty($_POST['li_submit'])){
+    require 'pages/login.php';
+} else {
     require 'pages/register.php';
 }
 

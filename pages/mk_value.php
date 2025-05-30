@@ -17,11 +17,14 @@
             <input type="text" name="frm_u_id" id="u_id">
         </div> -->
 
-        <input type="submit" name="submit" value="Erstellen">
+        <input type="submit" name="mk_submit" value="Erstellen">
     </form>
 </div>
 
 <?php
+
+
 // hier muss nach dem ersetllen die liste erscheinen mit den erinnerungen1
+// showAll.php
 
 ?>
