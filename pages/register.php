@@ -1,10 +1,18 @@
 <?php
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['reg_submit'])) {
+//     if(!empty($_POST['frm_reg_name'] && !empty($_POST['frm_reg_email']) && !empty($_POST['frm_reg_pwd']))){
+//         setcookie("register", "registered");
+//         require 'pages/mk_value.php';
+//     }
+// }else {
+//     echo 'noch nichts ausgefpüllt!';
+//     //formularwerte holen
+// }
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    //formularwerte holen
+if(empty($_POST['reg_submit'])){
+    setcookie("register", "registered");
 }
 ?>
-
 
 <div class="wrapper">
     <h2>Registriere dich hier und nutze die ErinnerungsApp für deinen Altag!</h2>
@@ -28,3 +36,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <input type="submit" name="reg_submit" value="Registrieren">
     </form>
 </div>
+

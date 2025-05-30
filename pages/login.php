@@ -18,7 +18,7 @@
             <input type="password" name="frm_li_pwd" id="pwd">
         </div>
 
-        <input type="submit" value="Anmelden">
+        <input type="submit" name="li_submit" value="Anmelden">
     </form>
 
 </div>
