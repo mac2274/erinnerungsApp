@@ -30,36 +30,33 @@ require_once 'config/lib.php';
 
 <?php
 
+if (isset($_POST['reg_submit'])){
+    setcookie("register", "registered");
+}
 
-// if (empty($_GET['id'])) {
-//     require 'pages/register.php';
-// } else {
-//     echo 'help';
-//     require 'config/prepared.php';
-// }
-
-if (empty($_POST['reg_submit'])) {
+if (isset($_POST['reg_submit']) && empty($_COOKIE['register'])){
     require 'pages/register.php';
     echo 'hallo1';
 
-} else if (!empty($_POST['reg_submit'])) {
-    setcookie("register", "registered");
-    echo 'hello Hanoi!';
-    //echo $_COOKIE['register'];
+} else if (isset($_POST['reg_submit']) || !empty($_COOKIE['register'])) {
+    if ($_GET('id')){
+        echo 'hello Hanoi!';
+        //echo $_COOKIE['register'];
 
-    require 'pages/mk_value.php';
-    echo 'hello2';
+        require 'pages/mk_value.php';
+        echo 'hello2';
 
-    echo '<h3>Erinnerung:</h3>';
-    require 'config/query.php';
+        echo '<h3>Erinnerung:</h3>';
+        require 'config/query.php';
 
-    if (!empty($_POST['mk_submit'])){
-        echo 'Du hast eine neue Erinnerung hinzugefügt!';
-        // das wird nicht mehr erreicht, also hackt es kurz vorher!
-        // und man kann auch keine Links auswählen, denn dann kommt ma wieder zur REgistrierung.....
+        if (!empty($_POST['mk_submit'])){
+            echo 'Du hast eine neue Erinnerung hinzugefügt!';
+            // und man kann auch keine Links auswählen, denn dann kommt ma wieder zur REgistrierung.....
+        }
     }
 } else {
-    echo 'config/prepared.php';
+    require 'config/prepared.php';
+    echo 'Hallo 4';
 }
 
 

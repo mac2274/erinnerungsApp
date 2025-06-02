@@ -11,6 +11,7 @@ if (isset($_GET['id'])) {
 
         if (!$stmt->errno) {
             echo 'Abfrage war fehlerhaft.';
+            echo $stmt->errno;
         }
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
