@@ -6,12 +6,10 @@ require_once 'config/lib.php';
 ?>
 
 <html>
-
 <head>
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <link rel="stylesheet" href="styles/design.css" type="text/css">
 </head>
-
 <body>
     <h1>Erinnerungs-Helper</h1>
     <p>
@@ -25,14 +23,12 @@ require_once 'config/lib.php';
         Wir helfen dir, an alle wichtigen Dinge zu denken!
     </p>
 </body>
-
 </html>
 
 <?php
 
 if (isset($_POST['reg_submit'])){
     setcookie("register", "registered");
-    echo 'cookie?';
 }
 
 if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])){
@@ -41,15 +37,14 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])){
 
 } else if (isset($_POST['reg_submit']) || !empty($_COOKIE['register'])) {
 
-    if (!isset($_GET['id'])){
+    if (!isset($_GET['id'])){// wenn die ID nicht in URL übergeben wurde.... 
         require 'pages/mk_value.php';
-        //echo 'hello2';
+        echo 'hello2';
 
         echo '<h3>Erinnerung:</h3>';
         require 'config/query.php';
-        //echo 'query?';
 
-        if (!empty($_POST['mk_submit'])){
+        if (!empty($_POST['mk_submit'])){//POST-Request abgeschickt und nicht leer 
             echo 'Du hast eine neue Erinnerung hinzugefügt!';
             // und man kann auch keine Links auswählen, denn dann kommt ma wieder zur REgistrierung.....
         }
