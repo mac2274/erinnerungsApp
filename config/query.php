@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
     }
 }
 
-$query = "SELECT id, value, deadline FROM erinnerung ORDER BY id DESC LIMIT 3";
+$query = "SELECT id, value, deadline, description FROM erinnerung ORDER BY id DESC LIMIT 3";
 
 $result = $mysqli->query($query);  // -> Liste von Erinnerungen!!!
 while($row = $result->fetch_assoc()){     // als Array ausgegeben

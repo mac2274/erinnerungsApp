@@ -32,31 +32,32 @@ require_once 'config/lib.php';
 
 if (isset($_POST['reg_submit'])){
     setcookie("register", "registered");
+    echo 'cookie?';
 }
 
-if (isset($_POST['reg_submit']) && empty($_COOKIE['register'])){
+if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])){
     require 'pages/register.php';
     echo 'hallo1';
 
 } else if (isset($_POST['reg_submit']) || !empty($_COOKIE['register'])) {
-    if ($_GET('id')){
-        echo 'hello Hanoi!';
-        //echo $_COOKIE['register'];
 
+    if (!isset($_GET['id'])){
         require 'pages/mk_value.php';
-        echo 'hello2';
+        //echo 'hello2';
 
         echo '<h3>Erinnerung:</h3>';
         require 'config/query.php';
+        //echo 'query?';
 
         if (!empty($_POST['mk_submit'])){
             echo 'Du hast eine neue Erinnerung hinzugefügt!';
             // und man kann auch keine Links auswählen, denn dann kommt ma wieder zur REgistrierung.....
         }
+    } else {
+        require 'config/prepared.php';
+        // echo 'Hallo 4';
+        // echo $_COOKIE['register'];
     }
-} else {
-    require 'config/prepared.php';
-    echo 'Hallo 4';
 }
 
 
