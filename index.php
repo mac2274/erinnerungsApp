@@ -39,16 +39,27 @@ require_once 'config/lib.php';
 // }
 
 if (empty($_POST['reg_submit'])) {
-    echo 'hallo1';
     require 'pages/register.php';
-} else if (!empty($_POST['reg_submit'])) {
-    echo 'hello2';
+    echo 'hallo1';
 
+} else if (!empty($_POST['reg_submit'])) {
+    setcookie("register", "registered");
+    echo 'hello Hanoi!';
+    //echo $_COOKIE['register'];
 
     require 'pages/mk_value.php';
+    echo 'hello2';
 
-    // if (!empty($_POST['frm_reg_name']) && !empty($_POST['frm_reg_email']) && !empty($_POST['frm_reg_pwd'])) { 
-    // }
+    echo '<h3>Erinnerung:</h3>';
+    require 'config/query.php';
+
+    if (!empty($_POST['mk_submit'])){
+        echo 'Du hast eine neue Erinnerung hinzugefügt!';
+        // das wird nicht mehr erreicht, also hackt es kurz vorher!
+        // und man kann auch keine Links auswählen, denn dann kommt ma wieder zur REgistrierung.....
+    }
+} else {
+    echo 'config/prepared.php';
 }
 
 
