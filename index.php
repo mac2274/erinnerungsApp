@@ -50,8 +50,7 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])){
         }
     } else {
         require 'config/prepared.php';
-        // echo 'Hallo 4';
-        // echo $_COOKIE['register'];
+        //echo 'Hallo 4';
     }
 }
 

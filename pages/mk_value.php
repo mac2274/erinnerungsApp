@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <h2>Erstele eine neue Erinnerung</h2>
+    <h2>Erstelle eine neue Erinnerung</h2>
 
     <form method="POST">
         <div class="col_2">
