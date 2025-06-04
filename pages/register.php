@@ -1,5 +1,12 @@
 <?php
 
+// password security
+// $password = $_POST['reg_pwd'];
+// $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+// var_dump($password);
+// var_dump($hashed_password);
+// echo 'haLLO!';
+    // dieser Block muss im index stehen um angezeigt zu werden!
 // bereits vorhandenen User-Logik
 
 
