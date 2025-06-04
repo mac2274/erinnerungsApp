@@ -3,19 +3,14 @@
 
     <form method="POST">
         <div class="col_2">
-            <label for="value" name="lbl_value">Hier eine neue Erinnerung erstellen</label>
-            <input type="text" id="value" name="frm_value">
+            <label for="mk_value" name="lbl_mk_value">Hier eine neue Erinnerung erstellen</label>
+            <input type="text" id="mk_value" name="mk_value">
         </div>
 
         <div class="col_2">
-            <label for="deadline" name="lbl_deadline">Frist</label>
-            <input type="deadline" name="frm_deadline" id="deadline">
+            <label for="mk_deadline" name="lbl_mk_deadline">Frist</label>
+            <input type="date" name="mk_deadline" id="mk_deadline">
         </div>
-
-        <!-- <div class="col_2">
-            <label for="u_id" name="" lbl_u_id>Benutzer ID:</label>
-            <input type="text" name="frm_u_id" id="u_id">
-        </div> -->
 
         <input type="submit" name="mk_submit" value="Erstellen">
     </form>

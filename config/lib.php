@@ -3,6 +3,7 @@
 
 class DBException extends Exception{
 }
+
 function erin_function($value, $date){
 
     global $mysqli;

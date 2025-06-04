@@ -1,9 +1,8 @@
 <?php
 // wollte das zu prepared Statement umwandeln. Hirnfuck...
 
-
-if(isset($_POST['submit'])){
-    if(erin_function($_POST['frm_value'],$_POST['frm_deadline'])){
+if(isset($_POST['mk_submit'])){
+    if(erin_function($_POST['mk_value'],$_POST['mk_deadline'])){
         echo 'Die Erinnerung wurde erfolgreich erstellt!';
     }
 }
