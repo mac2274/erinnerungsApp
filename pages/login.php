@@ -1,3 +1,8 @@
+<?php
+
+// bereits vorhandenen User-Logik
+?>
+
 <div class="wrapper">
     <h2>Login</h2>
     <p>Bitte logge dich hier ein:</p>
@@ -17,6 +22,11 @@
             <label for="pwd" name="lbl_pwd">Passwort</label>
             <input type="password" name="frm_li_pwd" id="pwd">
         </div>
+
+        <!-- <div class="col_2">
+            <label for="pwd-repeat" name="lbl_pwd-repeat">Passwort</label>
+            <input type="password" name="frm_li_pwd-repeat" id="pwd-repeat">
+        </div> -->
 
         <input type="submit" name="li_submit" value="Anmelden">
     </form>

@@ -7,7 +7,8 @@ $mysqli = new mysqli('db', 'root', 'test', 'erinnerungsDB');
 
 if($mysqli->connect_errno){
     throw new RuntimeException('mysqli-Verbindungsfehler: '. $mysqli->connect_error);
-} else{
+//} else{
+    //Fehlerbehandlung hier
 }
 
 ?>
