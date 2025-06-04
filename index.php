@@ -2,6 +2,7 @@
 
 require_once 'config/config.db.php';
 require_once 'config/lib.php';
+require_once 'config/lib_user.php';
 // ----> Datenbank organisieren
 ?>
 
@@ -56,6 +57,7 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
         //echo 'Hallo 4';
     }
 }
+
 
 $password = $_POST['reg_pwd'];
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
