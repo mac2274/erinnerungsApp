@@ -60,9 +60,8 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
 
 
 $password = $_POST['reg_pwd'];
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-var_dump($password);
-var_dump($hashed_password);
+// var_dump($password);
+// var_dump($hashed_password);
 
 if (password_verify($password, $hashed_password)) {
     echo 'password is varified';
