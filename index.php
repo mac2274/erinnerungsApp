@@ -32,7 +32,8 @@ require_once 'config/lib_user.php';
 <?php
 
 if (isset($_POST['reg_submit'])) {
-    setcookie("register", "registered");
+    user_function($_POST['reg_name'], $_POST['reg_email'],$_POST['reg_pwd']);
+    //setcookie("register", "registered");
 }
 
 if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
@@ -60,12 +61,12 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
 
 
 $password = $_POST['reg_pwd'];
-// var_dump($password);
-// var_dump($hashed_password);
+    // var_dump($password);
+    // var_dump($hashed_password);
 
-if (password_verify($password, $hashed_password)) {
-    echo 'password is varified';
-} else {
-    echo 'no match!';
-}
+    // if (password_verify($password, $hashed_password)) {
+    //     echo 'password is varified';
+    // } else {
+    //     echo 'no match!';
+    // } ----- Testing password_hash
 ?>

@@ -2,9 +2,10 @@
 
 function user_function($user, $email, $password){
     global $mysqli;
+    $password = $_POST['reg_submit'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     
-    $q2 = "INSERT INTO user SET name=?, email=?, password=?;";
+    $q2 = "INSERT INTO user SET name=?, email=?, password=? ;";
     $stmt2 = $mysqli->prepare($q2);
     if (!$stmt2) {
         throw new DBException($mysqli->error);
