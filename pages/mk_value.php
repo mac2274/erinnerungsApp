@@ -8,12 +8,18 @@
         </div>
 
         <div class="col_2">
-            <label for="mk_deadline" name="lbl_mk_deadline">Frist</label>
-            <input type="date" name="mk_deadline" id="mk_deadline">
+            <label for="mk_description">Detaillierte Beschreibung</label>
+            <textarea name="mk_description" id="mk_description" class="showcase"></textarea>
         </div>
 
-        <input type="submit" name="mk_submit" value="Erstellen">
-    </form>
+</div>
+<div class="col_2">
+    <label for="mk_deadline" name="lbl_mk_deadline">Frist</label>
+    <input type="date" name="mk_deadline" id="mk_deadline">
+</div>
+
+<input type="submit" name="mk_submit" value="Erstellen">
+</form>
 </div>
 
 <?php

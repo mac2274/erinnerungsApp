@@ -3,7 +3,6 @@
 require_once 'config/config.db.php';
 require_once 'config/lib.php';
 require_once 'config/lib_user.php';
-require_once 'config/query.php';
 // ----> Datenbank organisieren
 ?>
 
@@ -47,7 +46,7 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
 
     if (!isset($_GET['id'])) {// wenn die ID nicht in URL übergeben wurde.... 
         require 'pages/mk_value.php';
-        echo 'hello2';
+        //echo 'hello2';
 
         echo '<h3>Erinnerung:</h3>';
         require 'config/query.php';

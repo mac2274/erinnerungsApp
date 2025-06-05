@@ -14,9 +14,12 @@
 
     padding: 5%;
     color: #fff;
-    border-radius: 20px;
 }
 
 .h_2{
     padding-top: 2em;
+}
+
+.corner_round{
+    border-radius: 20px;
 }

@@ -10,7 +10,7 @@ html {
     font-family: 'Courier New', Courier, monospace;
 }
 
-body{
+body {
     margin-top: 5%;
 }
 
@@ -22,7 +22,7 @@ ol li {
     text-align: left;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
     width: 49%;
@@ -48,17 +48,17 @@ form {
         font-family: 'Courier New', Courier, monospace;
     }
 
-    input {
+    input,
+    textarea {
         display: flex;
         width: 100%;
         padding: 2%;
+        font-family: 'Courier New', Courier, monospace;
         border-radius: 20px;
         border: 1px solid rgb(185, 185, 185);
-        font-family: 'Courier New', Courier, monospace;
-
     }
-    
-    input[type=submit]{
+
+    input[type=submit] {
         font-size: 1em;
         padding: 3%;
         font-weight: bold;
