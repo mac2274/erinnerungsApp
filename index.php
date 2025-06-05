@@ -3,11 +3,11 @@
 require_once 'config/config.db.php';
 require_once 'config/lib.php';
 require_once 'config/lib_user.php';
+require_once 'config/query.php';
 // ----> Datenbank organisieren
 ?>
 
 <html>
-
 <head>
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <link rel="stylesheet" href="styles/design.css" type="text/css">
@@ -26,7 +26,6 @@ require_once 'config/lib_user.php';
         Wir helfen dir, an alle wichtigen Dinge zu denken!
     </p>
 </body>
-
 </html>
 
 <?php
@@ -34,6 +33,10 @@ require_once 'config/lib_user.php';
 if (isset($_POST['reg_submit'])) {
     user_function($_POST['reg_name'], $_POST['reg_email'],$_POST['reg_pwd']);
     //setcookie("register", "registered");
+}
+
+if (isset($_POST['mk_submit'])){
+
 }
 
 if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
@@ -59,8 +62,14 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
     }
 }
 
+// require 'pages/hello.php';
+// require 'pages/hello.php';
+// require 'pages/hello.php';
 
-$password = $_POST['reg_pwd'];
+// require_once 'pages/hello.php';
+// require_once 'pages/hello.php';
+
+
     // var_dump($password);
     // var_dump($hashed_password);
 
