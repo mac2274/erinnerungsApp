@@ -1,11 +1,11 @@
 <?php
 // wollte das zu prepared Statement umwandeln. Hirnfuck...
 
-if(isset($_POST['mk_submit'])){
-    if(erin_function($_POST['mk_value'],$_POST['mk_deadline'])){
-        echo 'Die Erinnerung wurde erfolgreich erstellt!';
-    }
-}
+// if(isset($_POST['mk_submit'])){
+//     if(erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['mk_deadline'])){
+//         echo 'Die Erinnerung wurde erfolgreich erstellt!';
+//     }
+// }
 
 $query = "SELECT id, value, deadline, description FROM erinnerung ORDER BY id DESC LIMIT 3";
 

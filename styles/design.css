@@ -13,13 +13,12 @@
     }
 
     padding: 5%;
-    color: #fff;
 }
 
 .h_2{
     padding-top: 2em;
 }
 
-.corner_round{
-    border-radius: 20px;
+.col50{
+    width: 100%;
 }

@@ -58,9 +58,14 @@ form {
         border: 1px solid rgb(185, 185, 185);
     }
 
+    textarea {
+        padding: 1.5%;
+        color: #000;
+    }
+
     input[type=submit] {
         font-size: 1em;
-        padding: 3%;
+        padding: 1.5%;
         font-weight: bold;
     }
 

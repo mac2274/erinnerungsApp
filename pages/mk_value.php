@@ -4,7 +4,7 @@
     <form method="POST">
         <div class="col_2">
             <label for="mk_value" name="lbl_mk_value">Hier eine neue Erinnerung erstellen</label>
-            <input type="text" id="mk_value" name="mk_value">
+            <input type="text" id="mk_value" name="mk_value" required>
         </div>
 
         <div class="col_2">
@@ -12,14 +12,16 @@
             <textarea name="mk_description" id="mk_description" class="showcase"></textarea>
         </div>
 
-</div>
-<div class="col_2">
-    <label for="mk_deadline" name="lbl_mk_deadline">Frist</label>
-    <input type="date" name="mk_deadline" id="mk_deadline">
-</div>
-
-<input type="submit" name="mk_submit" value="Erstellen">
-</form>
+        <div class="col_2">
+            <div class="col_50">
+                <label for="mk_deadline" name="lbl_mk_deadline">Frist</label>
+                <input type="datetime" name="mk_deadline" id="mk_deadline" required>
+            </div>
+            <div class="col_50">
+                <input type="submit" name="mk_submit" value="Erstellen">
+            </div>
+        </div>
+    </form>
 </div>
 
 <?php
