@@ -35,7 +35,7 @@ if (isset($_POST['reg_submit'])) {
 }
 
 if (isset($_POST['mk_submit'])){
-    erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['mk_deadline']);
+    erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['status'], $_POST['changed'], $_POST['u_id'], $_POST['mk_deadline']);
 }
 
 if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {

@@ -13,9 +13,15 @@
         </div>
 
         <div class="col_2">
+            <input type="hidden" name="status">
+            <input type="hidden" name="changed">
+            <input type="hidden" name="u_id">
+        </div>
+
+        <div class="col_2">
             <div class="col_50">
                 <label for="mk_deadline" name="lbl_mk_deadline">Frist</label>
-                <input type="datetime" name="mk_deadline" id="mk_deadline" required>
+                <input type="text" name="mk_deadline" id="mk_deadline" required>
             </div>
             <div class="col_50">
                 <input type="submit" name="mk_submit" value="Erstellen">
