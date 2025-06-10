@@ -14,6 +14,7 @@ if (isset($_GET['id'])) {
             echo 'Abfrage war fehlerhaft.';
             echo $stmt->errno;
         }
+        
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
             echo '<hr><b><a href="?id=' . $row['id'].'">#' . $row['id'].'</a>: '.htmlspecialchars($row['value']).'</b>('.$row['deadline'].')<br>';

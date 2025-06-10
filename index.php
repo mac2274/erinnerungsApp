@@ -28,15 +28,17 @@ require_once 'config/lib_user.php';
 </html>
 
 <?php
-
+// user wird registriert mit password & email -> DB
 if (isset($_POST['reg_submit'])) {
     user_function($_POST['reg_name'], $_POST['reg_email'],$_POST['reg_pwd']);
     //setcookie("register", "registered");
 }
 
+// erinnerung wird hergestellt -> DB
 if (isset($_POST['mk_submit'])){
     erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['status'], $_POST['changed'], $_POST['u_id'], $_POST['mk_deadline']);
 }
+
 
 if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
     require 'pages/register.php';
@@ -45,16 +47,20 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
 
     if (!isset($_GET['id'])) {// wenn die ID nicht in URL übergeben wurde.... 
         require 'pages/mk_value.php';
-        //echo 'hello2';
+        echo 'hello2';
 
         echo '<h3>Erinnerung:</h3>';
         require 'config/query.php';
-
-        if (!empty($_POST['mk_submit'])) {//POST-Request abgeschickt und nicht leer 
+        
+        //if (!empty($_POST['mk_submit']) || isset($_GET['id'])) {//POST-Request abgeschickt und nicht leer UND ID in der URL
+        if (isset($_GET['id']) ){ 
             require 'pages/mk_value.php';
             
             echo 'Du hast eine neue Erinnerung hinzugefügt!';
             // und man kann auch keine Links auswählen, denn dann kommt ma wieder zur REgistrierung.....
+        }
+        else {
+            echo 'hö?';
         }
     } else {
         require 'config/prepared.php';

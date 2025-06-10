@@ -13,7 +13,7 @@
 ?>
 
 <div class="wrapper">
-    <h2>Registriere dich hier und nutze die ErinnerungsApp für deinen Altag!</h2>
+    <h2>Registriere dich hier und nutze die ErinnerungsApp für deinen Alltag!</h2>
 
     <form method="POST"><!-- was bringt das script hier? -->
         <div class="col_2">
