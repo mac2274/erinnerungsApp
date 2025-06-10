@@ -12,7 +12,7 @@ function erin_function($value, $description, $status, $chenged, $u_id, $date){
     if (!$stmt){
         throw new DBException($mysqli->error);
     }
-    $stmt->bind_param('ssssis', $value, $description, $status, $chenged, $u_id, $date); 
+    $stmt->bind_param('ssisis', $value, $description, $status, $chenged, $u_id, $date); 
     if(!$stmt->execute()){
         throw new DBException($stmt->error);
     }

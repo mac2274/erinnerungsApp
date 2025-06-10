@@ -40,7 +40,6 @@ if (isset($_POST['mk_submit'])){
 
 if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
     require 'pages/register.php';
-    echo 'hallo1';
 
 } else if (isset($_POST['reg_submit']) || !empty($_COOKIE['register'])) {
 
@@ -52,6 +51,8 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
         require 'config/query.php';
 
         if (!empty($_POST['mk_submit'])) {//POST-Request abgeschickt und nicht leer 
+            require 'pages/mk_value.php';
+            
             echo 'Du hast eine neue Erinnerung hinzugefügt!';
             // und man kann auch keine Links auswählen, denn dann kommt ma wieder zur REgistrierung.....
         }

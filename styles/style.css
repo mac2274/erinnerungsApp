@@ -42,6 +42,11 @@ form {
         margin-bottom: 3%;
     }
 
+    .deadline_col{
+        justify-content: space-between;
+        align-items: end;
+    }
+
     label {
         display: flex;
         justify-content: left;
@@ -65,8 +70,10 @@ form {
 
     input[type=submit] {
         font-size: 1em;
-        padding: 1.5%;
+        padding: 2% 2.5%;
         font-weight: bold;
+        align-self: end;
+        width: fit-content;
     }
 
 }

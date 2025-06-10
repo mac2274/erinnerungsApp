@@ -13,15 +13,15 @@
         </div>
 
         <div class="col_2">
-            <input type="hidden" name="status">
+            <input type="hidden" name="status" value="2">
             <input type="hidden" name="changed">
-            <input type="hidden" name="u_id">
+            <input type="hidden" name="u_id" value="1">
         </div>
 
-        <div class="col_2">
+        <div class="col_2 deadline_col">
             <div class="col_50">
                 <label for="mk_deadline" name="lbl_mk_deadline">Frist</label>
-                <input type="text" name="mk_deadline" id="mk_deadline" required>
+                <input type="date" name="mk_deadline" id="mk_deadline" required>
             </div>
             <div class="col_50">
                 <input type="submit" name="mk_submit" value="Erstellen">
