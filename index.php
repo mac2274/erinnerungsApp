@@ -53,19 +53,13 @@ if (!isset($_POST['reg_submit']) && empty($_COOKIE['register'])) {
         require 'config/query.php';
         
         //if (!empty($_POST['mk_submit']) || isset($_GET['id'])) {//POST-Request abgeschickt und nicht leer UND ID in der URL
-        if (isset($_GET['id']) ){ 
-            require 'pages/mk_value.php';
-            
-            echo 'Du hast eine neue Erinnerung hinzugefügt!';
-            // und man kann auch keine Links auswählen, denn dann kommt ma wieder zur REgistrierung.....
-        }
-        else {
-            echo 'hö?';
-        }
+       
     } else {
         require 'config/prepared.php';
         //echo 'Hallo 4';
     }
+} else {
+    
 }
 
 // require 'pages/hello.php';
