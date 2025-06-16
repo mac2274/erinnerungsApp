@@ -54,14 +54,17 @@ if (!isset($_POST['reg_submit'])) {
         echo '<h3>Erinnerung:</h3>';
         require 'config/query.php';
 
-        //if (!empty($_POST['mk_submit']) || isset($_GET['id'])) {//POST-Request abgeschickt und nicht leer UND ID in der URL
-
-    // } else if (isset($_GET['id'])) {
-    //     echo 'here';
-    //     require 'config/prepared.php';
+        // ---------------------- warum wird nach Erstellung der Erinerung zurück geführt zur REgistrierung?!------------------
+  
 
     } else if(isset($_GET['id']) && !isset($_POST['mk_submit'])){
-        echo 'Bonjour!';
+        //echo 'Bonjour!';
+        // jetzt brauche ich den Inhalt von oben:
+        echo '<br>';
+        echo '<b>Klasse! Du hast soeben eine neue Erinnerung erstellt!</b>';
+        echo '<h3>Erinnerung:</h3>';
+        require 'config/query.php';
+        require 'pages/mk_value.php';
 
     } else {
         require 'config/prepared.php';
