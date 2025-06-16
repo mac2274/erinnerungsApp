@@ -35,24 +35,27 @@ if (isset($_POST['reg_submit'])) {
     user_function($_POST['reg_name'], $_POST['reg_email'], $_POST['reg_pwd']);
     //setcookie("register", "registered");
 }
-
 // erinnerung wird hergestellt -> DB
 if (isset($_POST['mk_submit'])) {
     erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['status'], $_POST['changed'], $_POST['u_id'], $_POST['mk_deadline']);
 }
 
-if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['reg_submit'])) { // wird mit POST gearbeitet und nicht leer
-    
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['reg_submit'])) { // wird mit POST gearbeitet und nicht leer
+    echo 'Testen...';
+
     // 1. Versuch: if (!isset($_POST['reg_submit']) || !isset($_COOKIE['username'])){
-    if (isset($_COOKIE['username'])) { // ich brauche einen Anhaltspunkt, der signalisiert, dass ich registriert bin!
+    if (!isset($_COOKIE['username'])) { // ich brauche einen Anhaltspunkt, der signalisiert, dass ich registriert bin!
+        echo 'Ein Cookie da?';
         require 'pages/register.php';
+
+        $cookie_name = "username";
+        $cookie_value = htmlspecialchars($_POST['mk_value']);
+        setcookie($cookie_name, $cookie_value);
 
     } else if (isset($_POST['reg_submit']) || isset($_COOKIE['username'])) {
         echo 'Huuuu';
 
-        $cookie_name = "username";
-        $cookie_value = htmlspecialchars($_POST['reg_name']);
-        setcookie($cookie_name, $cookie_value);
+
         if (!isset($_GET['id'])) {// wenn die ID nicht in URL übergeben wurde.... 
             require 'pages/mk_value.php';
             echo 'hello2';
@@ -61,9 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['reg_submit'])) { // w
             require 'config/query.php';
 
             // ---------------------- warum wird nach Erstellung der Erinerung zurück geführt zur REgistrierung?!------------------
-    
 
-        } else if(isset($_GET['id']) && !isset($_POST['mk_submit'])){
+
+        } else if (isset($_GET['id']) || !isset($_POST['mk_submit'])) {
             //echo 'Bonjour!';
             // jetzt brauche ich den Inhalt von oben:
             echo '<br>';
@@ -76,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['reg_submit'])) { // w
             require 'config/prepared.php';
             echo 'Hallo 4';
         }
-    } 
+    }
 }
 
 // require 'pages/hello.php';
