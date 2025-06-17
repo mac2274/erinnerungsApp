@@ -40,54 +40,26 @@ if (isset($_POST['mk_submit'])) {
     erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['status'], $_POST['changed'], $_POST['u_id'], $_POST['mk_deadline']);
 }
 
-if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['reg_submit'])) { // wird mit POST gearbeitet und nicht leer
-    echo 'Testen...';
-
-    // 1. Versuch: if (!isset($_POST['reg_submit']) || !isset($_COOKIE['username'])){
-    if (!isset($_COOKIE['username'])) { // ich brauche einen Anhaltspunkt, der signalisiert, dass ich registriert bin!
-        echo 'Ein Cookie da?';
-        require 'pages/register.php';
-
-        $cookie_name = "username";
-        $cookie_value = htmlspecialchars($_POST['mk_value']);
-        setcookie($cookie_name, $cookie_value);
-
-    } else if (isset($_POST['reg_submit']) || isset($_COOKIE['username'])) {
-        echo 'Huuuu';
-
-
-        if (!isset($_GET['id'])) {// wenn die ID nicht in URL übergeben wurde.... 
-            require 'pages/mk_value.php';
-            echo 'hello2';
-
-            echo '<h3>Erinnerung:</h3>';
-            require 'config/query.php';
-
-            // ---------------------- warum wird nach Erstellung der Erinerung zurück geführt zur REgistrierung?!------------------
-
-
-        } else if (isset($_GET['id']) || !isset($_POST['mk_submit'])) {
-            //echo 'Bonjour!';
-            // jetzt brauche ich den Inhalt von oben:
-            echo '<br>';
-            echo '<b>Klasse! Du hast soeben eine neue Erinnerung erstellt!</b>';
-            echo '<h3>Erinnerung:</h3>';
-            require 'config/query.php';
-            require 'pages/mk_value.php';
-
-        } else {
-            require 'config/prepared.php';
-            echo 'Hallo 4';
-        }
-    }
+if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['reg_submit'])) { // handelt es sich um eine POST-Anfrage, dann:
+    $cookie_name = "username";
+    $cookie_value = htmlspecialchars($_POST['reg_name']); 
+    setcookie($cookie_name, $cookie_value);
 }
+// ------- Wieso funktioniert der Code erst, wenn man die 2. if-Abfrage von der 1. trennt? so wird nach 2. Formular alles korrekt angezeigt ------
 
-// require 'pages/hello.php';
-// require 'pages/hello.php';
-// require 'pages/hello.php';
+if (isset($_COOKIE['username'])) { // ich brauche einen Anhaltspunkt, der signalisiert, dass ich registriert bin!
+    echo 'Cookie ist gespeicchert!';
+    require 'pages/mk_value.php';
 
-// require_once 'pages/hello.php';
-// require_once 'pages/hello.php';
+    if (isset($_POST['mk_submit'])) {
+        echo '<h2>Erinnerungen:</h2>';
+        require 'config/query.php';
+    } else{
+        echo 'Bite Erinnerung erstellen!';
+    }
+} else {
+    require 'pages/register.php';
+}
 
 
 // var_dump($password);
