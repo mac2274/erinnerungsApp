@@ -57,13 +57,16 @@ if (isset($_COOKIE['username'])) { // ich brauche einen Anhaltspunkt, der signal
     if (isset($_POST['mk_submit'])) {
         echo '<h2>Erinnerungen:</h2>';
         require 'config/query.php';
-    } else if ($_GET['id']) { // erst wenn ich noch eine Neue Erinnerung erstelle werde ich zur "Detailseite" weitergeleitet....
-            echo 'Id in URL!';
-            echo '<h2>Ausgewählte</h2>';
+
+        if ($_GET['id']) { // erst wenn ich noch eine Neue Erinnerung erstelle werde ich zur "Detailseite" weitergeleitet....
+            //echo 'Id in URL!';
+            echo '<h2>Ausgewählte Erinnerung</h2>';
             require 'config/prepared.php';
+        } else{
+            echo 'Keine id hier';
         }
-        echo 'Bite Erinnerung erstellen!';
-    } else {
+    }
+} else {
     require 'pages/register.php';
 }
 
