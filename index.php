@@ -42,24 +42,31 @@ if (isset($_POST['mk_submit'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['reg_submit'])) { // handelt es sich um eine POST-Anfrage, dann:
     $cookie_name = "username";
-    $cookie_value = htmlspecialchars($_POST['reg_name']); 
+    $cookie_value = htmlspecialchars($_POST['reg_name']);
     setcookie($cookie_name, $cookie_value);
+
+    header("Location:" . $_SERVER['PHP_SELF']);
+    exit; // mit header und exit wird register.php nicht zweifach angezeigt!!
 }
 // ------- Wieso funktioniert der Code erst, wenn man die 2. if-Abfrage von der 1. trennt? so wird nach 2. Formular alles korrekt angezeigt ------
 
 if (isset($_COOKIE['username'])) { // ich brauche einen Anhaltspunkt, der signalisiert, dass ich registriert bin!
-    echo 'Cookie ist gespeicchert!';
+    //echo 'Cookie ist gespeicchert!';
     require 'pages/mk_value.php';
 
     if (isset($_POST['mk_submit'])) {
         echo '<h2>Erinnerungen:</h2>';
         require 'config/query.php';
-    } else{
+    } else if ($_GET['id']) { // erst wenn ich noch eine Neue Erinnerung erstelle werde ich zur "Detailseite" weitergeleitet....
+            echo 'Id in URL!';
+            echo '<h2>Ausgewählte</h2>';
+            require 'config/prepared.php';
+        }
         echo 'Bite Erinnerung erstellen!';
-    }
-} else {
+    } else {
     require 'pages/register.php';
 }
+
 
 
 // var_dump($password);

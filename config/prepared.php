@@ -19,7 +19,6 @@ if (isset($_GET['id'])) {
         while ($row = $result->fetch_assoc()) {
             echo '<hr><b><a href="?id=' . $row['id'].'">#' . $row['id'].'</a>: '.htmlspecialchars($row['value']).'</b>('.$row['deadline'].')<br>';
             echo '<p>'.($row['description']).'</p>';
-            echo '<hr>';
         }
     }
 }

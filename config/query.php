@@ -10,7 +10,7 @@
 $query = "SELECT id, value, deadline, description FROM erinnerung ORDER BY id DESC LIMIT 10";
 
 $result = $mysqli->query($query);  // -> Liste von Erinnerungen!!!
-while($row = $result->fetch_assoc()){     // als Array ausgegeben
+while($row = $result->fetch_assoc()){     // als Array ausgeben
     echo '<b><a href="?id='.$row['id'].'">#'.$row['id'].':</a></b> '. htmlspecialchars($row['value']) .' ('.htmlspecialchars($row['deadline']).')<br>';
 }
 
