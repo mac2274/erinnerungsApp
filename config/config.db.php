@@ -1,5 +1,6 @@
 <?php
-//Verbiindung zur Datenbank aufbauen:
+// Verbiindung zur Datenbank aufbauen:
+// wird am anfang der index geladen UND DAHER IMMER verfügbar
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 

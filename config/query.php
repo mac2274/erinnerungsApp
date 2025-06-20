@@ -14,5 +14,17 @@ while($row = $result->fetch_assoc()){     // als Array ausgeben
     echo '<b><a href="?id='.$row['id'].'">#'.$row['id'].':</a></b> '. htmlspecialchars($row['value']) .' ('.htmlspecialchars($row['deadline']).')<br>';
 }
 
+
+// pSt;
+// $stmt1 = $mysqli->prepare("SELECT id, value, deadline, description FROM erinnerung ORDER BY id DESC LIMIT 10");
+// if (!$mysqli){
+//    throw new DBException($mysqli->error);
+//  }
+// $stmt1->execute();
+// $result = $stmt1->get_result();
+
+// while ($row = $result->fetch_assoc()) {
+//    echo '<b><a href="?id='.$row['id'].'">#'.$row['id'].':</a></b> '. htmlspecialchars($row['value']) .' ('.htmlspecialchars($row['deadline']).')<br>';
+// }
 ?>
 
