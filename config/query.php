@@ -14,6 +14,5 @@ while($row = $result->fetch_assoc()){     // als Array ausgeben
     echo '<b><a href="?id='.$row['id'].'">#'.$row['id'].':</a></b> '. htmlspecialchars($row['value']) .' ('.htmlspecialchars($row['deadline']).')<br>';
 }
 
-
 ?>
 

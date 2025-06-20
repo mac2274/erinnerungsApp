@@ -55,6 +55,8 @@ if (isset($_COOKIE['username']) && !isset($_GET['id'])) {
     if (isset($_POST['mk_submit'])) {
         echo '<h2>Erinnerungen:</h2>';
         require 'config/query.php';
+        require 'pages/parts/index_search.php';
+
     }
 } else if (isset($_GET['id'])){
     echo '<h2>Ausgewählte Erinnerung</h2>';
