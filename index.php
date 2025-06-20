@@ -49,16 +49,18 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['reg_submit'])) { // h
     exit; // mit header und exit wird register.php nicht zweifach angezeigt!!
 }
 
-if (isset($_COOKIE['username']) && !isset($_GET['id'])) { 
+if (isset($_COOKIE['username']) && !isset($_GET['id'])) {
     require 'pages/mk_value.php';
 
     if (isset($_POST['mk_submit'])) {
         echo '<h2>Erinnerungen:</h2>';
         require 'config/query.php';
-        require 'pages/parts/index_search.php';
+    } else if (isset($_POST['search_id_submit']) || isset($_POST['search_erin_submit'])) {
+        // echo 'Das Suchergebnis lautet: ';
+        require 'config/search.php';
 
     }
-} else if (isset($_GET['id'])){
+} else if (isset($_GET['id'])) {
     echo '<h2>Ausgewählte Erinnerung</h2>';
     require 'config/prepared.php';
 } else {

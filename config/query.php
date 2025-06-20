@@ -14,6 +14,7 @@ while($row = $result->fetch_assoc()){     // als Array ausgeben
     echo '<b><a href="?id='.$row['id'].'">#'.$row['id'].':</a></b> '. htmlspecialchars($row['value']) .' ('.htmlspecialchars($row['deadline']).')<br>';
 }
 
+require 'pages/parts/index_search.php';
 
 // pSt;
 // $stmt1 = $mysqli->prepare("SELECT id, value, deadline, description FROM erinnerung ORDER BY id DESC LIMIT 10");
