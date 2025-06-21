@@ -60,7 +60,7 @@ form {
     input,
     textarea {
         display: flex;
-        width: 100%;
+        /*width: 100%;*/
         padding: 2%;
         font-family: 'Courier New', Courier, monospace;
         border-radius: 20px;
@@ -69,6 +69,8 @@ form {
 
     textarea {
         padding: 1.5%;
+        height: 100px;
+        width: 100%;
         color: #000;
     }
 
