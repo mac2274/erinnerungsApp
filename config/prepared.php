@@ -4,9 +4,9 @@ if (isset($_GET['id'])) {
 
     $sql = "SELECT * FROM erinnerung WHERE id=?";
 
-    if ($stmt = $mysqli->prepare($sql)) {
-        $stmt->bind_param('i', $id);
-        $stmt->execute();
+    if ($stmt = $mysqli->prepare($sql)) { // - 1.
+        $stmt->bind_param('i', $id); //  2.
+        $stmt->execute(); // ------------------------ 3.
 
         //echo 'good day 2';
 

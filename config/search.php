@@ -5,9 +5,9 @@ if (isset($_POST['search_id']) || isset($_POST['search_erin'])) { // aus dem For
 
     $sql = "SELECT * from erinnerung WHERE id=? OR value=?";
 
-    $stmt3 = $mysqli->prepare($sql);
-    $stmt3->bind_param("is", $searchID, $searchErin);
-    $stmt3->execute();
+    $stmt3 = $mysqli->prepare($sql); // 1. prepare()
+    $stmt3->bind_param("is", $searchID, $searchErin); // 2. bind_param()
+    $stmt3->execute(); // 3. execute()
 
     $result = $stmt3->get_result();
 
@@ -17,13 +17,13 @@ if (isset($_POST['search_id']) || isset($_POST['search_erin'])) { // aus dem For
         while ($row = $result->fetch_assoc()) {
             
             echo "ID: " . htmlspecialchars($row['id']) . "<br>";
-            echo "Inhalt: " . htmlspecialchars($row['value']) . "<br>";
-            echo "Fällig am: " . htmlspecialchars($row['deadline']) . "<br>";
+            echo "Erinnerung: " . htmlspecialchars($row['value']) . "<br>";
+            echo "Erstellt am: " . htmlspecialchars($row['deadline']) . "<br>";
             echo "Beschreibung: " . htmlspecialchars($row['description']) . "<br>";
             echo '<hr>';
         }
     } else {
-        echo 'Keine passende Erinnerung gefunden aus: "' .htmlspecialchars($_POST[('search_erin')]).'"';
+        echo 'Keine passende Erinnerung gefunden aus: "' .htmlspecialchars($_POST[('search_erin')] OR $_POST['search_id']).'"';
     }
     //$stmt3->close(); 
 }

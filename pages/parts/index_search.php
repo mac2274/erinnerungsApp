@@ -7,8 +7,7 @@
             <input type="text" name="search_id" id="search_id">
             <input type="submit" name="search_id_submit" value="Suchen">
         </div>
-    </form>
-    <form method="POST">
+
         <div class="col_2">
             <label for="search_erin">Erinnerungssuche:</label>
             <input type="text" name="search_erin" id="search_erin">
