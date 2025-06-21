@@ -4,7 +4,7 @@
     <form method="POST">
         <div class="col_2 ">
             <label for="search_id">ID-Suche:</label>
-            <input type="text" name="search_id" id="search_id">
+            <input type="number" name="search_id" id="search_id">
         </div>
 
         <label for="search_erin">Erinnerungssuche:</label>
