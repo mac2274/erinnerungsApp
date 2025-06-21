@@ -1,16 +1,20 @@
 <?php
-if (isset($_POST['search_submit'])) {     // aus dem Formular search.php {
-    if (!empty($_POST['search_id'])) {
-        echo 'Du suchst nach einer ID';
-        $searchID = $_POST['search_id'];
-    } elseif (!empty($_POST['search_erin'])) {
-        echo 'Du suchst nach einer Erinnrunh!';
-        $searchErin = $_POST['search_erin'];
+// if (isset($_POST['search_submit'])) {     // aus dem Formular search.php {
+//     if (!empty($_POST['search_id'])) {
+//         echo 'Du suchst nach einer ID';
+//         $searchID = $_POST['search_id'];
+//     } elseif (!empty($_POST['search_erin'])) {
+//         echo 'Du suchst nach einer Erinnrunh!';
+//         $searchErin = $_POST['search_erin'];
 
-    } else {
-        echo 'Irgendwas läufst schief...';
-    }
+//     } else {
+//         echo 'Irgendwas läufst schief...';
+//     }
+echo 'goo';
 
+if (isset($_POST['search_id']) || isset($_POST['search_erin'])){
+    $searchID = $_POST['search_id'];
+    $searchErin = $_POST['search_erin'];
 
     $sql = "SELECT * from erinnerung WHERE id=? OR value=?";
 
@@ -32,7 +36,7 @@ if (isset($_POST['search_submit'])) {     // aus dem Formular search.php {
             echo '<hr>';
         }
     } else {
-        echo 'Keine passende Erinnerung gefunden aus: "' . htmlspecialchars($_POST[('search_erin')] or $_POST['search_id']) . '"';
+        echo 'Keine passende Erinnerung gefunden aus: "' . htmlspecialchars($_POST[('search_erin')]) . '"';
     }
     //$stmt3->close(); 
 

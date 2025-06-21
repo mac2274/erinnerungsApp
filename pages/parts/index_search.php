@@ -7,9 +7,11 @@
             <input type="number" name="search_id" id="search_id">
         </div>
 
-        <label for="search_erin">Erinnerungssuche:</label>
-        <input type="text" name="search_erin" id="search_erin">
-
+        <div class="col_2">
+            <label for="search_erin">Erinnerungssuche:</label>
+            <input type="text" name="search_erin" id="search_erin">
+        </div>
+        
         <input type="submit" name="search_submit" value="Suchen">
     </form>
 </div>

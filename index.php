@@ -55,7 +55,7 @@ if (isset($_COOKIE['username']) && !isset($_GET['id'])) {
     if (isset($_POST['mk_submit'])) {
         echo '<h2>Erinnerungen:</h2>';
         require 'config/query.php';
-    } else if (isset($_POST['search_id_submit']) || isset($_POST['search_erin_submit'])) {
+    } else if (isset($_POST['search_id']) || isset($_POST['search_erin'])) {
         // echo 'Das Suchergebnis lautet: ';
         require 'config/search.php';
 
