@@ -10,7 +10,6 @@
 //     } else {
 //         echo 'Irgendwas läufst schief...';
 //     }
-echo 'goo';
 
 if (isset($_POST['search_id']) || isset($_POST['search_erin'])){
     $searchID = $_POST['search_id'];
@@ -35,6 +34,9 @@ if (isset($_POST['search_id']) || isset($_POST['search_erin'])){
             echo "Beschreibung: " . htmlspecialchars($row['description']) . "<br>";
             echo '<hr>';
         }
+        require 'pages/parts/last_erins.php';
+        echo 'erins?';
+        
     } else {
         echo 'Keine passende Erinnerung gefunden aus: "' . htmlspecialchars($_POST[('search_erin')]) . '"';
     }
