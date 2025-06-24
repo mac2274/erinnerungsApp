@@ -11,6 +11,7 @@ require_once 'config/lib_user.php';
 <head>
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <link rel="stylesheet" href="styles/design.css" type="text/css">
+    <link rel="stylesheet" href="styles/activities.css" type="text/css">
 </head>
 
 <body>
