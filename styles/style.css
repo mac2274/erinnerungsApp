@@ -40,7 +40,7 @@ form {
 
     .col_2 {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         gap: 5%;
         margin-bottom: 3%;
@@ -60,7 +60,7 @@ form {
     input,
     textarea {
         display: flex;
-        /*width: 100%;*/
+        width: 100%;
         padding: 2%;
         font-family: 'Courier New', Courier, monospace;
         border-radius: 20px;

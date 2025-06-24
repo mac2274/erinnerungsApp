@@ -2,7 +2,7 @@
 
 function user_function($user, $email, $password){
     global $mysqli;
-    $password = $_POST['reg_submit'];
+    $password = $_POST['reg_pwd'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     
     $q2 = "INSERT INTO user SET name=?, email=?, password=? ;";

@@ -4,23 +4,22 @@
 ?>
 
 <div class="wrapper">
-    <h2>Login</h2>
-    <p>Bitte logge dich hier ein:</p>
+    <h2>Logge dich bitte hier ein</h2>
 
     <form method="POST">
-        <div class="col_2">
+        <!-- <div class="col_2">
             <label for="name" name="lbl_name">Name</label>
             <input type="text" id="name" name="frm_li_name">
-        </div>
+        </div> -->
 
         <div class="col_2">
             <label for="email" name="lbl_li_email">Email</label>
-            <input type="email" name="frm_li_email" id="email">
+            <input type="email" name="li_email" id="email">
         </div>
 
         <div class="col_2">
-            <label for="pwd" name="lbl_pwd">Passwort</label>
-            <input type="password" name="frm_li_pwd" id="pwd">
+            <label for="pwd" name="lbl_li_pwd">Passwort</label>
+            <input type="password" name="li_pwd" id="pwd">
         </div>
 
         <!-- <div class="col_2">
