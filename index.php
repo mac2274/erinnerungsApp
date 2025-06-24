@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") { // handelt es sich um eine POST-Anf
         // $cookie_value = htmlspecialchars($_POST['reg_name']);
         // setcookie($cookie_name, $cookie_value);
 
-        $_SESSION['submit'] = $_POST['reg_submit'];
+        //$_SESSION['submit'] = $_POST['reg_submit'];
 
         if (!isset($_SESSION['registered'])) {
             echo 'Du bist jetzt registriert!';
@@ -73,10 +73,12 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
     echo '<br><h2>Hallo, ' . htmlspecialchars($_SESSION['registered']) . '!</h2>';
     echo '<i>Du bist jetzt registriert und darfst eine Erinnerung erstellen!</i>';
 
-    echo $_SESSION['submt'];
+    //echo $_SESSION['submt'];
 
     require 'pages/mk_value.php';
 
+
+    //echo $_POST['reg_submit'];
 
     if (isset($_POST['mk_submit'])) {
         echo '<h2>Erinnerungen:</h2>';
@@ -97,6 +99,7 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
     require 'pages/login.php';
 }
 
+echo $_POST['reg_submit'];
 
 // var_dump($password);
 // var_dump($hashed_password);
