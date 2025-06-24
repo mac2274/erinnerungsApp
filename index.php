@@ -47,6 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") { // handelt es sich um eine POST-Anf
         // $cookie_value = htmlspecialchars($_POST['reg_name']);
         // setcookie($cookie_name, $cookie_value);
 
+        $_SESSION['submit'] = $_POST['reg_submit'];
+
         if (!isset($_SESSION['registered'])) {
             echo 'Du bist jetzt registriert!';
             // $_SESSION['registered'] = true; --- Besser Namen nutzen:
@@ -70,6 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") { // handelt es sich um eine POST-Anf
 if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
     echo '<br><h2>Hallo, ' . htmlspecialchars($_SESSION['registered']) . '!</h2>';
     echo '<i>Du bist jetzt registriert und darfst eine Erinnerung erstellen!</i>';
+
+    echo $_SESSION['submt'];
 
     require 'pages/mk_value.php';
 
