@@ -1,16 +1,7 @@
-<?php
-
-// bereits vorhandenen User-Logik
-?>
-
 <div class="wrapper">
     <h2>Logge dich bitte hier ein</h2>
 
     <form method="POST">
-        <!-- <div class="col_2">
-            <label for="name" name="lbl_name">Name</label>
-            <input type="text" id="name" name="frm_li_name">
-        </div> -->
 
         <div class="col_2">
             <label for="email" name="lbl_li_email">Email</label>
@@ -31,3 +22,30 @@
     </form>
 
 </div>
+
+<?php
+
+    $email = $_POST['li_email'];
+    $password = $_POST['li_pwd'];
+
+    // SQL-Abfrage für Login-Mechanismus
+    $sql = "SELECT id, name, password FROM user WHERE email=?";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('s', $email);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $loggedUser = $result->fetch_assoc();
+        print_r($loggedUser);
+    }
+
+
+
+
+?>

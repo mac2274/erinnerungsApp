@@ -1,23 +1,5 @@
-<?php
-
-if (isset($_POST['reg_submit'])) {
-    if (empty($_POST['regemail'] && empty($_POST['reg_pwd']))) {
-        echo 'Beide Felder müssen ausgefüllt werden.';
-    } else {
-        $username = $_POST['reg_name'];
-        $email = $_POST['reg_email'];
-        $passwordR = $_POST['reg_pwd'];
-
-        $stmt = $mysqli->prepare("SELECT * FROM user WHERE email:$email");
-        $stmmt->bind_param('s', $email);
-        $stmt->execute(); 
-
-        if(!$stmt) {
-            echo 'Prepared Statementist fehlgeschlagen: '.$stmt->errno;
-        }
-        return $stmt->affected_rows;
-    }
-}
+<?php 
+// Inhalt steht in lib_user.php
 ?>
 
 <div class="wrapper">

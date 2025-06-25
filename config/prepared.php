@@ -14,8 +14,6 @@ if (isset($_GET['id'])) {
         $stmt->bind_param('i', $id); //  2.
         $stmt->execute(); // ------------------------ 3.
 
-        //echo 'good day 2';
-
         if ($stmt->errno) {
             echo 'Abfrage war fehlerhaft.';
             echo $stmt->errno;
@@ -25,9 +23,6 @@ if (isset($_GET['id'])) {
         // testen: $sql2
         $sql2 = "SELECT erinnerung.id, erinnerung.value, user.name, status.value FROM user LEFT JOIN erinnerung ON user.id = erinnerung.u_id LEFT JOIN status ON erinnerung.status = status.id WHERE status.value AS status;";
         
-        // if ($stmt2 = $mysqli->prepare($sql2)){
-        //     $stmt2->bind-param('isss' ,$_POST[''])
-        // }
 
         while ($row = $result->fetch_assoc()) {
             echo '<hr><b><a href="?id=' . htmlspecialchars($row['id']) . '">#' . $row['id'] . '</a>: ' . htmlspecialchars($row['value']) . '</b> - ' . htmlspecialchars($row['u_id']) . '(' . htmlspecialchars($row['deadline']) . ')<br>';

@@ -59,13 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") { // handelt es sich um eine POST-Anf
         }
 
         header("Location:" . $_SERVER['PHP_SELF']);
-        exit; // mit header und exit wird register.php nicht zweifach angezeigt!!   
-    } elseif (isset($_POST['li_submit'])){
-        if ($_POST['li_name'] === $_POST['reg_name']) {
-            if ($_POST['li_pwd'] === $_POST['reg_pwd']) {
-                echo 'Du bist bereits regisstriert! Wilkommen zurück, '.htmlspecialchars($_POST['li_name']);
-            }
-        }
+        exit; // mit header und exit wird register.php nicht zweifach angezeigt!! }
+
     }
 }
 
