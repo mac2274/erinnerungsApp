@@ -99,7 +99,6 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
     require 'pages/login.php';
 }
 
-echo $_POST['reg_submit'];
 
 // var_dump($password);
 // var_dump($hashed_password);
