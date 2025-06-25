@@ -89,9 +89,9 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
     echo '<h2>Ausgewählte Erinnerung</h2>';
     require 'config/prepared.php';
 } else {
-    require 'pages/register.php';
-    echo 'Oder ';
+ 
     require 'pages/login.php';
+    echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';    
 }
 
 

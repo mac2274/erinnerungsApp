@@ -42,7 +42,7 @@
 
     if ($result->num_rows === 1) {
         $loggedUser = $result->fetch_assoc();
-        print_r($loggedUser);
+        // print_r($loggedUser);
     }
 
 

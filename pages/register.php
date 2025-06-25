@@ -1,11 +1,13 @@
 <?php 
 // Inhalt steht in lib_user.php
+
+require '../config/lib_user.php';
 ?>
 
 <div class="wrapper">
     <h2>Registriere dich hier und nutze die ErinnerungsApp für deinen Alltag!</h2>
 
-    <form method="POST" action="index.php"><!-- was bringt das script hier? -->
+    <form method="POST" action="../index.php"><!-- was bringt das script hier? -->
         <div class="col_2">
             <label for="name">Name</label>
             <input type="text" id="name" name="reg_name" required>
@@ -24,3 +26,7 @@
         <input type="submit" name="reg_submit" value="Registrieren">
     </form>
 </div>
+
+<?php
+
+?>
