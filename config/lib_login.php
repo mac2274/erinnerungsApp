@@ -21,21 +21,30 @@ if ($result->num_rows === 1) {
 
     // Hole die nächste zeile aus dem Abfrage-Ergebnis $result
     $userfDB = $result->fetch_assoc();
-    // echo 'Name: '.htmlspecialchars($userfDB['name']).'<br>';
+    // echo '<b>Hallo, ' . htmlspecialchars($userfDB['name']) . '</b><br>';
+    //print_r($userfDB);
+
 
     if (password_verify($password, $userfDB['password'])) {
-        $_SESSION['email'] = $userfDB['email']; // LOGIN erfolgreich, user merken 
+        $_SESSION['email'] = $userfDB['email']; // wenn LOGIN erfolgreich, user merken 
         echo 'Willkommen zurück, ' . htmlspecialchars($userfDB['name']);
     } else {
         echo 'Falsches Passwort eingegeben.<br>';
-        echo 'ola!';
+        echo 'ola!<br>';
         require 'hello.php';
-        echo __DIR__;
 
+        // echo __DIR__;
+        //require '../test.html'; --------- FRAGE: die Datei wird nicht angezeigt weil es nicht im selben VErzeichnis ist
 
-        require '../test.html';
+        var_dump(password_verify($password, $userfDB['password']));
+        var_dump($userfDB['password']);
+        var_dump($password);
 
-        echo __DIR__;
+        echo '<br>';
+
+        //require 'schnelltest.php';
+        echo 'Test';
+
     }
 } else {
     echo 'User nicht gefunden!';

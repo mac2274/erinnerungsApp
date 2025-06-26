@@ -1,5 +1,5 @@
 <?php
-require '../config/lib_login.php';
+//require '../config/lib_login.php';
 ?>
 
 <html>

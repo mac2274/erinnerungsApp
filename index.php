@@ -78,17 +78,16 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
         echo '<h2>Das Suchergebnis lautet:</h2>';
         require 'config/search.php';
     }
-} elseif (isset($_SESSION['registered']) && !isset($_GET['id']) && isset($_POST['mk_submit'])) {
+} elseif (isset($_SESSION['registered']) && !isset($_GET['id']) && isset($_POST['mk_submit'])) { // cookie session[registered] ist weg
     echo 'Button zur Erstellung von Erinnerungen';
 } elseif (isset($_GET['id'])) {
     echo '<h2>Ausgewählte Erinnerung</h2>';
     require 'config/prepared.php';
-} elseif (isset($_POST['li_submit'])) {
+ } elseif (isset($_POST['li_submit'])) {
     // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
 
     // }
     require 'config/lib_login.php';
-
     
 } else {
     require 'pages/login.php';
