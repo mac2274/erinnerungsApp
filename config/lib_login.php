@@ -17,20 +17,28 @@ $result = $stmt->get_result();
 
 // wenn Ergebnis "===1", dann mache folgendes: 
 if ($result->num_rows === 1) {
-    echo 'Testen des Login-Ergebnises: <br>';
+    // echo 'Testen des Login-Ergebnises: <br>';
 
-// Hole die nächste zeile aus dem Abfrage-Ergebnis $result
+    // Hole die nächste zeile aus dem Abfrage-Ergebnis $result
     $userfDB = $result->fetch_assoc();
-    echo 'Name: '.htmlspecialchars($userfDB['name']).'<br>';
+    // echo 'Name: '.htmlspecialchars($userfDB['name']).'<br>';
 
-    if (password_verify($password, $userfDB['password'])){
+    if (password_verify($password, $userfDB['password'])) {
         $_SESSION['email'] = $userfDB['email']; // LOGIN erfolgreich, user merken 
-        echo 'Willkommen zurück, '. htmlspecialchars($userfDB['name']);
+        echo 'Willkommen zurück, ' . htmlspecialchars($userfDB['name']);
     } else {
-        echo 'Falsches Passwort eingegeben.';
+        echo 'Falsches Passwort eingegeben.<br>';
+        echo 'ola!';
+        require 'hello.php';
+        echo __DIR__;
+
+
+        require '../test.html';
+
+        echo __DIR__;
     }
 } else {
-    echo 'User nichtt gefunden!';
+    echo 'User nicht gefunden!';
 }
 
 ?>

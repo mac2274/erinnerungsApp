@@ -88,8 +88,7 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
 
     // }
     require 'config/lib_login.php';
-    
-    echo 'Hat funktioniert!';
+
     
 } else {
     require 'pages/login.php';
