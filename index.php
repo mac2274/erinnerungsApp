@@ -77,22 +77,26 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
     } else if (isset($_POST['search_id']) || isset($_POST['search_erin'])) {
         echo '<h2>Das Suchergebnis lautet:</h2>';
         require 'config/search.php';
-
     }
 } elseif (isset($_SESSION['registered']) && !isset($_GET['id']) && isset($_POST['mk_submit'])) {
     echo 'Button zur Erstellung von Erinnerungen';
 } elseif (isset($_GET['id'])) {
     echo '<h2>Ausgewählte Erinnerung</h2>';
     require 'config/prepared.php';
+} elseif (isset($_POST['li_submit'])) {
+    // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+
+    // }
+    require 'config/lib_login.php';
+    
+    echo 'Hat funktioniert!';
+    
 } else {
- 
     require 'pages/login.php';
-    echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';    
+    echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
 }
 
-if (isset($_POST['li_submit'])){
-    
-}
+
 // var_dump($password);
 // var_dump($hashed_password);
 

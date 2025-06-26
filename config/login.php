@@ -1,6 +1,4 @@
 <?php
-
-session_start(); // Wieso braucht hier kein session_start() stehen? "already active"? 
 ?>
 <html>
 
@@ -33,37 +31,8 @@ session_start(); // Wieso braucht hier kein session_start() stehen? "already act
         <input type="submit" name="li_submit" value="Anmelden">
     </form>
     </div>
-    
+
 <!--<a href="../index.php">Zurück zur Startseite</a>  FRAGE: Warum geht der link aus dem Ordner 01_erinnerunsApp raus? -->
 </html>
 
 
-<?php
-
-$email = $_POST['li_email'];
-$password = $_POST['li_pwd'];
-
-// SQL-Abfrage für Login-Mechanismus
-$sql = "SELECT id, name, password FROM user WHERE email=?";
-$stmt = $mysqli->prepare($sql);
-if (!$stmt) {
-    throw new Exception($mysqli->error);
-}
-$stmt->bind_param('s', $email);
-if (!$stmt->execute()) {
-    throw new Exception($stmt->error);
-}
-$result = $stmt->get_result();
-
-if ($result->num_rows === 1) {
-    echo 'Das gesuchte Ergebnis: <br>';
-    $loggedUser = $result->fetch_assoc();
-    echo 'Name: '.htmlspecialchars($loggedUser['name']).'<br>';
-    // print_r($loggedUser);
-
-    // if (password_verify($password, $loggedUser['password'])){
-    //     $_SESSION['email'] = $
-    // }
-}
-
-?>
