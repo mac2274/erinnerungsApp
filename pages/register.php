@@ -1,9 +1,15 @@
-<?php 
+<?php
 // Inhalt steht in lib_user.php
 
 require '../config/lib_user.php';
+
 ?>
 
+<head>
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="../styles/design.css" type="text/css">
+    <link rel="stylesheet" href="../styles/activities.css" type="text/css">
+</head>
 <div class="wrapper">
     <h2>Registriere dich hier und nutze die ErinnerungsApp für deinen Alltag!</h2>
 
