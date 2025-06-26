@@ -59,8 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") { // handelt es sich um eine POST-Anf
         }
 
         header("Location:" . $_SERVER['PHP_SELF']);
-        exit; // mit header und exit wird register.php nicht zweifach angezeigt!! }
-
+        exit; // --------------- FRAGEN: mit header und exit wird register.php nicht zweifach angezeigt!! }
     }
 }
 
@@ -68,18 +67,15 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
     echo '<br><h2>Hallo, ' . htmlspecialchars($_SESSION['registered']) . '!</h2>';
     echo '<i>Du bist jetzt registriert und darfst eine Erinnerung erstellen!</i>';
 
-    //echo $_SESSION['submt'];
-
+    // echo $_SESSION['submt'];
     require 'pages/mk_value.php';
-
-
     //echo $_POST['reg_submit'];
 
     if (isset($_POST['mk_submit'])) {
         echo '<h2>Erinnerungen:</h2>';
         require 'config/query.php';
     } else if (isset($_POST['search_id']) || isset($_POST['search_erin'])) {
-        // echo 'Das Suchergebnis lautet: ';
+        echo '<h2>Das Suchergebnis lautet:</h2>';
         require 'config/search.php';
 
     }
@@ -94,7 +90,9 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';    
 }
 
-
+if (isset($_POST['li_submit'])){
+    
+}
 // var_dump($password);
 // var_dump($hashed_password);
 

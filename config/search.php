@@ -24,14 +24,13 @@ if (isset($_POST['search_id']) || isset($_POST['search_erin'])){
     $result = $stmt3->get_result();
 
     if ($result->num_rows > 0) {
-        echo "<h3>Erinnerung gefunden:</h3>";
 
         while ($row = $result->fetch_assoc()) {
 
             echo "ID: " . htmlspecialchars($row['id']) . "<br>";
             echo "Erinnerung: " . htmlspecialchars($row['value']) . "<br>";
             echo "Erstellt am: " . htmlspecialchars($row['deadline']) . "<br>";
-            echo "Beschreibung: " . htmlspecialchars($row['description']) . "<br>";
+            echo "Beschreibung: " . htmlspecialchars($row['description']) ;
             echo '<hr>';
         }
         require 'pages/parts/last_erins.php';

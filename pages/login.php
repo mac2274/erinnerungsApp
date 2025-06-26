@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+session_start(); // Wieso braucht hier kein session_start() stehen? "already active"? 
 ?>
 <html>
 
@@ -13,8 +13,8 @@ session_start();
 <div class="wrapper">
     <h2>Logge dich bitte hier ein</h2>
 
-    <form method="POST" action="../index.php">
-
+    <!--<form method="POST" action="../index.php">  so werde ich zu http://localhost:4080/index.php geführt -->
+    <form method="POST">
         <div class="col_2">
             <label for="email" name="lbl_li_email">Email</label>
             <input type="email" name="li_email" id="email">
@@ -32,9 +32,9 @@ session_start();
 
         <input type="submit" name="li_submit" value="Anmelden">
     </form>
-</div>
-
-<h2>Hilfe!!</h2>
+    </div>
+    
+<!--<a href="../index.php">Zurück zur Startseite</a>  FRAGE: Warum geht der link aus dem Ordner 01_erinnerunsApp raus? -->
 </html>
 
 
@@ -56,7 +56,9 @@ if (!$stmt->execute()) {
 $result = $stmt->get_result();
 
 if ($result->num_rows === 1) {
+    echo 'Das gesuchte Ergebnis: <br>';
     $loggedUser = $result->fetch_assoc();
+    echo 'Name: '.htmlspecialchars($loggedUser['name']).'<br>';
     // print_r($loggedUser);
 
     // if (password_verify($password, $loggedUser['password'])){

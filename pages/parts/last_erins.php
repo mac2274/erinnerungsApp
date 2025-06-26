@@ -1,5 +1,5 @@
 <form method="POST">
-    <input type="button" name="last_ernis" value="Letzen Erinnerungen sehen" id="showLastButton" class="fit">
+    <input type="button" name="last_ernis" value="Letzen 10 Erinnerungen ansehen" id="showLastButton" class="fit">
 </form>
 
 <div id="lasts_erins">
