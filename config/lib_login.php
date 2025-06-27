@@ -1,15 +1,15 @@
 <?php
 
 $email = $_POST['li_email'];
-$password = $_POST['li_pwd'];
+$password = password_hash($_POST['li_pwd'], PASSWORD_DEFAULT);
 
 // SQL-Abfrage für Login-Mechanismus
-$sql = "SELECT id, name, password FROM user WHERE email=?";
+$sql = "SELECT id, name, password FROM user WHERE email=? && password=?";
 $stmt = $mysqli->prepare($sql);
 if (!$stmt) {
     throw new Exception($mysqli->error);
 }
-$stmt->bind_param('s', $email);
+$stmt->bind_param('ss', $email, $password);
 if (!$stmt->execute()) {
     throw new Exception($stmt->error);
 }
@@ -42,8 +42,11 @@ if ($result->num_rows === 1) {
         var_dump($userfDB['password']);
         echo '3.<br>';
         var_dump($password);
+        // echo '4.<br>';
+        // echo '>' . $password . '<'; // Zeigt dir evtl. Leerzeichen
+        // echo '5.<br>';
+        // var_dump(strlen($password)); // sollte gleich sein mit: strlen($userfDB['password']) nur wenn im Klartext!
 
-        echo '<br>';
 
 
     }

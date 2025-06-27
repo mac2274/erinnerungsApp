@@ -83,23 +83,24 @@ if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
 } elseif (isset($_GET['id'])) {
     echo '<h2>Ausgewählte Erinnerung</h2>';
     require 'config/prepared.php';
-// } elseif (isset($_POST['li_submit'])) {
-//     // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+} elseif (isset($_POST['li_submit'])) {
 
-//     // }
-//     require 'config/lib_login.php';
+    // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+
+    // }
+    require 'config/lib_login.php';
 
 } else {
     require 'pages/login.php';
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
 }
 
-if (isset($_POST['li_submit'])) {
-    // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+// if (isset($_POST['li_submit'])) {
+//     // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
 
-    // }
-    require 'config/lib_login.php';
-}
+//     // }
+//     require 'config/lib_login.php';
+// }
 
 // var_dump($password);er
 // var_dump($hashed_password);
