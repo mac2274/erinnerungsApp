@@ -4,6 +4,7 @@ session_start();
 require_once 'config/config.db.php';
 require_once 'config/lib.php';
 require_once 'config/lib_user.php';
+
 // ----> Datenbank organisieren
 ?>
 
@@ -32,68 +33,86 @@ require_once 'config/lib_user.php';
 </html>
 
 <?php
-// user wird registriert mit password & email -> DB
+// REGISTRIERUNG: user wird registriert mit password & email -> DB
 if (isset($_POST['reg_submit'])) {
     user_function($_POST['reg_name'], $_POST['reg_email'], $_POST['reg_pwd']);
 }
-// erinnerung wird hergestellt -> DB
+// ERSTELLEN VON ERIN: erinnerung wird hergestellt -> DB
 if (isset($_POST['mk_submit'])) {
     erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['status'], $_POST['changed'], $_POST['u_id'], $_POST['mk_deadline']);
 }
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") { // handelt es sich um eine POST-Anfrage, dann:
-    if (isset($_POST['reg_submit'])) {
-        // $cookie_name = "username";
-        // $cookie_value = htmlspecialchars($_POST['reg_name']);
-        // setcookie($cookie_name, $cookie_value);
 
-        //$_SESSION['submit'] = $_POST['reg_submit'];
 
-        if (!isset($_SESSION['registered'])) {
-            echo 'Du bist jetzt registriert!';
-            // $_SESSION['registered'] = true; --- Besser Namen nutzen:
-            $_SESSION['registered'] = $_POST['reg_name'];
-
-        } else {
-            echo 'Du bist schon registreiert gewesen.';
-        }
-
-        header("Location:" . $_SERVER['PHP_SELF']);
-        exit; // --------------- FRAGEN: mit header und exit wird register.php nicht zweifach angezeigt!! }
-    }
-}
-
-if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
-    echo '<br><h2>Hallo, ' . htmlspecialchars($_SESSION['registered']) . '!</h2>';
-    echo '<i>Du bist jetzt registriert und darfst eine Erinnerung erstellen!</i>';
-
-    // echo $_SESSION['submt'];
-    require 'pages/mk_value.php';
-    //echo $_POST['reg_submit'];
-
-    if (isset($_POST['mk_submit'])) {
-        echo '<h2>Erinnerungen:</h2>';
-        require 'config/query.php';
-    } else if (isset($_POST['search_id']) || isset($_POST['search_erin'])) {
-        echo '<h2>Das Suchergebnis lautet:</h2>';
-        require 'config/search.php';
-    }
-} elseif (isset($_SESSION['registered']) && !isset($_GET['id']) && isset($_POST['mk_submit'])) { // cookie session[registered] ist weg
-    echo 'Button zur Erstellung von Erinnerungen';
-} elseif (isset($_GET['id'])) {
-    echo '<h2>Ausgewählte Erinnerung</h2>';
-    require 'config/prepared.php';
-} elseif (isset($_POST['li_submit'])) {
-
-    // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
-
-    // }
-    require 'config/lib_login.php';
-
-} else {
+if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
     require 'pages/login.php';
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
+    echo 'dor';
+    if (isset($_POST['li_submt'])) {
+        echo 'Hallo, ' . htmlspecialchars($_POST['name']) . '! <br>Du bist jetzt eingeloggt.';
+    }
+} else {
+    echo 'Hallo, ' . htmlspecialchars($_POST['li_name']) . '! <br>Du bist jetzt eingeloggt.';
+
 }
+
+
+
+
+// // erstmal ausgeklammert
+// // if ($_SERVER['REQUEST_METHOD'] === "POST") { // handelt es sich um eine POST-Anfrage, dann:
+// //     if (isset($_POST['reg_submit'])) {
+// //         // $cookie_name = "username";
+// //         // $cookie_value = htmlspecialchars($_POST['reg_name']);
+// //         // setcookie($cookie_name, $cookie_value);
+
+// //         //$_SESSION['submit'] = $_POST['reg_submit'];
+
+// //         if (!isset($_SESSION['registered'])) {
+// //             echo 'Du bist jetzt registriert!';
+// //             // $_SESSION['registered'] = true; --- Besser Namen nutzen:
+// //             $_SESSION['registered'] = $_POST['reg_name'];
+
+// //         } else {
+// //             echo 'Du bist schon registreiert gewesen.';
+// //         }
+
+// //         header("Location:" . $_SERVER['PHP_SELF']);
+// //         exit; // --------------- FRAGEN: mit header und exit wird register.php nicht zweifach angezeigt!! }
+// //     }
+// // }
+
+// // if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
+// //     echo '<br><h2>Hallo, ' . htmlspecialchars($_SESSION['registered']) . '!</h2>';
+// //     echo '<i>Du bist jetzt registriert und darfst eine Erinnerung erstellen!</i>';
+
+// //     // echo $_SESSION['submt'];
+// //     require 'pages/mk_value.php';
+// //     //echo $_POST['reg_submit'];
+
+// //     if (isset($_POST['mk_submit'])) {
+// //         echo '<h2>Erinnerungen:</h2>';
+// //         require 'config/query.php';
+// //     // } else if (isset($_POST['search_id']) || isset($_POST['search_erin'])) {
+// //     //     echo '<h2>Das Suchergebnis lautet:</h2>';
+// //     //     require 'config/search.php';
+// //     }
+// // } elseif (isset($_SESSION['registered']) && !isset($_GET['id']) && isset($_POST['mk_submit'])) { // cookie session[registered] ist weg
+// //     echo 'Button zur Erstellung von Erinnerungen';
+// // } elseif (isset($_GET['id'])) {
+// //     echo '<h2>Ausgewählte Erinnerung</h2>';
+// //     require 'config/prepared.php';
+// // } elseif (isset($_POST['li_submit'])) {
+
+// //     // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+
+// //     // }
+// //     require 'config/lib_login.php';
+
+// // } else {
+// //     require 'pages/login.php';
+// //     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
+// // }
 
 // if (isset($_POST['li_submit'])) {
 //     // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
