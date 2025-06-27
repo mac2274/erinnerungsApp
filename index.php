@@ -5,6 +5,7 @@ require_once 'config/config.db.php';
 require_once 'config/lib.php';
 require_once 'config/lib_user.php';
 
+echo 'Request-Methode: ' . $_SERVER['REQUEST_METHOD'];
 // ----> Datenbank organisieren
 ?>
 
@@ -47,13 +48,9 @@ if (isset($_POST['mk_submit'])) {
 if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
     require 'pages/login.php';
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
-    echo 'dor';
-    if (isset($_POST['li_submt'])) {
-        echo 'Hallo, ' . htmlspecialchars($_POST['name']) . '! <br>Du bist jetzt eingeloggt.';
-    }
+   
 } else {
-    echo 'Hallo, ' . htmlspecialchars($_POST['li_name']) . '! <br>Du bist jetzt eingeloggt.';
-
+    echo 'POST-Anfrage war da';
 }
 
 

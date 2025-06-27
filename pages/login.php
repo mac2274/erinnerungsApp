@@ -1,5 +1,7 @@
 <?php
 require '../config/lib_login.php';
+
+echo 'huhu?';
 ?>
 
 <html>

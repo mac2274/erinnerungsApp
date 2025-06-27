@@ -1,7 +1,10 @@
 <?php
+echo 'help';
 
 $email = $_POST['li_email'];
+// muss password hier überhauot gehasht werden?
 $password = password_hash($_POST['li_pwd'], PASSWORD_DEFAULT);
+
 
 // SQL-Abfrage für Login-Mechanismus
 $sql = "SELECT id, name, password FROM user WHERE email=? && password=?";
