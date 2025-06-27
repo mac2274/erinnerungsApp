@@ -36,14 +36,15 @@ if ($result->num_rows === 1) {
         // echo __DIR__;
         //require '../test.html'; --------- FRAGE: die Datei wird nicht angezeigt weil es nicht im selben VErzeichnis ist
 
-        var_dump(password_verify($password, $userfDB['password']));
+        echo '1.<br>';
+        var_dump(value: password_verify($password, $userfDB['password']));
+        echo '2.<br>';
         var_dump($userfDB['password']);
+        echo '3.<br>';
         var_dump($password);
 
         echo '<br>';
 
-        //require 'schnelltest.php';
-        echo 'Test';
 
     }
 } else {

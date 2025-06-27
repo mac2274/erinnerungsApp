@@ -1,5 +1,6 @@
 <?php
 // Inhalt steht in lib_user.php
+session_start();
 
 require '../config/lib_user.php';
 
