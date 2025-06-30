@@ -56,7 +56,7 @@ if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
 } elseif (isset(($_POST['li_submit']))) {
     //require 'config/lib_login.php';
     // echo 'Hiu, ' . $email . '!'; // FRAGE : Hier lieber Zugriff auf Namen auf db
-    echo 'Hii, da bist ja wieder!';
+    echo 'Hii, da bist ja wieder, ' .$_POST['li_email'].'!';
     require 'pages/mk_value.php';
 
 } elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])) {
@@ -64,16 +64,23 @@ if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
     // echo '<br><b><i>Klasse, ' . htmlspecialchars($_POST['li_name']).'!</i></b>';
     echo 'Du hast eine neue Erinnerung erstellt: <br>';
     echo '<p class="made">' . htmlspecialchars($_POST['mk_value']) .'</p>';
-    echo '<h3>Deine letzten 10 erstellten Erinnerungen:</h3>';
-    // require 'config/query.php';
+    
+    echo '<div id="justMade" style="display:flex; flex-direction:row; gap:5%;">';
     require 'pages/parts/last_erins.php';
     require 'pages/parts/new_erin.php';
-    
+    echo '</div>';
+
+} elseif (isset($_GET['id'])){
+    echo 'id=' . $_GET['id'] . 'ist in der URL drin.';
+    require 'config/prepare.php';
 } else {
-    echo 'blabla!';
-    //require 'pages/mk_value.php';
+    echo 'Nochnicht ganz richtig...';
 }
 
+
+// if (isset($_GET['id'])){
+//     require 'config/prepared.php';
+// }
 
 
 
