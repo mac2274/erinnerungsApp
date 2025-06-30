@@ -51,7 +51,9 @@ if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
 } elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])){
     echo 'Du hast eine neue Erinnerung erstellt! <br>';
     echo '<h3>Deine letzten 10 erstellten Erinnerungen:</h3>';
-    
+    // require 'config/query.php';
+    require 'pages/parts/last_erins.php';
+    require 'pages/parts/new_erin.php';
 } else { 
     require 'pages/mk_value.php';
 }

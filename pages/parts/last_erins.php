@@ -1,18 +1,18 @@
 <form method="POST">
-    <input type="button" name="last_ernis" value="Letzen 10 Erinnerungen ansehen" id="lastsErinButton" class="fit">
+    <input type="button" name="lasts_ernis" value="Letzen 10 Erinnerungen ansehen" id="lastsErinButton" class="fit">
 </form>
 
-<div id="lasts_erins">
+<div id="last_erins">
     <?php require 'config/query.php' ?>
 </div>
 
 <script>
-    let showLastErin = document.querySelector('#lastsErinButton');
-    showLastErin.addEventListener('click', showLastsErin);
+    let lastErinButton = document.querySelector('#lastsErinButton');
+    lastErinButton.addEventListener('click', showLastsErin);
 
     function showLastsErin() {
-        document.querySelector('#lasts_erins').style.display = "inline";
-        showLastButton.style.display = "none";
+        document.querySelector('#last_erins').style.display = "inline";
+        lastErinButton.style.display = "none";
     }
 
 </script>

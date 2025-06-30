@@ -14,9 +14,9 @@ while($row = $result->fetch_assoc()){     // als Array ausgeben
     echo '<b><a href="?id='.$row['id'].'">#'.$row['id'].':</a></b> '. htmlspecialchars($row['value']) .' ('.htmlspecialchars($row['deadline']).')<br>';
 }
 
-require 'pages/parts/last_erins.php';
+// require 'pages/parts/last_erins.php';
 // require 'pages/parts/index_search.php';
-require 'pages/parts/new_erin.php';
+//require 'pages/parts/new_erin.php';
 // require 'pages/mk_value.php'; // ------------- FRAGE 3: Wieso wird hier kein "../pfad" benötigt?
 
 // pSt;
