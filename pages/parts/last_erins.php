@@ -13,6 +13,7 @@
     function showLastsErin() {
         document.querySelector('#last_erins').style.display = "inline";
         lastErinButton.style.display = "none";
+        document.querySelector('#justMade').style.display = "block"; 
     }
 
 </script>

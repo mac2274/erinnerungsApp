@@ -15,5 +15,6 @@
     function makeNewErin() {
         document.querySelector('#new_erin').style.display = "block";
         newErinButton.style.display = 'none';
+        document.querySelector('#justMade').style.display = "block";
     }
 </script>

@@ -5,7 +5,7 @@ session_start();
 require '../config/lib_user.php';
 
 $_SESSION['name'] = $_POST['reg_name'];
-echo 'Du bist ' . $_SESSION['name']; 
+echo 'Du hast dich registriert, ' . $_SESSION['name'] .'.'; 
 echo '1.Versuch';
 
 ?>

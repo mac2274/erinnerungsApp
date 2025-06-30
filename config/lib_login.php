@@ -3,7 +3,7 @@
 
 $email = $_POST['li_email'];
 // muss password hier überhauot gehasht werden?
-$password = password_hash($_POST['li_pwd'], PASSWORD_DEFAULT);
+$password = $_POST['li_pwd'];
 
 
 // SQL-Abfrage für Login-Mechanismus
