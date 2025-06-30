@@ -1,7 +1,8 @@
 <?php
 if (isset($POST['li_submit'])){
     require 'config/lib_login.php';
-    echo 'hu!';
+    // echo 'Hi, ' . htmlspecialchars($_POST['li_name']);
+    echo 'Hey, ' .$email;
 } 
 
 ?>

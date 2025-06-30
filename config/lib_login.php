@@ -49,9 +49,6 @@ if ($result->num_rows === 1) {
         // echo '>' . $password . '<'; // Zeigt dir evtl. Leerzeichen
         // echo '5.<br>';
         // var_dump(strlen($password)); // sollte gleich sein mit: strlen($userfDB['password']) nur wenn im Klartext!
-
-
-
     }
 } else {
     echo 'User nicht gefunden!';

@@ -1,17 +1,19 @@
 <form method="POST" > 
-    <input type="button" name="new_erin" value="Neue Erinnerung erstellen" id="newErinButton" class="fit">
+    <input type="button" name="newErin" value="Neue Erinnerung erstellen" id="newErinButton" class="fit">
 </form>
 
-<div id="new_erin"></div>
-    <?php require 'pages/mk_value.php'?>
+<div id="new_erin">
+    <?php require 'pages/mk_value.php';
+    ?>
 </div>
 
 <script>
 
     let newErinButton = document.querySelector('#newErinButton');
     newErinButton.addEventListener('click', makeNewErin);
+    
     function makeNewErin() {
-        document.querySelector('#new_erin').style.display = "inline";
+        document.querySelector('#new_erin').style.display = "block";
         newErinButton.style.display = 'none';
     }
 </script>
