@@ -1,5 +1,5 @@
 <?php
-echo 'help';
+//echo 'help';
 
 $email = $_POST['li_email'];
 // muss password hier überhauot gehasht werden?

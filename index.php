@@ -52,17 +52,23 @@ if (isset($_POST['mk_submit'])) {
 if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
     require 'pages/login.php';
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
+
 } elseif (isset(($_POST['li_submit']))) {
-    echo 'Hiu, ' . htmlspecialchars($_POST['li_email']) . '!'; // FRAGE : Hier lieber Zugriff auf Namen auf db
+    //require 'config/lib_login.php';
+    // echo 'Hiu, ' . $email . '!'; // FRAGE : Hier lieber Zugriff auf Namen auf db
+    echo 'Hii, da bist ja wieder!';
     require 'pages/mk_value.php';
+
 } elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])) {
-    echo 'Hi, . [].';
+    echo '<h4>Klasse!</h4>';
     // echo '<br><b><i>Klasse, ' . htmlspecialchars($_POST['li_name']).'!</i></b>';
-    echo 'Du hast eine neue Erinnerung erstellt! <br>';
+    echo 'Du hast eine neue Erinnerung erstellt: <br>';
+    echo '<p class="made">' . htmlspecialchars($_POST['mk_value']) .'</p>';
     echo '<h3>Deine letzten 10 erstellten Erinnerungen:</h3>';
     // require 'config/query.php';
     require 'pages/parts/last_erins.php';
     require 'pages/parts/new_erin.php';
+    
 } else {
     echo 'blabla!';
     //require 'pages/mk_value.php';
