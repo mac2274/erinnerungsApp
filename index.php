@@ -54,10 +54,14 @@ if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
 
 } elseif (isset(($_POST['li_submit']))) {
-    //require 'config/lib_login.php';
-    // echo 'Hiu, ' . $email . '!'; // FRAGE : Hier lieber Zugriff auf Namen auf db
-    echo 'Hii, da bist ja wieder, ' .$_POST['li_email'].'!';
-    require 'pages/mk_value.php';
+    require 'config/lib_login.php'; 
+
+    if ($_POST['li_pwd'] === $password) {
+        //require 'config/lib_login.php';
+        // echo 'Hiu, ' . $email . '!'; // FRAGE : Hier lieber Zugriff auf Namen auf db
+        echo 'Hii, da bist ja wieder, ' .$_POST['li_email'].'!';
+        // nur wenn pwd übereinstimmen!!: require 'pages/mk_value.php';
+    }
 
 } elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])) {
     echo '<h4>Klasse!</h4>';
@@ -74,7 +78,8 @@ if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
     echo 'id=' . $_GET['id'] . 'ist in der URL drin.';
     require 'config/prepare.php';
 } else {
-    echo 'Nochnicht ganz richtig...';
+    echo 'Noch nicht ganz richtig...';
+    require 'pages/register.php';
 }
 
 

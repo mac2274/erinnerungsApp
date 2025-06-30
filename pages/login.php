@@ -3,6 +3,7 @@ if (isset($POST['li_submit'])){
     require 'config/lib_login.php';
     // echo 'Hi, ' . htmlspecialchars($_POST['li_name']);
     echo 'Hey, ' .$email;
+    echo $password;
 } 
 
 ?>

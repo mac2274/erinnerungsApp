@@ -1,5 +1,5 @@
 <?php
-//echo 'help';
+
 
 $email = $_POST['li_email'];
 // muss password hier überhauot gehasht werden?
@@ -13,14 +13,17 @@ if (!$stmt) {
     throw new Exception($mysqli->error);
 }
 $stmt->bind_param('ss', $email, $password);
+echo 'binding is coming up...';
+
 if (!$stmt->execute()) {
     throw new Exception($stmt->error);
 }
 $result = $stmt->get_result();
+var_dump($result);
 
 // wenn Ergebnis "===1", dann mache folgendes: 
 if ($result->num_rows === 1) {
-    // echo 'Testen des Login-Ergebnises: <br>';
+    echo 'Testen des Login-Ergebnises: <br>';
 
     // Hole die nächste zeile aus dem Abfrage-Ergebnis $result
     $userfDB = $result->fetch_assoc();
@@ -30,6 +33,8 @@ if ($result->num_rows === 1) {
 
     if (password_verify($password, $userfDB['password'])) {
         $_SESSION['email'] = $userfDB['email']; // wenn LOGIN erfolgreich, user merken 
+        $_SESSION['pwd'] = $password;
+        echo $password;
         echo 'Willkommen zurück, ' . htmlspecialchars($userfDB['name']);
     } else {
         echo 'Falsches Passwort eingegeben.<br>';
