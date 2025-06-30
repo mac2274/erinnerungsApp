@@ -1,7 +1,9 @@
 <?php
-require '../config/lib_login.php';
+if (isset($POST['li_submit'])){
+    require 'config/lib_login.php';
+    echo 'hu!';
+} 
 
-echo 'huhu?';
 ?>
 
 <html>

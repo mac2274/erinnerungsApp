@@ -48,9 +48,12 @@ if (isset($_POST['mk_submit'])) {
 if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
     require 'pages/login.php';
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
-   
-} else {
-    echo 'POST-Anfrage war da';
+} elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])){
+    echo 'Du hast eine neue Erinnerung erstellt! <br>';
+    echo '<h3>Deine letzten 10 erstellten Erinnerungen:</h3>';
+    
+} else { 
+    require 'pages/mk_value.php';
 }
 
 
