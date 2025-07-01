@@ -2,12 +2,6 @@
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // LEFT JOIN:
-    // SELECT erinnerung.id, erinnerung.value, user.name, status.value 
-    // FROM user 
-    // LEFT JOIN erinnerung ON user.id = erinnerung.u_id 
-    // RIGHT JOIN status ON erinnerung.status = status.id;
-
     $sql = "SELECT  * FROM erinnerung WHERE id=?";
 
     if ($stmt = $mysqli->prepare($sql)) { // - 1.

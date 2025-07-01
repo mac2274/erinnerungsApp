@@ -1,0 +1,14 @@
+#last_erins, #new_erin {
+    display: none;
+}
+
+.made {
+    padding: 2% 3%;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #fff; 
+    background: blueviolet;
+    display: inline-flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+}

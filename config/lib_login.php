@@ -1,70 +1,40 @@
 <?php
-
-
 $email = $_POST['li_email'];
 // muss password hier überhauot gehasht werden?
 $password = $_POST['li_pwd'];
 
 
 // SQL-Abfrage für Login-Mechanismus
-$sql = "SELECT id, name, password FROM user WHERE email=? && password=?";
+$sql = "SELECT id, email, name, password FROM user WHERE email=?";
 $stmt = $mysqli->prepare($sql);
 
-// Was ist in $stmt drin
-var_dump($stmt);
-echo '<br><br>';
 if (!$stmt) {
     throw new Exception($mysqli->error);
 }
 
-$stmt->bind_param('ss', $email, $password);
-echo 'binding is coming up...';
-echo '<br><br>';
+$stmt->bind_param('s', $email);
 
 if (!$stmt->execute()) {
     throw new Exception($stmt->error);
 }
 $result = $stmt->get_result();
 
-// Was ist in $result drin
-print_r($result);
-echo '<br><br>';
-
-var_dump($result);
-
 // wenn Ergebnis "===1", dann mache folgendes: 
 if ($result->num_rows === 1) {
-    echo 'Testen des Login-Ergebnises: <br>';
-
     // Hole die nächste zeile aus dem Abfrage-Ergebnis $result
     $userfDB = $result->fetch_assoc();
-    // echo '<b>Hallo, ' . htmlspecialchars($userfDB['name']) . '</b><br>';
-    //print_r($userfDB);
 
+    $userfDB['password'];
 
     if (password_verify($password, $userfDB['password'])) {
-        $_SESSION['email'] = $userfDB['email']; // wenn LOGIN erfolgreich, user merken 
-        $_SESSION['pwd'] = $password;
-        echo $password;
+        $_SESSION['UserEmail'] = $userfDB['email']; // wenn LOGIN erfolgreich, user merken 
+        $_SESSION['UserId'] = $userfDB['id'];
+        $_SESSION['UserName'] = $userfDB['name'];
+        $_SESSION['LoginDone'] = true;
+
         echo 'Willkommen zurück, ' . htmlspecialchars($userfDB['name']);
     } else {
         echo 'Falsches Passwort eingegeben.<br>';
-        echo 'ola!<br>';
-        require 'hello.php';
-
-        // echo __DIR__;
-        //require '../test.html'; --------- FRAGE: die Datei wird nicht angezeigt weil es nicht im selben VErzeichnis ist
-
-        echo '1.<br>';
-        var_dump(value: password_verify($password, $userfDB['password']));
-        echo '2.<br>';
-        var_dump($userfDB['password']);
-        echo '3.<br>';
-        var_dump($password);
-        // echo '4.<br>';
-        // echo '>' . $password . '<'; // Zeigt dir evtl. Leerzeichen
-        // echo '5.<br>';
-        // var_dump(strlen($password)); // sollte gleich sein mit: strlen($userfDB['password']) nur wenn im Klartext!
     }
 } else {
     echo 'User nicht gefunden!';

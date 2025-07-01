@@ -23,7 +23,8 @@ echo 'Request-Methode: ' . $_SERVER['REQUEST_METHOD'];
         Benötigst du im Alltag auch manchmal eine kleiner Unterstützung. Der Alltag ist immer so voller Termine,
         Aufgaben und To-Dos!!</p>
     <p>
-        Da verliert man schnell den Überblick im ganzen Durcheinander! und wenn du da gerne eine kleine Hilfe möchtest, dann
+        Da verliert man schnell den Überblick im ganzen Durcheinander! und wenn du da gerne eine kleine Hilfe möchtest,
+        dann
         bist du bei uns genau an der richtige Stelle!
     </p>
     <p>
@@ -37,49 +38,43 @@ echo 'Request-Methode: ' . $_SERVER['REQUEST_METHOD'];
 // REGISTRIERUNG: user wird registriert mit password & email -> DB
 if (isset($_POST['reg_submit'])) {
     user_function($_POST['reg_name'], $_POST['reg_email'], $_POST['reg_pwd']);
-    
+
     $_SESSION['name'] = $_POST['reg_name'];
-    echo 'Du bist ' . $_SESSION['name'];
-    echo '2.Versuch';
+    echo 'Hallo ' . $_SESSION['name'] . ' du hast dich erfolgreich Registriert';
 }
+
 // ERSTELLEN VON ERIN: erinnerung wird hergestellt -> DB
 if (isset($_POST['mk_submit'])) {
-    erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['status'], $_POST['changed'], $_POST['u_id'], $_POST['mk_deadline']);
+    erin_function($_POST['mk_value'], $_POST['mk_description'], $_POST['status'], $_POST['changed'], $_SESSION['UserId'], $_POST['mk_deadline']);
 }
 
-
-
-if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
+if (!isset($_SESSION['LoginDone']) || $_SESSION['LoginDone'] !== true) {
     require 'pages/login.php';
-    echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
+    echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.<br>';
+} else {
+    require 'pages/mk_value.php';
+    require 'pages/parts/last_erins.php';
+}
 
-} elseif (isset(($_POST['li_submit']))) {
-    require 'config/lib_login.php'; 
-
-    if ($_POST['li_pwd'] === $password) {
-        // echo 'Hiu, ' . $email . '!'; // FRAGE : Hier lieber Zugriff auf Namen auf db
-        echo 'Hii, da bist ja wieder, ' .$_POST['li_email'].'!';
-        // nur wenn pwd übereinstimmen soll folgendes zeigen !!: require 'pages/mk_value.php';
-    }
+if (isset($_POST['li_submit'])) {
+    require 'config/lib_login.php';
 
 } elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])) {
     echo '<h4>Klasse!</h4>';
     // echo '<br><b><i>Klasse, ' . htmlspecialchars($_POST['li_name']).'!</i></b>';
     echo 'Du hast eine neue Erinnerung erstellt: <br>';
-    echo '<p class="made">' . htmlspecialchars($_POST['mk_value']) .'</p>';
-    
+    echo '<p class="made">' . htmlspecialchars($_POST['mk_value']) . '</p>';
+
     echo '<div id="justMade" style="display:flex; flex-direction:row; gap:5%;">';
     require 'pages/parts/last_erins.php';
     require 'pages/parts/new_erin.php';
     echo '</div>';
 
-} elseif (isset($_GET['id'])){
+} elseif (isset($_GET['id'])) {
     echo 'id=' . $_GET['id'] . 'ist in der URL drin.';
     require 'config/prepare.php';
-} else {
-    echo 'Noch nicht ganz richtig...';
-    require 'pages/register.php';
 }
+;
 
 
 // if (isset($_GET['id'])){
