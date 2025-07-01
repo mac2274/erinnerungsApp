@@ -57,10 +57,9 @@ if (!($_SERVER['REQUEST_METHOD'] === 'POST')) {
     require 'config/lib_login.php'; 
 
     if ($_POST['li_pwd'] === $password) {
-        //require 'config/lib_login.php';
         // echo 'Hiu, ' . $email . '!'; // FRAGE : Hier lieber Zugriff auf Namen auf db
         echo 'Hii, da bist ja wieder, ' .$_POST['li_email'].'!';
-        // nur wenn pwd übereinstimmen!!: require 'pages/mk_value.php';
+        // nur wenn pwd übereinstimmen soll folgendes zeigen !!: require 'pages/mk_value.php';
     }
 
 } elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])) {

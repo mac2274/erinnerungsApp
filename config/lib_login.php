@@ -19,6 +19,8 @@ if (!$stmt->execute()) {
     throw new Exception($stmt->error);
 }
 $result = $stmt->get_result();
+print_r($result);
+echo '<br>';
 var_dump($result);
 
 // wenn Ergebnis "===1", dann mache folgendes: 
