@@ -23,8 +23,8 @@ echo 'Request-Methode: ' . $_SERVER['REQUEST_METHOD'];
         Benötigst du im Alltag auch manchmal eine kleiner Unterstützung. Der Alltag ist immer so voller Termine,
         Aufgaben und To-Dos!!</p>
     <p>
-        Da verliert man schnell den Überblick im ganzen Hustle! und wenn du da gerne eine Hilfestellung möchtest, dann
-        sind wir genau die richtige Stelle!
+        Da verliert man schnell den Überblick im ganzen Durcheinander! und wenn du da gerne eine kleine Hilfe möchtest, dann
+        bist du bei uns genau an der richtige Stelle!
     </p>
     <p>
         Wir helfen dir, an alle wichtigen Dinge zu denken!

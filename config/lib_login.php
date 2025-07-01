@@ -9,18 +9,27 @@ $password = $_POST['li_pwd'];
 // SQL-Abfrage für Login-Mechanismus
 $sql = "SELECT id, name, password FROM user WHERE email=? && password=?";
 $stmt = $mysqli->prepare($sql);
+
+// Was ist in $stmt drin
+var_dump($stmt);
+echo '<br><br>';
 if (!$stmt) {
     throw new Exception($mysqli->error);
 }
+
 $stmt->bind_param('ss', $email, $password);
 echo 'binding is coming up...';
+echo '<br><br>';
 
 if (!$stmt->execute()) {
     throw new Exception($stmt->error);
 }
 $result = $stmt->get_result();
+
+// Was ist in $result drin
 print_r($result);
-echo '<br>';
+echo '<br><br>';
+
 var_dump($result);
 
 // wenn Ergebnis "===1", dann mache folgendes: 
