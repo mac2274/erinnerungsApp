@@ -24,17 +24,14 @@ if ($result->num_rows === 1) {
     // Hole die nächste zeile aus dem Abfrage-Ergebnis $result
     $userfDB = $result->fetch_assoc();
 
-    $userfDB['password'];
-
     if (password_verify($password, $userfDB['password'])) {
         $_SESSION['UserEmail'] = $userfDB['email']; // wenn LOGIN erfolgreich, user merken 
         $_SESSION['UserId'] = $userfDB['id'];
         $_SESSION['UserName'] = $userfDB['name'];
         $_SESSION['LoginDone'] = true;
 
-        echo 'Willkommen zurück, ' . htmlspecialchars($userfDB['name']);
     } else {
-        echo 'Falsches Passwort eingegeben.<br>';
+        echo '<p class="alert padding-top-5">Falsches Passwort eingegeben.</p><br>';
     }
 } else {
     echo 'User nicht gefunden!';

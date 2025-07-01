@@ -32,7 +32,7 @@ if ($result->num_rows === 1) {
         $_SESSION['UserName'] = $userfDB['name'];
         $_SESSION['LoginDone'] = true;
 
-        echo 'Willkommen zurück, ' . htmlspecialchars($userfDB['name']);
+        echo 'Willkommen zurück, ' . htmlspecialchars($userfDB['UserNamename']);
 
         $sqllog = "INSERT INTO user_logins SET u_id=? ;";
         $stmtlog = $mysqli->prepare($sqllog);

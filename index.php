@@ -35,12 +35,14 @@ echo 'Request-Methode: ' . $_SERVER['REQUEST_METHOD'];
 </html>
 
 <?php
+// logout
+
 // REGISTRIERUNG: user wird registriert mit password & email -> DB
 if (isset($_POST['reg_submit'])) {
     user_function($_POST['reg_name'], $_POST['reg_email'], $_POST['reg_pwd']);
 
     $_SESSION['name'] = $_POST['reg_name'];
-    echo 'Hallo ' . $_SESSION['name'] . ' du hast dich erfolgreich Registriert';
+    echo '<p class="padding-top-5">Hallo ' . $_SESSION['name'] . ' du hast dich erfolgreich Registriert</p>';
 }
 
 // ERSTELLEN VON ERIN: erinnerung wird hergestellt -> DB
@@ -51,9 +53,12 @@ if (isset($_POST['mk_submit'])) {
 if (!isset($_SESSION['LoginDone']) || $_SESSION['LoginDone'] !== true) {
     require 'pages/login.php';
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.<br>';
+} elseif (isset($_POST['mk_submit'])){
+
 } else {
+    echo '<p class="padding-top-5">Willkommen zurück, ' . htmlspecialchars($_SESSION['UserName']). '!</p>';
     require 'pages/mk_value.php';
-    require 'pages/parts/last_erins.php';
+    // require 'pages/parts/last_erins.php';
 }
 
 if (isset($_POST['li_submit'])) {
@@ -72,85 +77,8 @@ if (isset($_POST['li_submit'])) {
 
 } elseif (isset($_GET['id'])) {
     echo 'id=' . $_GET['id'] . 'ist in der URL drin.';
-    require 'config/prepare.php';
+    require 'config/prepared.php';
 }
 ;
 
-
-// if (isset($_GET['id'])){
-//     require 'config/prepared.php';
-// }
-
-
-
-// // erstmal ausgeklammert
-// // if ($_SERVER['REQUEST_METHOD'] === "POST") { // handelt es sich um eine POST-Anfrage, dann:
-// //     if (isset($_POST['reg_submit'])) {
-// //         // $cookie_name = "username";
-// //         // $cookie_value = htmlspecialchars($_POST['reg_name']);
-// //         // setcookie($cookie_name, $cookie_value);
-
-// //         //$_SESSION['submit'] = $_POST['reg_submit'];
-
-// //         if (!isset($_SESSION['registered'])) {
-// //             echo 'Du bist jetzt registriert!';
-// //             // $_SESSION['registered'] = true; --- Besser Namen nutzen:
-// //             $_SESSION['registered'] = $_POST['reg_name'];
-
-// //         } else {
-// //             echo 'Du bist schon registreiert gewesen.';
-// //         }
-
-// //         header("Location:" . $_SERVER['PHP_SELF']);
-// //         exit; // --------------- FRAGEN: mit header und exit wird register.php nicht zweifach angezeigt!! }
-// //     }
-// // }
-
-// // if (isset($_SESSION['registered']) && !isset($_GET['id'])) {
-// //     echo '<br><h2>Hallo, ' . htmlspecialchars($_SESSION['registered']) . '!</h2>';
-// //     echo '<i>Du bist jetzt registriert und darfst eine Erinnerung erstellen!</i>';
-
-// //     // echo $_SESSION['submt'];
-// //     require 'pages/mk_value.php';
-// //     //echo $_POST['reg_submit'];
-
-// //     if (isset($_POST['mk_submit'])) {
-// //         echo '<h2>Erinnerungen:</h2>';
-// //         require 'config/query.php';
-// //     // } else if (isset($_POST['search_id']) || isset($_POST['search_erin'])) {
-// //     //     echo '<h2>Das Suchergebnis lautet:</h2>';
-// //     //     require 'config/search.php';
-// //     }
-// // } elseif (isset($_SESSION['registered']) && !isset($_GET['id']) && isset($_POST['mk_submit'])) { // cookie session[registered] ist weg
-// //     echo 'Button zur Erstellung von Erinnerungen';
-// // } elseif (isset($_GET['id'])) {
-// //     echo '<h2>Ausgewählte Erinnerung</h2>';
-// //     require 'config/prepared.php';
-// // } elseif (isset($_POST['li_submit'])) {
-
-// //     // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
-
-// //     // }
-// //     require 'config/lib_login.php';
-
-// // } else {
-// //     require 'pages/login.php';
-// //     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.';
-// // }
-
-// if (isset($_POST['li_submit'])) {
-//     // if (isset($_SESSION['username']) && isset($_SESSION['password'])){
-
-//     // }
-//     require 'config/lib_login.php';
-// }
-
-// var_dump($password);er
-// var_dump($hashed_password);
-
-// if (password_verify($password, $hashed_password)) {
-//     echo 'password is varified';
-// } else {
-//     echo 'no match!';
-// } ----- Testing password_hash
 ?>

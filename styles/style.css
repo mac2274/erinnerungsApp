@@ -30,6 +30,14 @@ ol li {
 
 .padding-top-5 {
     padding-top: 5%;
+;
+}
+.fit{
+    width: fit-content;
+}
+
+.alert {
+    color: red;
 }
 
 form {
@@ -83,10 +91,6 @@ form {
         width: fit-content;
     }
 
-}
-
-.fit{
-    width: fit-content;
 }
 
 
