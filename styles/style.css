@@ -30,14 +30,33 @@ ol li {
 
 .padding-top-5 {
     padding-top: 5%;
-;
 }
+
+.padding-bottom-5 {
+    padding-bottom: 5%;
+}
+
 .fit{
     width: fit-content;
 }
 
 .alert {
     color: red;
+}
+
+.button {
+    padding: 2%;
+    text-decoration: none;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+}
+
+.logoutBut {
+    display: flex;
+    justify-self: end;
+    background: red;
+    color: #fff; 
+    border: none;
 }
 
 form {

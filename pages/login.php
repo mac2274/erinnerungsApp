@@ -1,5 +1,5 @@
 <?php
-if (isset($POST['li_submit'])){
+if (isset($_POST['li_submit'])){
     require 'config/lib_login.php';
 }
 ?>

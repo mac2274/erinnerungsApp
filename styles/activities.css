@@ -1,4 +1,4 @@
-#last_erins, #new_erin, #show_index {
+#last_erins, #new_erin, #xcshow_index {
     display: none;
 }
 
@@ -12,3 +12,4 @@
     flex-wrap: wrap;
     border-radius: 20px;
 }
+

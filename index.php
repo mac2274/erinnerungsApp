@@ -36,8 +36,8 @@ echo 'Request-Methode: ' . $_SERVER['REQUEST_METHOD'];
 
 <?php
 // logout
-if (isset($_GET['logout'])){
-    echo '<p class="red">Erfolgreich ausgeloggt!</p>';
+if (isset($_GET['logout'])) {
+    echo '<p style="color:red;">Erfolgreich ausgeloggt!</p>';
 }
 
 // REGISTRIERUNG: user wird registriert mit password & email -> DB
@@ -56,15 +56,6 @@ if (isset($_POST['mk_submit'])) {
 if (!isset($_SESSION['LoginDone']) || $_SESSION['LoginDone'] !== true) {
     require 'pages/login.php';
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.<br>';
-} else {
-    echo '<p class="padding-top-5">Willkommen zurück, ' . htmlspecialchars($_SESSION['UserName']). '!</p>';
-    require 'pages/mk_value.php';
-    // require 'pages/parts/last_erins.php';
-    echo '<a class="alert" href="./pages/logout.php">LOGOUT</a>';
-}
-
-if (isset($_POST['li_submit'])) {
-    require 'config/lib_login.php';
 
 } elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])) {
     echo '<h4>Klasse!</h4>';
@@ -76,11 +67,21 @@ if (isset($_POST['li_submit'])) {
     require 'pages/parts/last_erins.php';
     require 'pages/parts/new_erin.php';
     echo '</div>';
+    require 'pages/parts/back.php';
+
 
 } elseif (isset($_GET['id'])) {
     require 'config/prepared.php';
     require 'pages/parts/back.php';
+} else {
+    echo '<p class="padding-top-5">Willkommen zurück, ' . htmlspecialchars($_SESSION['UserName']) . '!</p>';
+    require 'pages/mk_value.php';
+    // require 'pages/parts/last_erins.php';
+    
 }
 ;
 
+if (isset($_SESSION['LoginDone']) && $_SESSION['LoginDone'] === true){
+    echo '<a class="alert button logoutBut" href="./pages/logout.php">LOGOUT</a>';
+}
 ?>

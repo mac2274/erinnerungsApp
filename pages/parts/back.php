@@ -1,12 +1,12 @@
-<form method="GET">
+<!-- <form method="GET">
     <input type="button" name="back" value="ZURÜCK" id="backButton" class="fit">
-</form>
+</form> -->
 
 <div id="show_index">
-    <?php  // back-Button ?>
+    <a class="button" href="index.php">ZURÜCKI</a>
 </div>
 
-<script>
+<!-- <script>
     let backButton = document.querySelector('#backButton');
     backButton.addEventListener('click', backToIndex);
 
@@ -15,4 +15,4 @@
         document.querySelector('#show_index').style.display ="block";
     }
 
-</script>
+</script> -->
