@@ -1,12 +1,13 @@
 <?php
 
-function user_function($user, $email, $password){
+function user_function($user, $email, $password)
+{
     global $mysqli;
     $name = $_POST['reg_name'];
     $email = $_POST['reg_email'];
     $password = $_POST['reg_pwd'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    
+
     $q2 = "INSERT INTO user SET name=?, email=?, password=? ;";
     $stmt2 = $mysqli->prepare($q2); // --------------------------------------------- 1. prepare()
     if (!$stmt2) {
@@ -16,8 +17,9 @@ function user_function($user, $email, $password){
     if (!$stmt2->execute()) { // ---------------------------------------------------------- 3. execute()
         throw new DBException($stmt2->error);
     }
+
+    $_SESSION['regName'] = $_POST['reg_name'];
     return $stmt2->affected_rows;
 }
 
-$_SESSION['regName'] = $_POST['reg_name'];
 ?>

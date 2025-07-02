@@ -31,8 +31,24 @@ require '../config/lib_user.php';
 
         <input type="submit" name="reg_submit" value="Registrieren">
     </form>
+
+    <p>Oder logge dich <a id="loginLink" href="">hier</a> ein.</p>
+</div>
+<div id="showLogin">
+    <?php require 'login.php' ?>
 </div>
 
+<!-- <script>
+    let liLink = document.querySelector('#loginLink');
+    liLink.addEventListener('click', openLogin);
+
+    function openLogin(){
+        document.querySelector('p').style.display = 'none';
+        document.querySelector('#showLogin').style.display = 'block';
+    }
+</script> -->
+
 <?php
-require 'login.php';
+require 'parts/loginButton.php';
+//require 'login.php';
 ?>
