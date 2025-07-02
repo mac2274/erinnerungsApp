@@ -31,9 +31,5 @@
 </div>
 
 <?php
-
-
-// hier muss nach dem ersetllen die liste erscheinen mit den erinnerungen1
-// showAll.php
-
+    require 'parts/index_searchButton.php';
 ?>

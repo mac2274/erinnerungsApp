@@ -1,6 +1,7 @@
 <?php
 // Inhalt steht in lib_user.php
 session_start();
+
 require '../config/lib_user.php';
 ?>
 
@@ -33,5 +34,5 @@ require '../config/lib_user.php';
 </div>
 
 <?php
-
+require 'login.php';
 ?>

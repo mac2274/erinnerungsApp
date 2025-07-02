@@ -18,4 +18,6 @@ function user_function($user, $email, $password){
     }
     return $stmt2->affected_rows;
 }
+
+$_SESSION['regName'] = $_POST['reg_name'];
 ?>
