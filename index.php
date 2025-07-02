@@ -68,16 +68,15 @@ if (!isset($_SESSION['LoginDone']) || $_SESSION['LoginDone'] !== true) {
     require 'pages/parts/new_erin.php';
     echo '</div>';
     require 'pages/parts/back.php';
-
-
 } elseif (isset($_GET['id'])) {
     require 'config/prepared.php';
     require 'pages/parts/back.php';
-} else {
+} elseif (isset($_SESSION['UserName']) && $_SESSION['UserName'] == true) {
     echo '<p class="padding-top-5">Willkommen zurück, ' . htmlspecialchars($_SESSION['UserName']) . '!</p>';
     require 'pages/mk_value.php';
     // require 'pages/parts/last_erins.php';
-    
+} else {
+    require 'pages/login.php';
 }
 ;
 

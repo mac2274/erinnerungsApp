@@ -30,11 +30,25 @@ if ($result->num_rows === 1) {
         $_SESSION['UserName'] = $userfDB['name'];
         $_SESSION['LoginDone'] = true;
 
+        // inserting user login time:
+        $sql2 = "INSERT INTO user_logins SET user_id=? ";
+        $stmt2 = $mysqli->prepare($sql2);
+        if (!$stmt2) {
+            throw new Exception($mysqli->error);
+        }
+        $stmt2->bind_param('i', $_SESSION['UserId']);
+        if (!$stmt2->execute()) {
+            throw new Exception($stmt2->error);
+        }
+        $resultlog = $stmt2->get_result();
+        // -------- Log times added 
     } else {
         echo '<p class="alert padding-top-5">Falsches Passwort eingegeben.</p><br>';
+        require '../pages/login.php';
     }
 } else {
     echo 'User nicht gefunden!';
 }
 
+exit;
 ?>

@@ -3,7 +3,7 @@
 </form> -->
 
 <div id="show_index">
-    <a class="button" href="index.php">ZURÜCKI</a>
+    <a class="button" href="index.php">ZURÜCK</a>
 </div>
 
 <!-- <script>
