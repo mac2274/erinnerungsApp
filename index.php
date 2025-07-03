@@ -75,12 +75,13 @@ if (!isset($_SESSION['LoginDone']) || $_SESSION['LoginDone'] !== true) {
     echo '<p class="padding-top-5">Willkommen zurück, ' . htmlspecialchars($_SESSION['UserName']) . '!</p>';
     require 'pages/mk_value.php';
     require 'pages/parts/index_searchButton.php';
-    // require 'pages/parts/last_erins.php';
-    if (isset($_POST['search_submit'])) {
-        require 'config/search.php';
-    } else {
-        echo 'Deine Detailsuche ist schiefgelaufen. Versuche es nochmal!';
-    }
+
+    // wenn eingeloggt und in Detailsuche:
+    // if (isset($_POST['search_submit'])) {
+    //     require 'config/search.php';
+    // } else {
+    //     echo 'Deine Detailsuche ist schiefgelaufen. Versuche es nochmal!';
+    // }
 } else {
     require 'pages/login.php';
 }
