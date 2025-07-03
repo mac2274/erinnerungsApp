@@ -30,6 +30,3 @@
     </form>
 </div>
 
-<?php
-    require 'parts/index_searchButton.php';
-?>

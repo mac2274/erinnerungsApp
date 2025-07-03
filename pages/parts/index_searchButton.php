@@ -1,6 +1,5 @@
 <?php
 require 'config/search.php';
-
 ?>
 
 <div class="wrapper padding-top-5">

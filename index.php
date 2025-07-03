@@ -58,27 +58,38 @@ if (!isset($_SESSION['LoginDone']) || $_SESSION['LoginDone'] !== true) {
     echo 'Noch nicht registriert? Dann rasch hier <a href="pages/register.php">registrieren</a>.<br>';
 
 } elseif (isset($_POST['mk_submit']) && !empty($_POST['mk_value'])) {
-    echo '<h4>Klasse, '. $_SESSION['UserName'].'!</h4>';
+    echo '<h4>Klasse, ' . $_SESSION['UserName'] . '!</h4>';
     echo 'Du hast eine neue Erinnerung erstellt: <br>';
     echo '<p class="made">' . htmlspecialchars($_POST['mk_value']) . '</p>';
     echo '<div id="justMade" style="display:flex; flex-direction:row; gap:5%;">';
     require 'pages/parts/last_erinsButton.php';
     require 'pages/parts/new_erinButton.php';
     echo '</div>';
-    require 'pages/parts/back.php';
+    require 'pages/parts/backButton.php';
+
 } elseif (isset($_GET['id'])) {
     require 'config/prepared.php';
     require 'pages/parts/backButton.php';
-} elseif (isset($_SESSION['UserName']) && $_SESSION['UserName'] == true) {
+
+} elseif (isset($_POST['li_submit']) && $_POST['li_pwd'] == true) {
     echo '<p class="padding-top-5">Willkommen zurück, ' . htmlspecialchars($_SESSION['UserName']) . '!</p>';
     require 'pages/mk_value.php';
+    require 'pages/parts/index_searchButton.php';
     // require 'pages/parts/last_erins.php';
+    if (isset($_POST['search_submit'])) {
+        require 'config/search.php';
+    } else {
+        echo 'Deine Detailsuche ist schiefgelaufen. Versuche es nochmal!';
+    }
 } else {
     require 'pages/login.php';
 }
-;
 
-if (isset($_SESSION['LoginDone']) && $_SESSION['LoginDone'] === true){
+
+
+// logout-button 
+if (isset($_SESSION['LoginDone']) && $_SESSION['LoginDone'] === true) {
     echo '<a class="alert button logoutBut" href="./pages/logout.php">LOGOUT</a>';
 }
+
 ?>

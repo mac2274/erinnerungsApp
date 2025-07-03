@@ -49,6 +49,7 @@ ol li {
     text-decoration: none;
     border: 1px solid lightgray;
     border-radius: 20px;
+    display: inline-flex;
 }
 
 .logoutBut {
