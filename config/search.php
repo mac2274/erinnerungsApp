@@ -3,7 +3,7 @@ if (isset($_POST['search_id']) || isset($_POST['search_erin'])){
     $searchID = $_POST['search_id'];
     $searchErin = $_POST['search_erin'];
 
-    $sql = "SELECT * from erinnerung WHERE id=? OR value LIKE ?";
+    $sql = "SELECT * from erinnerung WHERE id=? OR value=?";
 
     $stmt3 = $mysqli->prepare($sql); // 1. prepare()
     $stmt3->bind_param("is", $searchID, $searchErin); // 2. bind_param()
