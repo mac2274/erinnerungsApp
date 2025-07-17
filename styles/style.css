@@ -22,7 +22,7 @@ ol li {
 .wrapper {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 80%;
 }
 
 .padding-top-5 {
