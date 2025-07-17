@@ -85,8 +85,6 @@ if (!isset($_SESSION['LoginDone']) || $_SESSION['LoginDone'] !== true) {
     require 'pages/login.php';
 }
 
-
-
 // logout-button 
 if (isset($_SESSION['LoginDone']) && $_SESSION['LoginDone'] === true) {
     echo '<a class="alert button logoutBut" href="./pages/logout.php">LOGOUT</a>';
