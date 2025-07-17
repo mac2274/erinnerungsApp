@@ -20,12 +20,11 @@ echo 'Request-Methode: ' . $_SERVER['REQUEST_METHOD'];
 <body>
     <h1>Erinnerungs-Helper</h1>
     <p>
-        Benötigst du im Alltag auch manchmal eine kleiner Unterstützung. Der Alltag ist immer so voller Termine,
+        Benötigst du im Alltag auch manchmal eine kleine Unterstützung. Der Alltag ist immer so voller Termine,
         Aufgaben und To-Dos!!</p>
     <p>
-        Da verliert man schnell den Überblick im ganzen Durcheinander! und wenn du da gerne eine kleine Hilfe möchtest,
-        dann
-        bist du bei uns genau an der richtige Stelle!
+        Da verliert man schnell den Überblick im ganzen Durcheinander - und wenn du da gerne eine kleine Hilfe gebrauchen könntest,
+        dann bist du bei uns genau an der richtigen Stelle!
     </p>
     <p>
         Wir helfen dir, an alle wichtigen Dinge zu denken!

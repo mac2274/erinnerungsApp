@@ -1,4 +1,7 @@
 <?php
+// für die Detailanzeige der einzelnen Erinnerungen
+
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
