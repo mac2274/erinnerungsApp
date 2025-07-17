@@ -23,6 +23,27 @@
     <p>
         Wir helfen dir, an alle wichtigen Dinge zu denken!
     </p>
+
+    <div class="buttons">
+        <input type="submit" id="regButton" value="Jetzt registrieren" name="registerButton" class="button">
+        <input type="submit" id="loginButton" value="Login" name="loginButton" class="button">
+    </div>
+
+    <script>
+        function registerPage() {
+            window.open("register.html", "_self");
+        }
+
+        function loginPage() {
+            window.open("login.html", "_self");
+        }
+
+        // regButton
+        document.querySelector('#regButton').addEventListener('click', registerPage);
+        // loginButton
+        document.querySelector('#loginButton').addEventListener('click', loginPage);
+
+    </script>
 </body>
 
 </html>

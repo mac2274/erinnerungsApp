@@ -1,16 +1,13 @@
-html {
+
+body  {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: left;
     align-content: center;
     margin: 0 5%;
-
-
     text-wrap: pretty;
     font-family: 'Courier New', Courier, monospace;
-}
-
-body {
     margin-top: 5%;
 }
 
@@ -25,7 +22,7 @@ ol li {
 .wrapper {
     display: flex;
     flex-direction: column;
-    width: 49%;
+    width: 60%;
 }
 
 .padding-top-5 {
@@ -36,7 +33,7 @@ ol li {
     padding-bottom: 5%;
 }
 
-.fit{
+.fit {
     width: fit-content;
 }
 
@@ -45,18 +42,24 @@ ol li {
 }
 
 .button {
-    padding: 2%;
+    padding: 4%;
     text-decoration: none;
     border: 1px solid lightgray;
     border-radius: 20px;
     display: inline-flex;
 }
 
+.button:hover {
+    background: rgb(48, 48, 182);
+    color: #fff;
+    transition: all .5s;
+}
+
 .logoutBut {
     display: flex;
     justify-self: end;
     background: red;
-    color: #fff; 
+    color: #fff;
     border: none;
 }
 
@@ -114,6 +117,4 @@ form {
 }
 
 
-@media screen and (min-width: 1200px) {
-    
-}
+@media screen and (min-width: 1200px) {}
