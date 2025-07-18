@@ -55,6 +55,11 @@ ol li {
     transition: all .5s;
 }
 
+.greeting{
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
 .logoutBut {
     display: flex;
     justify-self: end;
