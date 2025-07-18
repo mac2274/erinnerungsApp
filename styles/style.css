@@ -100,7 +100,6 @@ form {
         display: flex;
         flex-direction: row;
         width: 100%;
-        min-height: 5em;
         padding: 2%;
         font-family: 'Courier New', Courier, monospace;
         border-radius: 20px;
@@ -129,6 +128,9 @@ form {
         transition: all .5s;
     }
 
+    .multilines {
+        min-height: 5em;
+    }
 }
 
 
