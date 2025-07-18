@@ -1,5 +1,4 @@
-
-body  {
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,7 +54,7 @@ ol li {
     transition: all .5s;
 }
 
-.greeting{
+.greeting {
     font-size: 2em;
     text-transform: uppercase;
 }
@@ -66,6 +65,7 @@ ol li {
     background: red;
     color: #fff;
     border: none;
+    width: fit-content;
 }
 
 form {
@@ -73,6 +73,7 @@ form {
     text-align: left;
     flex-direction: column;
     font-size: 1.2em;
+    gap: 1em;
 
     .col_2 {
         display: flex;
@@ -90,6 +91,7 @@ form {
     label {
         display: flex;
         justify-content: left;
+        align-items: center;
         font-family: 'Courier New', Courier, monospace;
     }
 
@@ -98,6 +100,7 @@ form {
         display: flex;
         flex-direction: row;
         width: 100%;
+        min-height: 5em;
         padding: 2%;
         font-family: 'Courier New', Courier, monospace;
         border-radius: 20px;
@@ -113,10 +116,17 @@ form {
 
     input[type=submit] {
         font-size: 1em;
-        padding: 2% 2.5%;
+        padding: 0.5% 2.5%;
         font-weight: bold;
         align-self: end;
         width: fit-content;
+        min-height: 0;
+    }
+
+    input[type=submit]:hover {
+        background: rgb(48, 48, 182);
+        color: #fff;
+        transition: all .5s;
     }
 
 }
