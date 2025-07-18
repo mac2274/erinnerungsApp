@@ -10,6 +10,17 @@
 </head>
 <body>
     <h1>Erinnerungs-Helper</h1>
-    <p>Erstelle deine Erinnerungen hier, damit die ErinnerungsApp dir helfen kann :D </p>
+    <p>Erstelle deine Erinnerungen hier, damit die ErinnerungsApp dir in deinem Alltag immer helfen kann :D </p>
+
+    <form method="POST" action="">
+        <label for="makeValue">Erinnerung machen
+            <input type="text" name="mk_value" id="makeValue" placeholder="...">
+        </label>
+        <label for="details">mehr Details zur Erinnerung: 
+            <textarea type="text" name="mk_details" id="valueDetails" placeholder="..."></textarea>
+        </label>
+
+        <input type="submit" value="erstellen" name="mk_submit">
+    </form>
 </body>
 </html>
