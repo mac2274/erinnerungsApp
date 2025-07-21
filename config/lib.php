@@ -4,7 +4,7 @@ session_start();
 require_once 'config.db.php';
 
 
-function regUser($name, $email, $hashedPwd)
+function regUser($regName, $regEmail, $hashedPwd)
 {
     global $mysqli;
     // variables
@@ -57,3 +57,18 @@ function loginUser($loginEmail)
     }
 }
 
+function makeErinnerung($mkValue, $mkDescript, $status, $changed, $u_id, $mkDeadline)
+{
+    global $mysqli;
+
+    $sql = "INSERT INTO erinnerung (value, description, status, changed, u_id, deadline) VALUE(?,?,?,?,?,?)";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('ssisis', $mkValue, $mkDescript, $status, $changed, $u_id, $mkDeadline);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+    return $stmt->affected_rows;
+}
