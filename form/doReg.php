@@ -1,9 +1,12 @@
 <?php
 
 require_once '../config/lib.php';
+global $regName;
+global $regEmail;
+global $hashedPwd;
 
 if (isset($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['reg_submit'])){
-    regUser($name, $email, $hashedPwd);
+    regUser($regName, $regEmail, $hashedPwd);
     
     // echo 'Registered!';
     require '../pages/home.html';

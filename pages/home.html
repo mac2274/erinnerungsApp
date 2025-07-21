@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-        <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
 
 </head>
+
 <body>
     <h1>Erinnerungs-Helper</h1>
     <p>Erstelle deine Erinnerungen hier, damit die ErinnerungsApp dir in deinem Alltag immer helfen kann :D </p>
 
     <form method="POST" action="">
         <label for="makeValue">Erinnerung erstellen:
-            <input type="text" name="mk_value" id="makeValue" placeholder="..." class="multiLines">
+            <input type="text" name="mk_value" id="makeValue" placeholder="neue Erinnerung hier" class="multiLines">
         </label>
-        <label for="details">mehr Details zur Erinnerung angeben: 
-            <textarea type="text" name="mk_details" id="valueDetails" placeholder="..." class="multiLines"></textarea>
+        <label for="details">mehr Details dazu:
+            <textarea type="text" name="mk_details" id="valueDetails" placeholder="weitere Infos hier" class="multiLines"></textarea>
         </label>
-
+        <label for="deadline">Deadline:
+            <input type="datetime" name="mk_deadline" id="deadline" placeholder="dd.mm.yyy">
+        </label>
         <input type="submit" value="erstellen" name="mk_submit">
     </form>
 
-    <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut"> 
+    <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut">
 
     <script>
         document.querySelector('#logoutButton').addEventListener('click', logoutFunction);
 
-        function logoutFunction(e){
+        function logoutFunction(e) {
             e.preventDefault();
 
             window.open("../form/doLogout.php", '_self');
         }
     </script>
 </body>
+
 </html>

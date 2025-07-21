@@ -17,17 +17,17 @@ function regUser($name, $email, $hashedPwd)
     if (!$stmt) {
         throw new Exception($mysqli->error);
     }
-    $stmt->bind_param('sss', $name, $email, $hashedPwd);
+    $stmt->bind_param('sss', $regName, $regEmail, $hashedPwd);
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);
     }
     // Session setzen
-    $_SESSION['name'] = $name;
+    $_SESSION['name'] = $regName;
 
     return $stmt->affected_rows;
 }
 
-function loginUser($email)
+function loginUser($loginEmail)
 {
     global $mysqli;
     // variable

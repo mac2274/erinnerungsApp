@@ -59,13 +59,19 @@ ol li {
     text-transform: uppercase;
 }
 
-.logoutBut {
+.logoutBut, button#backButton {
     display: flex;
     justify-self: end;
     background: red;
     color: #fff;
     border: none;
     width: fit-content;
+    margin: 1em 0;
+}
+
+input#backButton {
+    border-radius: 20px;
+    margin: 2em 0;
 }
 
 form {
