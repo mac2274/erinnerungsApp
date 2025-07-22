@@ -21,16 +21,17 @@
         loginUser($loginEmail);
 
         if (isset($_SESSION['loginDone'])) {
-            echo '<p class=greeting>Willkommen zurück, ' . $_SESSION['name'] . '!</p>';
-            require '../pages/home.html';
+            //echo '<p class=greeting>Willkommen zurück, ' . $_SESSION['name'] . '!</p>';
+            //require '../index.html';
+            header('Location: ../pages/make.html', true );
         } else {
             echo 'Login fehlgeschlagen.';
 
             // ------------ funktion fehlt noch hier ------------------!!!
             echo '<button onclick="window.location.href = \'../pages/login.html\';" name="backButton" id="backButton" class="button">zurück zur Startseite</button>';
         }
-    } else {
-        echo 'Ein Fehler beim Login ist aufgetreten.';
+    // } else {
+    //     echo 'Ein Fehler beim Login ist aufgetreten.';
     }
     ?>
 
