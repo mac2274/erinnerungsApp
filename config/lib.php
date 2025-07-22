@@ -57,21 +57,16 @@ function loginUser($loginEmail)
     }
 }
 
-function makeErinnerung($mkValue, $mkDescript, $status, $changed, $u_id, $mkDeadline)
+function makeErinnerung($mkValue, $mkDetails, $status, $changed, $u_id, $mkDeadline)
 {
     global $mysqli;
 
-    $mkValue = $_POST['mk_value'];
-    $mkDescript = $_POST['mk_details'];
-    $mkDeadline = $_POST['mk_deadline'];
-
-    $sql = "INSERT INTO erinnerung (value, description, status, changed, u_id, deadline) 
-            VALUES (?,?,?,?,?,?)";
+    $sql = "INSERT INTO erinnerung SET value=?, description=?, status=?, changed=?, u_id=?, deadline=? ";
     $stmt = $mysqli->prepare($sql);
     if (!$stmt) {
         throw new Exception($mysqli->error);
     }
-    $stmt->bind_param('ssisis', $mkValue, $mkDescript, $status, $changed, $u_id, $mkDeadline);
+    $stmt->bind_param('ssisis', $mkValue, $mkDetails, $status, $changed, $u_id, $mkDeadline);
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);
     }

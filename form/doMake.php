@@ -1,12 +1,13 @@
 <?php
 require_once '../config/lip.php';
 
-global $mkValue;
-global $mkDescript;
-global $mkDeadline;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mk_submit'])) {
 
-if (isset($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['mk_submit'])){
-    makeErinnerung($mkValue, $mkDescript, $status, $changed, $u_id, $mkDeadline);
+    $mkValue = $_POST['mk_value'];
+    $mkDetails = $_PPOST['mk_details'];
+    $mkDeadline = $_POST['mk_deadline'];
+    
+    makeErinnerung($mkValue, $mkDetails, $_POST['status'], $_POST['changed'], $_POST['u_id'], $mkDeadline);
     echo 'Du hast eine Erinnerung erstellt!';
 } else {
     echo 'Es konnte keine neue Erinnerung erstellt werden.';
