@@ -1,6 +1,7 @@
 <?php
 
 require_once '../config/lib.php';
+
 global $regName;
 global $regEmail;
 global $hashedPwd;

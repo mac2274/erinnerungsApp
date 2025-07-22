@@ -61,6 +61,10 @@ function makeErinnerung($mkValue, $mkDetails, $status, $changed, $u_id, $mkDeadl
 {
     global $mysqli;
 
+    $mkValue = $_POST['mk_value'];
+    $mkDetails = $_POST['mk_details'];
+    $mkDeadline = $_POST['mk_deadline'];
+
     $sql = "INSERT INTO erinnerung SET value=?, description=?, status=?, changed=?, u_id=?, deadline=? ";
     $stmt = $mysqli->prepare($sql);
     if (!$stmt) {
