@@ -23,7 +23,7 @@
         if (isset($_SESSION['loginDone'])) {
             //echo '<p class=greeting>Willkommen zurück, ' . $_SESSION['name'] . '!</p>';
             //require '../index.html';
-            header('Location: ../pages/make.html', true );
+            header('Location: ../pages/makeValue.html', true );
         } else {
             echo 'Login fehlgeschlagen.';
 
