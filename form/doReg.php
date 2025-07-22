@@ -9,7 +9,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['reg_submit'])){
     regUser($regName, $regEmail, $hashedPwd);
     
     // echo 'Registered!';
-    require '../pages/home.html';
+    require '../pages/makeValue.html';
 } else {
     echo 'Ein Fehler beim Registrieren ist aufgetreten.';
 }
