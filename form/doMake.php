@@ -6,10 +6,11 @@ global $mkDetails;
 global $mkDeadline;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mk_submit'])) {
-
     makeErinnerung($mkValue, $mkDetails, $_POST['status'], $_POST['changed'], $_POST['u_id'], $mkDeadline);
     echo 'Du hast eine Erinnerung erstellt!';
-    header(' Location : ..index.html?success=1&user=$name');
+    // header(" Location : ..index.html?success=1&user=" . urlencode($_SESSION['name']));
+    header("Location: pages/makeValue.html?");
+    exit;
 } else {
     echo 'Es konnte keine neue Erinnerung erstellt werden.';
 }
