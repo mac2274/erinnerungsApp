@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <?php require 'header/header.php'; ?>
     <h1>Erinnerungs-Helper</h1>
     <p>Erstelle deine Erinnerungen hier, damit die ErinnerungsApp dir in deinem Alltag immer helfen kann :D </p>
 

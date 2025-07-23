@@ -74,6 +74,11 @@ input#backButton {
     margin: 2em 0;
 }
 
+.loggedIn {
+    font-size: 2.em;
+    font-style: uppercase;
+}
+
 form {
     display: flex;
     text-align: left;

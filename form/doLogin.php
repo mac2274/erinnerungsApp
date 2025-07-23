@@ -10,7 +10,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['login_submit'])
     if (isset($_SESSION['loginDone'])) {
         //echo '<p class=greeting>Willkommen zurück, ' . $_SESSION['name'] . '!</p>';
         //require '../index.html';
-        header('Location: ../pages/makeValue.html', true);
+        header('Location: ../pages/makeValue.php');
     } else {
         echo 'Login fehlgeschlagen.';
 
