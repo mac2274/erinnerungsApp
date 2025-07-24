@@ -1,5 +1,5 @@
 <?php
-//require_once '../config/lib.php';
+require_once '../config/lib.php';
 
 global $mkValue;
 global $mkDetails;

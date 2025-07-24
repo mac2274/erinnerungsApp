@@ -76,3 +76,20 @@ function makeErinnerung($mkValue, $mkDetails, $status, $changed, $u_id, $mkDeadl
     }
     return $stmt->affected_rows;
 }
+
+function showValue(){
+    global $mysqli;
+    
+    $sql = "SELECT id, value, description FROM erinnerung ORDER BY id DESC LIMIT 1";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->execute();
+    
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()){
+        echo '<p class="showValueAfter"><b>Erinnerung: ID: </b>'.$row['id'].': '.$row['value'].'( '.$row['description'].')</p>';
+    }
+
+}

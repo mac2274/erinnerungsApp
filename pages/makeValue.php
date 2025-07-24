@@ -16,7 +16,7 @@
 
     <h1>Erinnerungs-Helper</h1>
     <?php if (isset($_GET['make'])) {
-        require 'parts/valueSubmit.php';
+        require_once 'parts/valueSubmit.php';
     } ?>
 
     <form method="POST" action="../form/doMake.php">

@@ -160,4 +160,8 @@ form {
     }
 }
 
+.showValueAfter {
+    margin-bottom: 5%;
+}
+
 @media screen and (min-width: 1200px) {}
