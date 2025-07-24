@@ -41,6 +41,8 @@
         <input type="submit" id="seeAll" value="alle Erinnerungen sehen" name="allValues" class="button ">
     </div>
 
+    <?php require 'parts/allValues.php' ?>
+
     <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut">
 
     <script>
@@ -48,7 +50,7 @@
         document.querySelector('#logoutButton').addEventListener('click', logoutFunction);
 
         function seeAllFunction(){
-            window.open("parts/allValues.php", '_blank');
+            window.open("parts/allValues.php", '_self');
         }
 
         function logoutFunction(e) {

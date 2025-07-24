@@ -1,5 +1,5 @@
 <?php
 
-require '../../config/lib.php';
+require '../config/lib.php';
 
 seeAllFunction();
