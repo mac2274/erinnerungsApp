@@ -85,6 +85,7 @@ form {
     flex-direction: column;
     font-size: 1.2em;
     gap: 1em;
+    margin-bottom: 10%;
 
     .col_2 {
         display: flex;
@@ -105,6 +106,7 @@ form {
         align-items: center;
         font-family: 'Courier New', Courier, monospace;
     }
+
 
     input,
     textarea {
@@ -142,7 +144,20 @@ form {
     .multilines {
         min-height: 5em;
     }
+
+
 }
 
+#viewValues {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+
+    input {
+        display: inline-flex;
+        padding: 2.5%;
+    }
+}
 
 @media screen and (min-width: 1200px) {}

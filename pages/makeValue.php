@@ -36,6 +36,11 @@
         <input type="submit" value="erstellen" name="mk_submit">
     </form>
 
+    <div id="viewValues">
+        <input type="submit" id="seeLast" value="zuletzt erstellte Erinnerungen ansehen" name="lastValues" class="button ">
+        <input type="submit" id="seeAll" value="alle Erinnerungen sehen" name="allValues" class="button ">
+    </div>
+
     <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut">
 
     <script>
