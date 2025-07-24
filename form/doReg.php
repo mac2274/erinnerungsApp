@@ -1,5 +1,4 @@
 <?php
-
 require_once '../config/lib.php';
 
 global $regName;
@@ -10,7 +9,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['reg_submit'])){
     regUser($regName, $regEmail, $hashedPwd);
     
     // echo 'Registered!';
-    require '../pages/makeValue.html';
+    require '../pages/makeValue.php';
 } else {
     echo 'Ein Fehler beim Registrieren ist aufgetreten.';
 }

@@ -11,9 +11,11 @@
 </head>
 
 <body>
-    <?php require 'header/header.php'; ?>
+    <!-- header line -->
+    <?php require 'parts/header.php'; ?>
+
     <h1>Erinnerungs-Helper</h1>
-    <p>Erstelle deine Erinnerungen hier, damit die ErinnerungsApp dir in deinem Alltag immer helfen kann :D </p>
+    <?php require 'parts/valueSubmit.php' ?>
 
     <form method="POST" action="../form/doMake.php">
         <label for="makeValue">Erinnerung erstellen:
