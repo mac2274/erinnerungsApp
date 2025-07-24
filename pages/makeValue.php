@@ -16,7 +16,7 @@
 
     <h1>Erinnerungs-Helper</h1>
     <?php if (isset($_GET['make'])) {
-        require_once 'parts/valueSubmit.php';
+        require 'parts/valueSubmit.php';
     } ?>
 
     <form method="POST" action="../form/doMake.php">
@@ -44,7 +44,12 @@
     <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut">
 
     <script>
+        document.querySelector('#seeAll').addEventListener('click', seeAllFunction);
         document.querySelector('#logoutButton').addEventListener('click', logoutFunction);
+
+        function seeAllFunction(){
+            window.open("parts/allValues.php", '_blank');
+        }
 
         function logoutFunction(e) {
             e.preventDefault();

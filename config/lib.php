@@ -77,19 +77,39 @@ function makeErinnerung($mkValue, $mkDetails, $status, $changed, $u_id, $mkDeadl
     return $stmt->affected_rows;
 }
 
-function showValue(){
+function showValue()
+{
     global $mysqli;
-    
+
     $sql = "SELECT id, value, description FROM erinnerung ORDER BY id DESC LIMIT 1";
     $stmt = $mysqli->prepare($sql);
     if (!$stmt) {
         throw new Exception($mysqli->error);
     }
     $stmt->execute();
-    
+
     $result = $stmt->get_result();
-    while ($row = $result->fetch_assoc()){
-        echo '<p class="showValueAfter"><b>Erinnerung: ID: </b>'.$row['id'].': '.$row['value'].'( '.$row['description'].')</p>';
+    while ($row = $result->fetch_assoc()) {
+        echo '<p class="showValueAfter"><b>Erinnerung: ID: </b>' . $row['id'] . ': ' . $row['value'] . '( ' . $row['description'] . ')</p>';
     }
 
+}
+function seeAllFunction()
+{
+    global $mysqli;
+
+    $sql = "SELECT * FROM erinnerung ORDER BY id DESC";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    echo '<h3>Erinnerungen:</h3><br>';
+    while ($row = $result->fetch_assoc()) {
+        echo '<p><b>ID: </b>' . $row['id'] . '<br><b>value:</b> ' . $row['value'] . ' (' . $row['description'] . ') <br>
+        status: '.$row['status']. ' changed: '.$row['changed']. '<br>deadline: '.$row['deadline'].'</p>';
+    }
 }

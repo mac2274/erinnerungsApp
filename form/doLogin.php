@@ -16,7 +16,5 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['login_submit'])
         // ------------ funktion fehlt noch hier ------------------!!!
         echo '<button onclick="window.location.href = \'../pages/login.html\';" name="backButton" id="backButton" class="button">zurück zur Startseite</button>';
     }
-    // } else {
-    //     echo 'Ein Fehler beim Login ist aufgetreten.';
 }
 ?>
