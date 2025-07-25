@@ -38,20 +38,14 @@
     </form>
 
     <div id="viewValues">
-        <a href="parts/allValues.php" id="seeAll" name="allValues" class="button">alle Erinnerungen sehen</a>
-        <a href="parts/search.html" id="searchVAlue" name="lastValues" class="button">Erinnerungen suchen</a>
+        <a href="allValues.php" id="seeAll" class="button">Letzten 20 Erinnerungen ansehen</a>
+        <a href="searchValue.php" id="searchVAlue" class="button">Erinnerungen suchen</a>
     </div>
 
     <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut">
 
     <script>
-        //document.querySelector('#seeAll').addEventListener('click', seeAllFunction);
         document.querySelector('#logoutButton').addEventListener('click', logoutFunction);
-
-        function seeAllFunction(e) {
-            e.preventDefault();
-            window.open("parts/allValues.php", '_self');
-        }
 
         function logoutFunction(e) {
             e.preventDefault();

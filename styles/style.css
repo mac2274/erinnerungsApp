@@ -8,6 +8,7 @@ body {
     text-wrap: pretty;
     font-family: 'Courier New', Courier, monospace;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /*h2 {
@@ -59,7 +60,7 @@ ol li {
     text-transform: uppercase;
 }
 
-.logoutBut, button#backButton {
+.logoutBut {
     display: flex;
     justify-self: end;
     background: red;
@@ -67,6 +68,9 @@ ol li {
     border: none;
     width: fit-content;
     margin: 1em 0;
+   
+    align-self: end;
+
 }
 
 input#backButton {
@@ -148,6 +152,21 @@ form {
 
 }
 
+.back {
+    display: inline-flex;
+    width: fit-content;
+    align-self: end;
+    background: rgb(48, 48, 182);
+    color: #fff;
+    padding: 2%;
+    border-radius: 50px;
+
+    &:hover {
+        color: #000;
+        background: red;
+    }
+}
+
 #viewValues {
     display: flex;
     flex-direction: row;
@@ -157,7 +176,7 @@ form {
     a {
         display: inline-flex;
         padding: 2.5%;
-        border-radius: 50px;
+        border-radius: 50pxF;
     }
 }
 
