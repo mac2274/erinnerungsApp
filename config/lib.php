@@ -130,13 +130,14 @@ function searchId($id) {
     }
     $result = $stmt->get_result();
 
+    echo '<h3>Gesuchte ID:</h3>';
     while ($row = $result->fetch_assoc()){
-        echo    'ID: '.$row['id'];
-                'Value: '.$row['value'];
-                'Description: '.$row['description'];
-                'Status: '.$row['status'];
-                'Changed: '.$row['changed'];
-                'Deadline: '.$row['deadline'];
+        echo    'ID: '.$row['id'].
+                '<br>Value: '.$row['value'].
+                '<br>Description: '.$row['description'].
+                '<br>Status: '.$row['status'].
+                '<br>Changed: '.$row['changed'].
+                '<br>Deadline: '.$row['deadline'];
     }
     
 }
