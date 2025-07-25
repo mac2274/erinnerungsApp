@@ -38,10 +38,10 @@
     </form>
 
     <div id="viewValues">
-        <a href="parts/allVallues.php" id="seeAll" name="allValues" class="button">alle Erinnerungen sehen"</a>
+        <a href="parts/allValues.php" id="seeAll" name="allValues" class="button">alle Erinnerungen sehen</a>
         <a href="parts/search.html" id="searchVAlue" name="lastValues" class="button">Erinnerungen suchen</a>
     </div>
-    
+
     <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut">
 
     <script>
