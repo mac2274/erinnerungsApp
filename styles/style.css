@@ -154,9 +154,10 @@ form {
     justify-content: center;
     gap: 1em;
 
-    input {
+    a {
         display: inline-flex;
         padding: 2.5%;
+        border-radius: 50px;
     }
 }
 

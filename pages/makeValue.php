@@ -15,6 +15,7 @@
     <?php require 'parts/header.php'; ?>
 
     <h1>Erinnerungs-Helper</h1>
+
     <?php if (isset($_GET['make'])) {
         require 'parts/valueSubmit.php';
     } ?>
@@ -37,19 +38,18 @@
     </form>
 
     <div id="viewValues">
-        <input type="submit" id="seeLast" value="zuletzt erstellte Erinnerungen ansehen" name="lastValues" class="button ">
-        <input type="submit" id="seeAll" value="alle Erinnerungen sehen" name="allValues" class="button ">
+        <a href="parts/allVallues.php" id="seeAll" name="allValues" class="button">alle Erinnerungen sehen"</a>
+        <a href="parts/search.html" id="searchVAlue" name="lastValues" class="button">Erinnerungen suchen</a>
     </div>
-
-    <?php require 'parts/allValues.php' ?>
-
+    
     <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut">
 
     <script>
-        document.querySelector('#seeAll').addEventListener('click', seeAllFunction);
+        //document.querySelector('#seeAll').addEventListener('click', seeAllFunction);
         document.querySelector('#logoutButton').addEventListener('click', logoutFunction);
 
-        function seeAllFunction(){
+        function seeAllFunction(e) {
+            e.preventDefault();
             window.open("parts/allValues.php", '_self');
         }
 
@@ -58,7 +58,6 @@
 
             window.open("../form/doLogout.php", '_self');
         }
-
 
     </script>
 </body>
