@@ -133,11 +133,29 @@ function searchId($id) {
     echo '<h3>Gesuchte ID:</h3>';
     while ($row = $result->fetch_assoc()){
         echo    'ID: '.$row['id'].
-                '<br>Value: '.$row['value'].
+                '<br>Value: <b>'.$row['value'].'</b>'.
                 '<br>Description: '.$row['description'].
                 '<br>Status: '.$row['status'].
                 '<br>Changed: '.$row['changed'].
                 '<br>Deadline: '.$row['deadline'];
     }
-    
+}
+
+function valueSearch($value){
+    global $mysqli;
+
+    $value = $_POST['searchValue'];
+    $sql = "SELECT * FROM erinnerung WHERE value=?";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('s', $value);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+    $result = $stmt->get_result();
+    while($row = $result->fetch_assoc()){
+        echo $row['id'];
+    }
 }
