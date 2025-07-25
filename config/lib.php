@@ -113,3 +113,30 @@ function seeAllFunction()
         status: '.$row['status']. ' changed: '.$row['changed']. '<br>deadline: '.$row['deadline'].'</p>';
     }
 }
+
+function searchId($id) {
+    global $mysqli;
+
+    $id = $_POST['searchId'];
+
+    $sql = "SELECT * FROM erinnerung WHERE id=?";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('i', $id);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+    $result = $stmt->get_result();
+
+    while ($row = $result->fetch_assoc()){
+        echo    'ID: '.$row['id'];
+                'Value: '.$row['value'];
+                'Description: '.$row['description'];
+                'Status: '.$row['status'];
+                'Changed: '.$row['changed'];
+                'Deadline: '.$row['deadline'];
+    }
+    
+}

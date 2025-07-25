@@ -16,7 +16,7 @@
     <form method="POST">
         <div class="col_2 ">
             <label for="search_id">ID-Suche:</label>
-            <input type="number" name="search_id" id="search_id">
+            <input type="number" name="searchId" id="search_id">
         </div>
 
         <div class="col_2">
@@ -25,9 +25,19 @@
         </div>
 
         <input type="submit" name="search_submit" value="Suchen">
-
-            <a href="makeValue.php" class="button back">zurück</a>
-
     </form>
+    <a href="makeValue.php" class="button back">zurück</a>
+
 </body>
+
 </html>
+
+<?php
+require_once '../config/lib.php';
+
+if ($_SERVER['REQUEST_METHOD']){
+    if (isset($_POST['searchId'])){
+        global $id;
+        searchId($id);
+    }
+}
