@@ -98,7 +98,7 @@ function seeAllFunction()
 {
     global $mysqli;
 
-    $sql = "SELECT * FROM erinnerung ORDER BY id DESC";
+    $sql = "SELECT * FROM erinnerung ORDER BY id DESC LIMIT 20";
     $stmt = $mysqli->prepare($sql);
     if (!$stmt) {
         throw new Exception($mysqli->error);
@@ -107,9 +107,9 @@ function seeAllFunction()
 
     $result = $stmt->get_result();
 
-    echo '<h3>Erinnerungen:</h3><br>';
+    echo '<h3>Erinnerungen:</h3>';
     while ($row = $result->fetch_assoc()) {
-        echo '<p><b>ID: </b>' . $row['id'] . '<br><b>value:</b> ' . $row['value'] . ' (' . $row['description'] . ') <br>
+        echo '<p><b>ID: ' . $row['id'] . '</b><br><b>value:</b> ' . $row['value'] . ' (' . $row['description'] . ') <br>
         status: '.$row['status']. ' changed: '.$row['changed']. '<br>deadline: '.$row['deadline'].'</p>';
     }
 }
