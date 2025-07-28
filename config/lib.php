@@ -110,11 +110,12 @@ function seeAllFunction()
     echo '<h3>Erinnerungen:</h3>';
     while ($row = $result->fetch_assoc()) {
         echo '<p><b>ID: ' . $row['id'] . '</b><br><b>value:</b> ' . $row['value'] . ' (' . $row['description'] . ') <br>
-        status: '.$row['status']. ' changed: '.$row['changed']. '<br>deadline: '.$row['deadline'].'</p>';
+        status: ' . $row['status'] . ' changed: ' . $row['changed'] . '<br>deadline: ' . $row['deadline'] . '</p>';
     }
 }
 
-function searchId($id) {
+function searchId()
+{
     global $mysqli;
 
     $id = $_POST['searchId'];
@@ -131,31 +132,50 @@ function searchId($id) {
     $result = $stmt->get_result();
 
     echo '<h3>Gesuchte ID:</h3>';
-    while ($row = $result->fetch_assoc()){
-        echo    'ID: '.$row['id'].
-                '<br>Value: <b>'.$row['value'].'</b>'.
-                '<br>Description: '.$row['description'].
-                '<br>Status: '.$row['status'].
-                '<br>Changed: '.$row['changed'].
-                '<br>Deadline: '.$row['deadline'];
+    while ($row = $result->fetch_assoc()) {
+        echo 'ID: ' . $row['id'] .
+            '<br>Value: <b>' . $row['value'] . '</b>' .
+            '<br>Bescheribung: ' . $row['description'] .
+            '<br>Status: ' . $row['status'] .
+            '<br>Changed: ' . $row['changed'] .
+            '<br>Frist: ' . $row['deadline'];
     }
 }
 
-function valueSearch($value){
+function valueSearch()
+{
     global $mysqli;
 
+    // prüfen ob inhalt gesetzt ist
+    if (!isset($_POST['searchValue']) || trim($_POST['searchValue']) === '') {
+        echo '❌ Bitte gib einen Suchbegriff ein.';
+        return;
+    }
+
+    $sql = "SELECT * FROM erinnerung WHERE value LIKE ?";
     $value = $_POST['searchValue'];
-    $sql = "SELECT * FROM erinnerung WHERE value=?";
+    $likeValue = '%' . $value . '%'; // Zeichenketten Verkettung : %$value% (sql)
     $stmt = $mysqli->prepare($sql);
     if (!$stmt) {
         throw new Exception($mysqli->error);
     }
-    $stmt->bind_param('s', $value);
+    $stmt->bind_param('s', $likeValue);
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);
     }
     $result = $stmt->get_result();
-    while($row = $result->fetch_assoc()){
-        echo $row['id'];
+    $leer = [];
+
+    echo '<h3>Gesuchte Erinnerung/en:</h3>';
+    while ($row = $result->fetch_assoc()) {
+        $leer[] = $row;
+
+        echo '<br><br>';
+        echo $row['id'] . ': ' . $row['value'];
+    }
+    
+    if ($result->num_rows === 0){
+        echo 'Keine Ergebnisse gefunden';
+        return;
     }
 }

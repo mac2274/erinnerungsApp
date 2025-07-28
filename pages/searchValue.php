@@ -21,7 +21,7 @@
 
         <div class="col_2">
             <label for="search_erin">Erinnerungssuche:</label>
-            <input type="text" name="search_erin" id="search_erin">
+            <input type="text" name="searchValue" id="search_erin">
         </div>
 
         <input type="submit" name="search_submit" value="Suchen">
@@ -35,9 +35,16 @@
 <?php
 require_once '../config/lib.php';
 
-if ($_SERVER['REQUEST_METHOD']){
-    if (isset($_POST['searchId'])){
-        global $id;
-        searchId($id);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // if (isset($_POST['searchId'])){
+    //     global $id;
+    //     searchId();
+    // } else
+    if (isset($_POST['searchValue'])) {
+        //echo $_POST['searchValue'];
+
+        valueSearch();
+    } else {
+        echo 'elseif';
     }
 }
