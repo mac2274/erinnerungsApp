@@ -173,9 +173,40 @@ function valueSearch()
         echo '<br><br>';
         echo $row['id'] . ': ' . $row['value'];
     }
-    
+
     if ($result->num_rows === 0){
         echo 'Keine Ergebnisse gefunden';
         return;
+    }
+}
+
+function deleteValue(){
+    global $mysqli;
+    $Id = $_POST['changeId'];
+    $value = $_POST['changeValue'];
+
+    $sql = "DELETE FROM erinnerung WHERE id=? OR value=?";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('is', $Id, $value);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+}
+
+function chanceValue(){}{
+    global $mysqli;
+    $Id = 
+
+    $sql = "UPDATE erinnerung SET value=?, description=? WHERE id=?";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('i', $Id);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
     }
 }
