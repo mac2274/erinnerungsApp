@@ -197,13 +197,13 @@ function valueSearch()
 //     }
 // }
 
+
+// variablen globakl setzen
+$Id = $_POST['deleteId'];
+$Value = $_POST['deleteValue'];
 function deleteValue(): void
 {
-    // echo $_POST['deleteId'];
-    // echo $_POST['deleteValue'];
-
     global $mysqli;
-
 
     $sql = "DELETE FROM erinnerung WHERE id=? OR value=?";
     $stmt = $mysqli->prepare($sql);
@@ -216,3 +216,4 @@ function deleteValue(): void
     }
 
 }
+
