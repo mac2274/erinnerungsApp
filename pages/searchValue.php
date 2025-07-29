@@ -26,6 +26,7 @@
 
         <input type="submit" name="search_submit" value="Suchen">
     </form>
+    
     <a href="makeValue.php" class="button back">zurück</a>
 
 </body>

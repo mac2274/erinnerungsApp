@@ -109,6 +109,7 @@ form {
         justify-content: left;
         align-items: center;
         font-family: 'Courier New', Courier, monospace;
+        gap: 1em;
     }
 
 
@@ -121,6 +122,12 @@ form {
         font-family: 'Courier New', Courier, monospace;
         border-radius: 20px;
         border: 1px solid rgb(185, 185, 185);
+        gap: 1em;
+    }
+
+    .width80 {
+        width: 95%;
+        
     }
 
     textarea {
@@ -172,7 +179,8 @@ form {
     flex-direction: row;
     justify-content: center;
     gap: 1em;
-
+    flex-wrap: wrap;
+    
     a {
         display: inline-flex;
         padding: 2.5%;
