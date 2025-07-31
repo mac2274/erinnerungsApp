@@ -4,20 +4,14 @@ $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['deleteId'])) {
-        global $Id;
-        $message = 'Bist du sicher, dass du die Erinnerung #' . $Id . ' löschen möchtest ?
-                <form method="GET">
-                    <input type="button" class="button" value="Ja, löschen" name="doDelete" id="deleteButton">
-                    <input type="button" class="button" name="noDelete" value="Nicht löschen!" id="noDButton">
-                </form>';
-        if (isset($s['doDelete'])) {
-            global $Id;
-            deleteValue();
-            $message = 'Du hast die Erinnerung #' . htmlspecialchars($Id) . ' gelöscht.';
-        } elseif (isset($_POST['noDelete'])) {
-            global $Id;
-            $message = 'Die Erinnerung mit der ID #' . $Id . 'wurde nicht gelöscht.';
-        }
+        $Id = $_POST['deleteId'];
+        $message = 'Bist du sicher, dass du die Erinnerung #' . $Id . ' löschen möchtest?
+           
+                <div>
+                    <a href="parts/deleted.php?delete=true&id='.$Id.'" class="button">Ja, löschen.</a>
+                    <a href="" class="button">Nicht löschen.</a>
+                </div>';
+
     } elseif (!empty($_POST['deleteValue'])) {
         global $Value;
         deleteValue();
@@ -28,3 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
+
+<script>
+
+</script>

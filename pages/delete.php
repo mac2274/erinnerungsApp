@@ -1,8 +1,8 @@
-<?php 
+<?php
 $message = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require 'parts/doDelete.php';
-} 
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     <h1>Erinnerungs-Helper</h1>
 
-    <form method="POST">
+    <form method="GET">
         <label for="deleteId">Löschen anhand der ID:</label>
         <input type="text" name="deleteId" id="deleteId" class="width80">
 
@@ -31,9 +31,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         <input type="submit" value="Erinnerung löschen" name="deleteeSubmit">
     </form>
 
-    <?php if (!empty($message)){
-        echo '<p>' .$message. '</p>';
-    } ?>
+    <?php if (!empty($message)) {
+        echo '<p>' . $message . '</p>';
+    }
+    if (isset($_GET['delete']) && $_GET['delete'] === 'true') {
+        deleteValue();
+        $message = 'Du hast die Erinnerung #' . htmlspecialchars($Id) . ' gelöscht.';
+    } elseif (isset($_POST['noDelete'])) {
+        global $Id;
+        $message = 'Die Erinnerung mit der ID #' . $Id . 'wurde nicht gelöscht.';
+    } else {
+        echo 'does not work..';
+    }
+    ?>
 
     <a href="makeValue.php" class="button back">zurück</a>
 
