@@ -14,10 +14,10 @@
 
     <h2>Suche nach Erinnerungen</h2>
     <form method="POST">
-        <div class="col_2 ">
+        <!-- <div class="col_2 ">
             <label for="search_id">ID-Suche:</label>
             <input type="number" name="searchId" id="search_id">
-        </div>
+        </div> -->
 
         <div class="col_2">
             <label for="search_erin">Erinnerungssuche:</label>
@@ -37,15 +37,10 @@
 require_once '../config/lib.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // if (isset($_POST['searchId'])){
-    //     global $id;
-    //     searchId();
-    // } else
     if (isset($_POST['searchValue'])) {
-        //echo $_POST['searchValue'];
-
+        $value = $_POST['searchValue'];
         valueSearch();
     } else {
-        echo 'elseif';
+        echo 'Bitte fülle ein Suchfeld';
     }
 }

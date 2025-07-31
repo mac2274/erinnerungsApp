@@ -1,8 +1,6 @@
 <?php
+require '../config/lib.php';
 $message = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require 'parts/doDelete.php';
-}
 ?>
 
 <!DOCTYPE html>
@@ -21,29 +19,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h1>Erinnerungs-Helper</h1>
 
-    <form method="GET">
-        <label for="deleteId">Löschen anhand der ID:</label>
-        <input type="text" name="deleteId" id="deleteId" class="width80">
+    <form method="GET" action="">
+        <!-- <label for="deleteId">Löschen anhand der ID:</label>
+        <input type="text" name="deleteId" id="deleteId" class="width80"> -->
 
         <label for="deleteValue">Löschen anhand der Beschreibung:</label>
         <input type="text" name="deleteValue" id="deleteValue" class="width80">
 
-        <input type="submit" value="Erinnerung löschen" name="deleteeSubmit">
+        <input type="submit" value="Erinnerung suchen" name="deleteSubmit">
     </form>
 
-    <?php if (!empty($message)) {
-        echo '<p>' . $message . '</p>';
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['deleteValue']) && !isset($_GET['delete'])) {
+        $valueDelete = trim($_GET['deleteValue']);
+
+        $message = 'Du möchtest diese Erinnerung "' . $_GET['deleteValue'] . '" löschen?
+            <div class="padding-top-5">
+                <a href="?delete=true&deleteValue=' . $_GET['deleteValue'] . '" class="button">Ja, löschen.</a>
+                <a href="delete.php" class="button">Nicht löschen.</a>
+            </div>';
     }
-    if (isset($_GET['delete']) && $_GET['delete'] === 'true') {
-        deleteValue();
-        $message = 'Du hast die Erinnerung #' . htmlspecialchars($Id) . ' gelöscht.';
-    } elseif (isset($_POST['noDelete'])) {
-        global $Id;
-        $message = 'Die Erinnerung mit der ID #' . $Id . 'wurde nicht gelöscht.';
-    } else {
-        echo 'does not work..';
+    if (isset($_GET['delete']) && $_GET['delete'] === 'true' && isset($_GET['deleteValue'])) {
+        echo $_GET['deleteValue'];
+        deleteValueFunction();
+        $message = 'Die Erinnerung "' . $_GET['deleteValue'] . '" wurde gelöscht.';
     }
     ?>
+
+    <?php if (!empty($message)) {
+        echo $message;
+    } ?>
 
     <a href="makeValue.php" class="button back">zurück</a>
 

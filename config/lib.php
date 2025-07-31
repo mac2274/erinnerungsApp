@@ -204,18 +204,23 @@ function valueSearch()
 // $deleteId = $_GET['deleteId'];
 
 
-function deleteValue(): void
+function deleteValueFunction(): void
 {
     global $mysqli;
 
-    $Id = $_GET['deleteId'];
+    if (!isset($_GET['deleteValue']) || trim($_GET['deleteValue']) === '') {
+        echo 'Bitte gib einen Suchbegriff ein.';
+        return;
+    }
 
-    $sql = "DELETE FROM erinnerung WHERE id=? OR value=?";
+    $sql = "DELETE FROM erinnerung WHERE value LIKE ?";
+    $valueDelete = $_GET['deleteValue'];
+    $likeValueD = '%' . $valueDelete . '%';
     $stmt = $mysqli->prepare($sql);
     if (!$stmt) {
         throw new Exception($mysqli->error);
     }
-    $stmt->bind_param('is', $Id, $value);
+    $stmt->bind_param('s', $likeValueD);
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);
     }

@@ -40,8 +40,8 @@
     <div id="viewValues">
         <a href="allValues.php" id="seeAll" class="button">Letzten 20 Erinnerungen ansehen</a>
         <a href="searchValue.php" id="searchVAlue" class="button">Erinnerungen suchen</a>
-        <a href=".php" id="changeValue" class="button">Letzten 20 Erinnerungen ansehen</a>
-        <a href="delete.html" id="deleteValue" class="button">Erinnerungen löschen</a>
+        <a href="change.php" id="changeValue" class="button">Erinnerungen ändern</a>
+        <a href="delete.php" id="deleteValue" class="button">Erinnerungen löschen</a>
     </div>
     <input type="submit" id="logoutButton" value="Logout" name="logoutButton" class="button logoutBut">
 
