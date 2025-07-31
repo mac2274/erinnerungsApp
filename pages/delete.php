@@ -29,7 +29,8 @@ $message = '';
         <input type="submit" value="Erinnerung suchen" name="deleteSubmit">
     </form>
 
-    <?php
+    <?php 
+    // eine GET-Abfrage wird gesetzt UND das input deleteValue ist aussgefüllt UND GET[delete] noch nicht bestätigt:
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['deleteValue']) && !isset($_GET['delete'])) {
         $valueDelete = trim($_GET['deleteValue']);
 
@@ -39,14 +40,17 @@ $message = '';
                 <a href="delete.php" class="button">Nicht löschen.</a>
             </div>';
     }
+
+    // wenn GET[delete] bestätigt wurde UND delete=1 UND GET[deleteValue] einen Wert hat:
     if (isset($_GET['delete']) && $_GET['delete'] === 'true' && isset($_GET['deleteValue'])) {
-        echo $_GET['deleteValue'];
         deleteValueFunction();
         $message = 'Die Erinnerung "' . $_GET['deleteValue'] . '" wurde gelöscht.';
     }
     ?>
 
-    <?php if (!empty($message)) {
+    
+    <?php // Die $message wird nachdem löschen mit einem echo ausgegeben 
+    if (!empty($message)) {
         echo $message;
     } ?>
 
