@@ -22,7 +22,7 @@ function regUser($regName, $regEmail, $hashedPwd)
         throw new Exception($stmt->error);
     }
     // Session setzen
-    $_SESSION['name'] = $regName;
+    $_SESSION['regName'] = $regName;
 
     return $stmt->affected_rows;
 }
@@ -166,12 +166,12 @@ function valueSearch()
     $result = $stmt->get_result();
     $leer = [];
 
-    echo '<h3>Gesuchte Erinnerung/en:</h3>';
+    echo '<h3>Erinnerung/en:</h3>';
     while ($row = $result->fetch_assoc()) {
         $leer[] = $row;
 
-        echo '<br><br>';
-        echo $row['id'] . ': ' . $row['value'];
+        echo '<br>';
+        echo '<a href="?value=' . htmlspecialchars($row['value']) . '"></a>: (' .htmlspecialchars($row['id']). ')';
     }
 
     if ($result->num_rows === 0) {
@@ -179,24 +179,6 @@ function valueSearch()
         return;
     }
 }
-
-// function changeValue()
-// {
-//     global $mysqli;
-//     $Id = $_POST['changeId'];
-//     $value = $_POST['changeValue'];
-
-//     $sql = "UPDATE erinnerung SET value=?, description=? WHERE id=?";
-//     $stmt = $mysqli->prepare($sql);
-//     if (!$stmt) {
-//         throw new Exception($mysqli->error);
-//     }
-//     $stmt->bind_param('is', $Id, $value);
-//     if (!$stmt->execute()) {
-//         throw new Exception($stmt->error);
-//     }
-// }
-
 
 // variablen globakl setzem
 // $Value = $_POST['deleteValue'];
@@ -227,3 +209,47 @@ function deleteValueFunction(): void
 
 }
 
+function changeValue()
+{
+    global $mysqli;
+    $Id = $_POST['changeId'];
+    $value = $_POST['changeValue'];
+
+    $sql = "UPDATE erinnerung SET value=?, description=? WHERE id=?";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('is', $Id, $value);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+}
+
+function showDetails()
+{
+    global $mysqli;
+
+    if (isset($_GET['value'])) {
+        $value = $_GET['value'];
+
+        $sql = "SELECT id, value, description, deadline FROM erinnerung WHERE value=?";
+        $stmt = $mysqli->prepare($sql);
+        if (!$stmt) {
+            throw new Exception($mysqli->error);
+        }
+        $stmt->bind_param('s', $value);
+        if (!$stmt->execute()){
+            throw new Exception($stmt->error);
+        }
+
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            echo '<a href="?value=' . htmlspecialchars($row['value']) . '"></a>'; 
+            echo '<b>' . htmlspecialchars($row['value']) . '"('. htmlspecialchars($row['id']).'</b>:</p><br>'; 
+            echo '<p>'. htmlspecialchars($row['description']) . '</p><br>';
+            echo '<p>' . htmlspecialchars($row['deadline']) . '</p>';
+        }
+
+    }
+}

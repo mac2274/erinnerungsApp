@@ -7,8 +7,6 @@ global $hashedPwd;
 
 if (isset($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['reg_submit'])){
     regUser($regName, $regEmail, $hashedPwd);
-    
-    // echo 'Registered!';
     require '../pages/makeValue.php';
 } else {
     echo 'Ein Fehler beim Registrieren ist aufgetreten.';

@@ -1,3 +1,8 @@
+<?php
+require_once '../config/lib.php';
+?>
+
+
 <html lang="en">
 
 <head>
@@ -13,34 +18,23 @@
     <h1>ErinnerungsApp</h1>
 
     <h2>Suche nach Erinnerungen</h2>
-    <form method="POST">
-        <!-- <div class="col_2 ">
-            <label for="search_id">ID-Suche:</label>
-            <input type="number" name="searchId" id="search_id">
-        </div> -->
+    <form method="POST" action="">
 
         <div class="col_2">
-            <label for="search_erin">Erinnerungssuche:</label>
+            <label for="search_erin">Suchbegriffeingabe:</label>
             <input type="text" name="searchValue" id="search_erin">
         </div>
 
         <input type="submit" name="search_submit" value="Suchen">
     </form>
-    
+
+    <?php
+    require_once '../form/doSearch.php';
+    //showDetails();
+    ?>
+
     <a href="makeValue.php" class="button back">zurück</a>
 
 </body>
 
 </html>
-
-<?php
-require_once '../config/lib.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['searchValue'])) {
-        $value = $_POST['searchValue'];
-        valueSearch();
-    } else {
-        echo 'Bitte fülle ein Suchfeld';
-    }
-}
