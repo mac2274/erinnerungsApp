@@ -38,7 +38,7 @@ require_once '../config/lib.php';
                 $placeholderValue = $_GET['value'] ?>
 
                 <form method="GET" action="">
-                        <h3>Änderung/en hier :</h3>
+                        <h3>Erinnerung bearbeiten :</h3>
                         <p>Erinnerung: <strong>"<?php echo $placeholderValue ?>" </strong></p>
                         <label for="newValue">Titel der Erinnerung ändern
                                 <input type="text" name="newValue" id="newValue" placeholder="<?php echo $placeholderValue ?>">
@@ -50,9 +50,7 @@ require_once '../config/lib.php';
                         <input type="submit" name="newValueSubmit" value="Änderung durchführen">
                 </form>
 
-        <?php }
-
-        changeValue(); ?>
+        <?php }?>
 
         <a href="makeValue.php" class="button back">zurück</a>
 
