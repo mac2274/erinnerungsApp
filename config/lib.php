@@ -171,7 +171,7 @@ function valueSearch()
         $leer[] = $row;
 
         echo '<br>';
-        echo '<a href="?value=' . htmlspecialchars($row['value']) . '"></a>: (' .htmlspecialchars($row['id']). ')';
+        echo '<a href="?value=' . htmlspecialchars($row['value']) . '">' . htmlentities($row['value']) .'('. htmlspecialchars($row['id']) .')</a>';
     }
 
     if ($result->num_rows === 0) {
@@ -212,15 +212,14 @@ function deleteValueFunction(): void
 function changeValue()
 {
     global $mysqli;
-    $Id = $_POST['changeId'];
-    $value = $_POST['changeValue'];
+    $value = $_GET['searchValue'];
 
-    $sql = "UPDATE erinnerung SET value=?, description=? WHERE id=?";
+    $sql = "UPDATE erinnerung SET value=?, description=? WHERE value=?";
     $stmt = $mysqli->prepare($sql);
     if (!$stmt) {
         throw new Exception($mysqli->error);
     }
-    $stmt->bind_param('is', $Id, $value);
+    $stmt->bind_param('sss', $_GET['newValue'], $_GET['newDescription'], $value);
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);
     }
@@ -245,10 +244,11 @@ function showDetails()
 
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
-            echo '<a href="?value=' . htmlspecialchars($row['value']) . '"></a>'; 
-            echo '<b>' . htmlspecialchars($row['value']) . '"('. htmlspecialchars($row['id']).'</b>:</p><br>'; 
-            echo '<p>'. htmlspecialchars($row['description']) . '</p><br>';
-            echo '<p>' . htmlspecialchars($row['deadline']) . '</p>';
+            echo '<a href="?value=' . htmlspecialchars($row['value']) . '">'; 
+            echo '<b>' . htmlspecialchars($row['value']) . '"('. htmlspecialchars($row['id']).')</b></a>'; 
+            echo htmlspecialchars($row['description']) . '<br>';
+            echo htmlspecialchars($row['deadline']) . '<br>';
+            echo '<hr>';
         }
 
     }

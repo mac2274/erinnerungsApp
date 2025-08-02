@@ -30,7 +30,7 @@ require_once '../config/lib.php';
 
     <?php
     require_once '../form/doSearch.php';
-    //showDetails();
+    showDetails();
     ?>
 
     <a href="makeValue.php" class="button back">zurück</a>
