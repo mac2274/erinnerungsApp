@@ -209,22 +209,6 @@ function deleteValueFunction(): void
 
 }
 
-function changeValue()
-{
-    global $mysqli;
-    $value = $_GET['searchValue'];
-
-    $sql = "UPDATE erinnerung SET value=?, description=? WHERE value=?";
-    $stmt = $mysqli->prepare($sql);
-    if (!$stmt) {
-        throw new Exception($mysqli->error);
-    }
-    $stmt->bind_param('sss', $_GET['newValue'], $_GET['newDescription'], $value);
-    if (!$stmt->execute()) {
-        throw new Exception($stmt->error);
-    }
-}
-
 function showDetails()
 {
     global $mysqli;
@@ -242,6 +226,7 @@ function showDetails()
             throw new Exception($stmt->error);
         }
 
+        echo '<h4>Gesuchte Erinnerungen/en:</h4>';
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
             echo '<a href="?value=' . htmlspecialchars($row['value']) . '">'; 
@@ -250,6 +235,23 @@ function showDetails()
             echo htmlspecialchars($row['deadline']) . '<br>';
             echo '<hr>';
         }
-
     }
 }
+
+function changeValue()
+{
+    global $mysqli;
+    $value = $_GET['value'];
+
+    $sql = "UPDATE erinnerung SET value=?, description=? WHERE value=?";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('sss', $_GET['newValue'], $_GET['newDescription'], $value);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+}
+
+

@@ -22,7 +22,7 @@ require_once '../config/lib.php';
 
                 <div class="col_2">
                         <label for="search_erin">Erinnerung/en suchen:</label>
-                        <input type="text" name="value" id="search_erin">
+                        <input type="text" name="searchValue" id="search_erin">
                 </div>
 
                 <input type="submit" name="search_submit" value="Suchen">
@@ -35,10 +35,11 @@ require_once '../config/lib.php';
 
         <?php
         if (isset($_GET['value'])) {
-                $placeholderValue = ($_GET['value']) ?>
+                $placeholderValue = $_GET['value'] ?>
 
-                <form method="POST" action="">
+                <form method="GET" action="">
                         <h3>Änderung/en hier :</h3>
+                        <p>Erinnerung: <strong>"<?php echo $placeholderValue ?>" </strong></p>
                         <label for="newValue">Titel der Erinnerung ändern
                                 <input type="text" name="newValue" id="newValue" placeholder="<?php echo $placeholderValue ?>">
                         </label>
@@ -46,10 +47,12 @@ require_once '../config/lib.php';
                                 <input type="text" name="newDescription" id="newDescription">
                         </label>
 
-                        <input type="submit" value="newValueSubmit">
+                        <input type="submit" name="newValueSubmit" value="Änderung durchführen">
                 </form>
 
-        <?php } ?>
+        <?php }
+
+        changeValue(); ?>
 
         <a href="makeValue.php" class="button back">zurück</a>
 
