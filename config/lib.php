@@ -210,7 +210,7 @@ function deleteValueFunction(): void
 }
 
 function changeValue($newValue, $newDescription, $oldValue)
-{
+{ // FRAGE 1 : hier musste ich parameter einsetzen... warum?
     global $mysqli;
 
     $newValue = $_POST['newValue'];

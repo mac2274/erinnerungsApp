@@ -1,15 +1,10 @@
 <?php
 require_once '../config/lib.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newValueSubmit'])) {
-        $newValue = $_POST['newValue'];
-        $newDescription = $_POST['newDescription'];
-        $originalValue = $_GET['value']; // <-- Über GET ermitteln, welcher Datensatz gemeint ist
 
-        changeValue($newValue, $newDescription, $originalValue);
-        // $_POST['newValue'], $_POST['newDescription'], $_GET['value']
-}
 ?>
+
+
 
 
 <html lang="en">
@@ -59,10 +54,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newValueSubmit'])) {
                         <input type="submit" name="newValueSubmit" value="Änderung durchführen">
                 </form>
 
-        <?php } ?>
+        <?php }
 
-   
-        ?>
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newValueSubmit'])) {
+                $newValue = $_POST['newValue'];
+                $newDescription = $_POST['newDescription'];
+                $originalValue = $_GET['value']; // <-- Über GET ermitteln, welcher Datensatz gemeint ist
+        
+                changeValue($newValue, $newDescription, $originalValue);
+                echo '<p>Du hast die Erinnerung "'. htmlspecialchars($originalValue) .'" verändert in <br>
+                        <strong>' . htmlspecialchars($newValue) .'(' .htmlspecialchars($newDescription) . ')</strong>.</p>';
+                // FRAGE 2: Wieso musste dieser Teil jetzt oben im Code stehen?        
+        } ?>
 
         <a href="makeValue.php" class="button back">zurück</a>
 
