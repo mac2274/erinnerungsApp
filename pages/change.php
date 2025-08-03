@@ -39,13 +39,13 @@ require_once '../config/lib.php';
 
         <?php
         if (isset($_GET['value'])) {
-                $placeholderValue = $_GET['value'] ?>
+                $placeholderValue = $_GET['value'] // placeholder as value?> 
 
                 <form method="POST" action="">
                         <h3>Erinnerung bearbeiten :</h3>
                         <p>Erinnerung: <strong>"<?php echo $placeholderValue ?>" </strong></p>
                         <label for="newValue">Titel der Erinnerung ändern
-                                <input type="text" name="newValue" id="newValue" placeholder="<?php echo $placeholderValue ?>">
+                                <input type="text" name="newValue" id="newValue" value="<?php echo $placeholderValue ?>">
                         </label>
                         <label for="newDescription">Beschreibunng dazu ändern
                                 <input type="text" name="newDescription" id="newDescription">
