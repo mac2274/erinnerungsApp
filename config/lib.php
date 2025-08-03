@@ -209,6 +209,25 @@ function deleteValueFunction(): void
 
 }
 
+function changeValue($newValue, $newDescription, $oldValue)
+{
+    global $mysqli;
+
+    $newValue = $_POST['newValue'];
+    $newDescription = $_POST['newDescription'];
+    $oldValue = $_GET['value'];
+
+    $sql = "UPDATE erinnerung SET value=?, description=? WHERE value=?";
+    $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        throw new Exception($mysqli->error);
+    }
+    $stmt->bind_param('sss', $newValue, $newDescription, $oldValue);
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+}
+
 function showDetails()
 {
     global $mysqli;
@@ -235,23 +254,6 @@ function showDetails()
             echo htmlspecialchars($row['deadline']) . '<br>';
             echo '<hr>';
         }
+
     }
 }
-
-function changeValue()
-{
-    global $mysqli;
-    $value = $_GET['value'];
-
-    $sql = "UPDATE erinnerung SET value=?, description=? WHERE value=?";
-    $stmt = $mysqli->prepare($sql);
-    if (!$stmt) {
-        throw new Exception($mysqli->error);
-    }
-    $stmt->bind_param('sss', $_GET['newValue'], $_GET['newDescription'], $value);
-    if (!$stmt->execute()) {
-        throw new Exception($stmt->error);
-    }
-}
-
-

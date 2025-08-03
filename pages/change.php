@@ -1,5 +1,14 @@
 <?php
 require_once '../config/lib.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newValueSubmit'])) {
+        $newValue = $_POST['newValue'];
+        $newDescription = $_POST['newDescription'];
+        $originalValue = $_GET['value']; // <-- Über GET ermitteln, welcher Datensatz gemeint ist
+
+        changeValue($newValue, $newDescription, $originalValue);
+        // $_POST['newValue'], $_POST['newDescription'], $_GET['value']
+}
 ?>
 
 
@@ -37,7 +46,7 @@ require_once '../config/lib.php';
         if (isset($_GET['value'])) {
                 $placeholderValue = $_GET['value'] ?>
 
-                <form method="GET" action="">
+                <form method="POST" action="">
                         <h3>Erinnerung bearbeiten :</h3>
                         <p>Erinnerung: <strong>"<?php echo $placeholderValue ?>" </strong></p>
                         <label for="newValue">Titel der Erinnerung ändern
@@ -50,7 +59,10 @@ require_once '../config/lib.php';
                         <input type="submit" name="newValueSubmit" value="Änderung durchführen">
                 </form>
 
-        <?php }?>
+        <?php } ?>
+
+   
+        ?>
 
         <a href="makeValue.php" class="button back">zurück</a>
 
