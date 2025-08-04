@@ -15,7 +15,9 @@ require_once '../config/lib.php';
 </head>
 
 <body>
-    <h1>ErinnerungsApp</h1>
+    <?php require 'parts/header.php'; ?>
+
+    <h1>Erinnerungs-Helfer</h1>
 
     <h2>Suche nach Erinnerungen</h2>
     <form method="POST" action="">

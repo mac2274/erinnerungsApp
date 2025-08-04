@@ -7,10 +7,6 @@ require_once 'config.db.php';
 function regUser($regName, $regEmail, $hashedPwd)
 {
     global $mysqli;
-    // variables
-    $regName = $_POST['reg_name'];
-    $regEmail = $_POST['reg_email'];
-    $hashedPwd = password_hash($_POST['reg_pwd'], PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO user (name, email, password) VALUE (?,?,?)";
     $stmt = $mysqli->prepare($sql);
@@ -21,8 +17,6 @@ function regUser($regName, $regEmail, $hashedPwd)
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);
     }
-    // Session setzen
-    $_SESSION['regName'] = $regName;
 
     return $stmt->affected_rows;
 }
@@ -90,11 +84,11 @@ function showValue()
 
     $result = $stmt->get_result();
     while ($row = $result->fetch_assoc()) {
-        echo '<p class="showValueAfter"><b>Erinnerung: ID: </b>' . $row['id'] . ': ' . $row['value'] . '( ' . $row['description'] . ')</p>';
+        echo '<p class="showValueAfter"><b>Erinnerung: ID: </b>' . $row['id'] . ': ' . $row['value'] . ' (' . $row['description'] . ')</p>';
     }
 
 }
-function seeAllFunction()
+function seeLastFunction()
 {
     global $mysqli;
 
@@ -109,8 +103,8 @@ function seeAllFunction()
 
     echo '<h3>Erinnerungen:</h3>';
     while ($row = $result->fetch_assoc()) {
-        echo '<p><b>ID: ' . $row['id'] . '</b><br><b>value:</b> ' . $row['value'] . ' (' . $row['description'] . ') <br>
-        status: ' . $row['status'] . ' changed: ' . $row['changed'] . '<br>deadline: ' . $row['deadline'] . '</p>';
+        echo '<p><b>ID: ' . $row['id'] . '</b><br><b>Erinnerung:</b> ' . $row['value'] . ' (' . $row['description'] . ') <br>
+        Status: ' . $row['status'] . ' Bearbeitet: ' . $row['changed'] . '<br>Frist: ' . $row['deadline'] . '</p>';
     }
 }
 
@@ -171,7 +165,7 @@ function valueSearch()
         $leer[] = $row;
 
         echo '<br>';
-        echo '<a href="?value=' . htmlspecialchars($row['value']) . '">' . htmlentities($row['value']) .'('. htmlspecialchars($row['id']) .')</a>';
+        echo '<a href="?value=' . htmlspecialchars($row['value']) . '">' . htmlentities($row['value']) . '(' . htmlspecialchars($row['id']) . ')</a>';
     }
 
     if ($result->num_rows === 0) {
@@ -206,10 +200,9 @@ function deleteValueFunction(): void
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);
     }
-
 }
 
-function changeValue($newValue, $newDescription, $oldValue)
+function changeValue()
 { // FRAGE 1 : hier musste ich parameter einsetzen... warum?
     global $mysqli;
 
@@ -226,6 +219,7 @@ function changeValue($newValue, $newDescription, $oldValue)
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);
     }
+
 }
 
 function showDetails()
@@ -241,15 +235,15 @@ function showDetails()
             throw new Exception($mysqli->error);
         }
         $stmt->bind_param('s', $value);
-        if (!$stmt->execute()){
+        if (!$stmt->execute()) {
             throw new Exception($stmt->error);
         }
 
         echo '<h4>Gesuchte Erinnerungen/en:</h4>';
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
-            echo '<a href="?value=' . htmlspecialchars($row['value']) . '">'; 
-            echo '<b>' . htmlspecialchars($row['value']) . '"('. htmlspecialchars($row['id']).')</b></a>'; 
+            echo '<a href="?value=' . htmlspecialchars($row['value']) . '">';
+            echo '<b>' . htmlspecialchars($row['value']) . '"(' . htmlspecialchars($row['id']) . ')</b></a>';
             echo htmlspecialchars($row['description']) . '<br>';
             echo htmlspecialchars($row['deadline']) . '<br>';
             echo '<hr>';

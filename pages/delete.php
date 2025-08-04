@@ -16,8 +16,9 @@ $message = '';
 </head>
 
 <body>
+    <?php require 'parts/header.php'; ?>
 
-    <h1>Erinnerungs-Helper</h1>
+    <h1>Erinnerungs-Helfer</h1>
 
     <form method="GET" action="">
         <!-- <label for="deleteId">Löschen anhand der ID:</label>
@@ -29,7 +30,7 @@ $message = '';
         <input type="submit" value="Erinnerung suchen" name="deleteSubmit">
     </form>
 
-    <?php 
+    <?php
     // eine GET-Abfrage wird gesetzt UND das input deleteValue ist aussgefüllt UND GET[delete] noch nicht bestätigt:
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['deleteValue']) && !isset($_GET['delete'])) {
         $valueDelete = trim($_GET['deleteValue']);
@@ -44,11 +45,13 @@ $message = '';
     // wenn GET[delete] bestätigt wurde UND delete=1 UND GET[deleteValue] einen Wert hat:
     if (isset($_GET['delete']) && $_GET['delete'] === 'true' && isset($_GET['deleteValue'])) {
         deleteValueFunction();
+        $_SESSION['delete'] = true;
+
         $message = 'Die Erinnerung "' . $_GET['deleteValue'] . '" wurde gelöscht.';
     }
     ?>
 
-    
+
     <?php // Die $message wird nachdem löschen mit einem echo ausgegeben 
     if (!empty($message)) {
         echo $message;

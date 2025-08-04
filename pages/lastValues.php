@@ -11,12 +11,17 @@
 </head>
 
 <body>
+
+    <?php require_once 'parts/header.php'; ?>
+
     <h1>ErinnerungsApp</h1>
 
     <h2>Bisher erstellte Erinnerungen</h2>
 
-    <?php require '../config/lib.php';
-        seeAllFunction() ?>
+    <?php require_once '../config/lib.php';
+    seeLastFunction();
+    $_SESSION['seeLast'] = true;
+    ?>
 
     <a href="makeValue.php" class="button back">zurück</a>
 

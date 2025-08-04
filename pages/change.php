@@ -19,7 +19,10 @@ require_once '../config/lib.php';
 </head>
 
 <body>
-        <h1>ErinnerungsApp</h1>
+        <?php require 'parts/header.php'; ?>
+
+        <h1>Erinnerungs-Helper</h1>
+
 
         <h2>Erinnerungen ändern</h2>
         <form method="POST" action="">
@@ -39,7 +42,7 @@ require_once '../config/lib.php';
 
         <?php
         if (isset($_GET['value'])) {
-                $placeholderValue = $_GET['value'] // placeholder as value?> 
+                $placeholderValue = $_GET['value'] // placeholder as value ?>
 
                 <form method="POST" action="">
                         <h3>Erinnerung bearbeiten :</h3>
@@ -61,9 +64,11 @@ require_once '../config/lib.php';
                 $newDescription = $_POST['newDescription'];
                 $originalValue = $_GET['value']; // <-- Über GET ermitteln, welcher Datensatz gemeint ist
         
-                changeValue($newValue, $newDescription, $originalValue);
-                echo '<p>Du hast die Erinnerung "'. htmlspecialchars($originalValue) .'" verändert in <br>
-                        <strong>' . htmlspecialchars($newValue) .'(' .htmlspecialchars($newDescription) . ')</strong>.</p>';
+                changeValue();
+                $_SESSION['change'] = true;
+
+                echo '<p>Du hast die Erinnerung "' . htmlspecialchars($originalValue) . '" verändert in <br>
+                        <strong>' . htmlspecialchars($newValue) . '(' . htmlspecialchars($newDescription) . ')</strong>.</p>';
                 // FRAGE 2: Wieso musste dieser Teil jetzt oben im Code stehen?        
         } ?>
 
