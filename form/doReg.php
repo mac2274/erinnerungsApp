@@ -11,7 +11,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['reg_submit'])) 
     // Session setzen
     $_SESSION['regName'] = $regName;
 
-    require_once '../pages/makeValue.php';
+    require_once '../pages/login.html';
 } else {
     echo 'Ein Fehler beim Registrieren ist aufgetreten.';
 }
